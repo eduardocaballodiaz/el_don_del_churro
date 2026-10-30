@@ -58,3 +58,7 @@ Antes de publicar, confirmar datos legales del negocio, alérgenos, fecha/horari
 Fallo anterior reproducido en el ZIP: al abortar solo wheel-coffee-960.webp, Promise.all rechazaba el lote completo y las tres fotos seguían siendo finos, aunque las otras dos fotos de rueda hubieran cargado. Ese mecanismo se ha eliminado. Ahora la selección cambia inmediatamente y cada fotografía de rueda carga y falla por separado. Una imagen fallida muestra su aviso y botón de reintento, sin impedir ver las demás.
 
 La revisión se identifica con product-images.js?v=20261030-rueda2 y styles.css?v=20261030-rueda2 para evitar mantener el cargador antiguo en caché. Al actualizar una instalación, reemplazar la carpeta completa por el nuevo ZIP, incluidos index.html, scripts y assets.
+
+## Permisos al publicar en Hostalia
+
+publicar-web.zip fija archivos a 0644 y carpetas a 0755. No volver a usar un ZIP que conserve 0600: puede causar un HTTP 403 en Hostalia/Plesk. Comprobar index.html y todos los recursos extraídos.

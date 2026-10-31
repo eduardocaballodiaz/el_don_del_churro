@@ -67,3 +67,11 @@ publicar-web.zip fija archivos a 0644 y carpetas a 0755. No volver a usar un ZIP
 ## Revisión de contenido y fotografía de las latas
 
 La portada organiza el contenido en carta, postres, ubicación y contacto. Se han retirado el bloque genérico sobre el local, el cierre promocional y preguntas que repetían la carta. Los precios, la apertura pendiente, el aviso de imágenes generadas y la privacidad se mantienen. La tapa de la lata delantera se ha corregido para corresponder al diámetro de la abertura; las dos variantes WebP y la galería usan la versión `20261031-tapa2`.
+
+## Packaging e interacción con el scroll
+
+Tras la portada, «Nuestro sello» presenta una propuesta de funda oliva para churros y vaso marfil para chocolate con el logo de la marca. Son imágenes de presentación; no se anuncia un servicio nuevo ni se confirma fabricación del envase. Originales transparentes conservados en `/workspace/generated_images`; la web sirve cuatro variantes WebP locales.
+
+La escena combina trayectorias diagonales, giro de los dos envases y un aro dorado que acompaña el desplazamiento. El progreso depende de la posición de la sección: al subir se recorre la misma trayectoria en sentido inverso. Reutiliza el único `requestAnimationFrame` de `app.js`, sin bibliotecas ni bloqueo del scroll. En pantallas de poca altura pasa a desplazamiento normal; con movimiento reducido o sin JavaScript se muestra una composición estática sin tramo de scroll vacío. El texto y el enlace a la carta quedan fuera de las capas animadas.
+
+Recursos versionados: `styles.css?v=20261031-packaging` y `app.js?v=20261031-packaging`. El ZIP de Hostalia incluye las cuatro imágenes del packaging.

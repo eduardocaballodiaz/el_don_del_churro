@@ -20,6 +20,42 @@ if ('IntersectionObserver' in window) {
 }
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const packagingSection = document.querySelector('.packaging-section');
+const packagingStage = packagingSection?.querySelector('.packaging-stage');
+let lastPackagingFrame = '';
+
+// The two objects follow the page position, so scrolling back retraces their path.
+// Text and links stay outside these transformed visual layers.
+function updatePackaging(force = false) {
+  if (!packagingSection || !packagingStage) return;
+  const box = packagingSection.getBoundingClientRect();
+  if (!force && (box.bottom < -innerHeight * 0.5 || box.top > innerHeight * 1.5)) return;
+
+  const travel = packagingSection.offsetHeight - innerHeight;
+  const pinned = getComputedStyle(packagingStage).position === 'sticky' && travel > 0;
+  const progress = reducedMotion.matches ? 0.65
+    : Math.max(0, Math.min(1, pinned ? -box.top / travel
+      : (innerHeight - box.top) / (innerHeight + box.height)));
+  const amplitude = Math.max(0.28, Math.min(1, packagingStage.clientWidth / 1000));
+  const frame = `${progress.toFixed(4)}:${amplitude.toFixed(4)}`;
+  if (frame === lastPackagingFrame) return;
+  lastPackagingFrame = frame;
+
+  const firstLeg = progress <= 0.65;
+  const fraction = firstLeg ? progress / 0.65 : (progress - 0.65) / 0.35;
+  const eased = fraction * fraction * (3 - 2 * fraction);
+  const from = firstLeg ? [-130, 30, -17, 150, -35, 18] : [-12, -4, -5, 18, 2, 6];
+  const to = firstLeg ? [-12, -4, -5, 18, 2, 6] : [-38, -18, -9, 48, 20, 10];
+  const names = ['sleeve-x', 'sleeve-y', 'sleeve-rotate', 'cup-x', 'cup-y', 'cup-rotate'];
+  names.forEach((name, index) => {
+    const rotation = index === 2 || index === 5;
+    const value = (from[index] + (to[index] - from[index]) * eased) * (rotation ? 1 : amplitude);
+    packagingStage.style.setProperty(`--${name}`, `${value.toFixed(2)}${rotation ? 'deg' : 'px'}`);
+  });
+  packagingStage.style.setProperty('--pack-progress', progress.toFixed(4));
+  packagingStage.style.setProperty('--pack-orbit-angle', `${(-24 + progress * 48).toFixed(2)}deg`);
+  packagingStage.dataset.packProgress = progress.toFixed(3);
+}
 
 // Reversible reveals: entering from below reveals; moving back up retracts them.
 // Keep focused content visible, and keep every section readable without motion.
@@ -45,6 +81,7 @@ function configureMotion() {
   reveals.forEach(element => element.classList.add('reveal'));
   document.querySelectorAll('.menu-card').forEach((card, index) => card.style.setProperty('--reveal-delay', `${index * 110}ms`));
   updateRevealStates(true);
+  updatePackaging(true);
 }
 configureMotion();
 reducedMotion.addEventListener('change', configureMotion);
@@ -62,6 +99,7 @@ function updateScrollEffects() {
   const shift = !reducedMotion.matches && heroBox.bottom > 0 ? Math.max(-24, Math.min(24, -heroBox.top * 0.045)) : 0;
   hero.style.setProperty('--hero-shift', `${shift}px`);
   updateRevealStates();
+  updatePackaging();
   scrollQueued = false;
 }
 window.addEventListener('scroll', () => {
@@ -69,7 +107,10 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 updateScrollEffects();
 
-window.addEventListener('resize', updateScrollEffects);
+window.addEventListener('resize', () => {
+  updatePackaging(true);
+  updateScrollEffects();
+});
 document.fonts?.ready.then(() => updateRevealStates(true));
 
 // Contact only: native POST forwards the query; it never creates an account.

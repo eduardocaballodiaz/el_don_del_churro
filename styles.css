@@ -77,3 +77,24 @@
 /* Each card owns a fine and a wheel photograph; hidden must beat global img display. */
 .product-image img[data-product-kind][hidden]{display:none!important}.product-image img[data-product-kind]{width:100%;height:100%;object-fit:cover}.product-photo-status{position:absolute;inset:0;z-index:4;display:flex;align-items:center;justify-content:center;text-align:center;padding:35px;background:#e8e7d9;color:var(--green);font-size:12px;line-height:1.8;pointer-events:none}.product-photo-status[hidden],.product-photo-retry[hidden]{display:none!important}.product-photo-retry{display:block;border:0;background:var(--green);color:var(--cream);font:500 10px var(--sans);padding:14px 18px;width:100%;text-align:center;cursor:pointer}.product-photo-retry:focus-visible{outline:3px solid var(--gold);outline-offset:-4px}.product-photo-status.is-error{background:#ece7d8}.menu-grid.is-changing img{opacity:1;transform:none}
 .map-help{font-size:10px;line-height:1.8;color:var(--muted);padding:13px 20px;background:var(--cream);border-top:1px solid var(--line)}.map-help a{text-decoration:underline;text-underline-offset:3px}@media(max-width:600px){.map-help{font-size:9px;padding:12px 17px}}
+
+/* Definitive olive, ivory and gold identity, inspired by the storefront. */
+:root{--green:#3d432a;--dark:#292e1d;--olive:#72764e;--gold:#d2aa56;--cream:#fff6dc}
+.announcement{background:#292e1d;color:#fff6dc;border-bottom:1px solid #d2aa563d}
+.header{max-width:none;background:#3d432a;color:#fff6dc;position:relative;min-height:218px;padding:16px max(32px,calc((100vw - 1312px)/2));gap:40px;border-bottom:1px solid #d2aa56;box-shadow:inset 0 -5px 0 #3d432a,inset 0 -6px 0 #d2aa5655}
+.header:before{content:'';position:absolute;inset:9px;pointer-events:none;border:1px solid #d2aa564d}
+.header .brand-definitive{width:180px;flex:0 0 180px;order:2;display:block;line-height:0;transform-origin:center;border-radius:50%;overflow:hidden;filter:none}
+.definitive-logo{width:180px;height:180px;object-fit:contain;border-radius:50%}
+.header nav{order:1;flex:1;gap:clamp(18px,2.5vw,36px);font-size:12px;color:#fff6dc}
+.header .header-cta{order:3;margin-left:0;margin-right:0;flex:1;max-width:190px;justify-content:space-between;border-color:#d2aa5688;color:#fff6dc;background:transparent;padding:16px 21px}
+.header .header-cta:hover{background:#d2aa5622;border-color:#d2aa56}
+.header .brand-definitive:hover,.header .brand-definitive:focus-visible{transform:translateY(-2px) scale(1.035);filter:drop-shadow(0 0 14px #d2aa5644)}
+.header nav a:after{background:#d2aa56}
+.footer-brand img,.contact-signature img{border-radius:50%;height:auto;object-fit:contain}
+@media(min-width:901px){.header nav{max-width:calc(50% - 110px)}.header .header-cta{margin-left:auto}.header .brand-definitive{position:absolute;left:50%;transform:translateX(-50%)}.header .brand-definitive:hover,.header .brand-definitive:focus-visible{transform:translateX(-50%) translateY(-2px) scale(1.035)}}
+@media(max-width:900px){.header{padding:18px 30px;gap:25px}.header nav{gap:18px;font-size:10px}.header .brand-definitive{width:160px;flex-basis:160px}.definitive-logo{width:160px;height:160px}.header .header-cta{max-width:150px;font-size:10px;padding:14px}}
+@media(max-width:600px){.header{min-height:238px;padding:18px 24px 22px;flex-wrap:wrap;justify-content:center;gap:15px}.header .brand-definitive{order:1;flex:0 0 100%;width:100%;display:flex;justify-content:center;overflow:visible}.definitive-logo{width:156px;height:156px}.header nav{display:flex;order:2;flex:0 1 auto;gap:18px;font-size:10px}.header .header-cta{order:3;flex:0 1 auto;max-width:none;width:auto;font-size:10px;gap:13px;padding:10px 13px;min-height:38px}.header:before{inset:7px}}
+@media(max-width:360px){.header{gap:11px;padding-inline:17px}.header nav{gap:12px;font-size:9px}.header .header-cta{font-size:9px;padding:9px;gap:9px}}
+@media(prefers-reduced-motion:reduce){.header .brand-definitive{animation:none;transition:none}}
+.header nav a:nth-child(n){display:inline-block}
+@media(max-width:600px){.header nav{flex:0 0 100%;justify-content:center;gap:24px}.header .header-cta{margin-inline:auto}.header{gap:8px}}

@@ -63,3 +63,7 @@ La revisión se identifica con product-images.js?v=20261030-rueda2 y styles.css?
 ## Permisos al publicar en Hostalia
 
 publicar-web.zip fija archivos a 0644 y carpetas a 0755. No volver a usar un ZIP que conserve 0600: puede causar un HTTP 403 en Hostalia/Plesk. Comprobar index.html y todos los recursos extraídos.
+
+## Revisión de contenido y fotografía de las latas
+
+La portada organiza el contenido en carta, postres, ubicación y contacto. Se han retirado el bloque genérico sobre el local, el cierre promocional y preguntas que repetían la carta. Los precios, la apertura pendiente, el aviso de imágenes generadas y la privacidad se mantienen. La tapa de la lata delantera se ha corregido para corresponder al diámetro de la abertura; las dos variantes WebP y la galería usan la versión `20261031-tapa2`.

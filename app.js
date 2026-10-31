@@ -31,11 +31,8 @@ function updatePackaging(force = false) {
   const box = packagingSection.getBoundingClientRect();
   if (!force && (box.bottom < -innerHeight * 0.5 || box.top > innerHeight * 1.5)) return;
 
-  const travel = packagingSection.offsetHeight - innerHeight;
-  const pinned = getComputedStyle(packagingStage).position === 'sticky' && travel > 0;
   const progress = reducedMotion.matches ? 0.65
-    : Math.max(0, Math.min(1, pinned ? -box.top / travel
-      : (innerHeight - box.top) / (innerHeight + box.height)));
+    : Math.max(0, Math.min(1, (innerHeight - box.top) / (innerHeight + box.height)));
   const amplitude = Math.max(0.28, Math.min(1, packagingStage.clientWidth / 1000));
   const frame = `${progress.toFixed(4)}:${amplitude.toFixed(4)}`;
   if (frame === lastPackagingFrame) return;
@@ -44,8 +41,8 @@ function updatePackaging(force = false) {
   const firstLeg = progress <= 0.65;
   const fraction = firstLeg ? progress / 0.65 : (progress - 0.65) / 0.35;
   const eased = fraction * fraction * (3 - 2 * fraction);
-  const from = firstLeg ? [-130, 30, -17, 150, -35, 18] : [-12, -4, -5, 18, 2, 6];
-  const to = firstLeg ? [-12, -4, -5, 18, 2, 6] : [-38, -18, -9, 48, 20, 10];
+  const from = firstLeg ? [-50, 12, -10, 55, -12, 12] : [-8, -2, -3, 10, 1, 4];
+  const to = firstLeg ? [-8, -2, -3, 10, 1, 4] : [-18, -7, -6, 22, 8, 7];
   const names = ['sleeve-x', 'sleeve-y', 'sleeve-rotate', 'cup-x', 'cup-y', 'cup-rotate'];
   names.forEach((name, index) => {
     const rotation = index === 2 || index === 5;

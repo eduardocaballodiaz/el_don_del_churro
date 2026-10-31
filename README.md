@@ -70,8 +70,8 @@ La portada organiza el contenido en carta, postres, ubicación y contacto. Se ha
 
 ## Packaging e interacción con el scroll
 
-Tras la portada, «Nuestro sello» presenta una propuesta de funda oliva para churros y vaso marfil para chocolate con el logo de la marca. Son imágenes de presentación; no se anuncia un servicio nuevo ni se confirma fabricación del envase. Originales transparentes conservados en `/workspace/generated_images`; la web sirve cuatro variantes WebP locales.
+El packaging ilustra la cabecera de la carta: funda oliva para churros y vaso marfil para chocolate con el logo de la marca. Se presenta como propuesta de diseño; no se anuncia un servicio nuevo ni se confirma fabricación del envase. Originales transparentes conservados en `/workspace/generated_images`; la web sirve cuatro variantes WebP locales.
 
-La escena combina trayectorias diagonales, giro de los dos envases y un aro dorado que acompaña el desplazamiento. El progreso depende de la posición de la sección: al subir se recorre la misma trayectoria en sentido inverso. Reutiliza el único `requestAnimationFrame` de `app.js`, sin bibliotecas ni bloqueo del scroll. En pantallas de poca altura pasa a desplazamiento normal; con movimiento reducido o sin JavaScript se muestra una composición estática sin tramo de scroll vacío. El texto y el enlace a la carta quedan fuera de las capas animadas.
+La cabecera permanece siempre en el flujo del documento y ocupa únicamente su contenido: sin posición fija o sticky, alturas de viewport ni tramo reservado para animar. Los envases se acercan y giran suavemente mientras el texto y la página siguen bajando, con recorrido reversible. Se reutiliza el único `requestAnimationFrame` de `app.js`; con movimiento reducido o sin JavaScript la composición queda estática. No hay una sección promocional adicional ni instrucciones de detenerse a ver el efecto.
 
-Recursos versionados: `styles.css?v=20261031-packaging` y `app.js?v=20261031-packaging`. El ZIP de Hostalia incluye las cuatro imágenes del packaging.
+Recursos versionados: `styles.css?v=20261031-packaging-fluido` y `app.js?v=20261031-packaging-fluido`. El ZIP de Hostalia incluye las cuatro imágenes del packaging.

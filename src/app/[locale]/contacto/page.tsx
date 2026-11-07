@@ -7,6 +7,14 @@ import { Formulario } from '@/components/contacto/Formulario';
 import { negocio } from '@/content/negocio';
 import s from '@/components/sections/seccion.module.css';
 import styles from './contacto.module.css';
+import { construirMetadata } from '@/lib/seo/metadata';
+import type { Locale } from '@/i18n/routing';
+
+// Título, descripción, canonical, hreflang e imagen para redes (src/lib/seo/metadata.ts).
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  return construirMetadata({ locale: locale as Locale, pagina: '/contacto' });
+}
 
 export default function Contacto({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = use(params);

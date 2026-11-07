@@ -10,6 +10,13 @@ import { carta } from '@/content/carta';
 import type { Locale } from '@/i18n/routing';
 import s from '@/components/sections/seccion.module.css';
 import styles from './carta.module.css';
+import { construirMetadata } from '@/lib/seo/metadata';
+
+// Título, descripción, canonical, hreflang e imagen para redes (src/lib/seo/metadata.ts).
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  return construirMetadata({ locale: locale as Locale, pagina: '/carta' });
+}
 
 export default function Carta({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = use(params);

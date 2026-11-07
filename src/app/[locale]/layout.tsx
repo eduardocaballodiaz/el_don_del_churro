@@ -6,17 +6,18 @@ import { notFound } from 'next/navigation';
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
+import { DOMINIO } from '@/lib/seo/urls';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { MotionProvider } from '@/animations/MotionProvider';
 import { fuenteTexto, fuenteTitulos } from '@/styles/fonts';
 import '@/styles/globals.css';
 
-// Título y descripción por defecto (la Tarea 12 los afina página a página).
+// Valores por defecto (por ejemplo, para el 404). Cada página define los suyos con construirMetadata.
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'seo' });
-  return { title: t('titulo'), description: t('descripcion') };
+  return { metadataBase: new URL(DOMINIO), title: t('titulo'), description: t('descripcion') };
 }
 
 // Genera en la compilación una versión estática por idioma.

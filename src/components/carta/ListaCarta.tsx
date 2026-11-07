@@ -52,7 +52,9 @@ export function ListaCarta({ productos, locale }: Props) {
                           <span className={styles.precio}>{formatearPrecio(p.precio, locale)}</span>
                         )}
                       </div>
-                      <p className={styles.descripcion}>{p.descripcion[locale]}</p>
+                      {p.descripcion[locale] && (
+                        <p className={styles.descripcion}>{p.descripcion[locale]}</p>
+                      )}
                     </div>
                   </li>
                 );

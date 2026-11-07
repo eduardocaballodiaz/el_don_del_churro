@@ -6,7 +6,7 @@
 // Ejemplo de producto:
 // {
 //   id: 'finos-racion',
-//   categoria: 'Churros',
+//   categoria: { es: 'Churros', en: 'Churros' },
 //   nombre: { es: 'Ración de finos', en: 'Thin churros' },
 //   descripcion: { es: '…', en: '…' },
 //   precio: 2.5,            // en euros; null si no se quiere mostrar
@@ -17,7 +17,8 @@ import type { ImagenId } from './imagenes';
 
 export type Producto = {
   id: string;
-  categoria: string;
+  /** Sección de la carta en la que aparece (en los dos idiomas). */
+  categoria: Record<Locale, string>;
   nombre: Record<Locale, string>;
   descripcion: Record<Locale, string>;
   precio: number | null;

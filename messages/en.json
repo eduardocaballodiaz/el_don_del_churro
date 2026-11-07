@@ -48,7 +48,11 @@
     }
   },
   "carta": {
-    "titulo": "Menu"
+    "_estado": "borrador",
+    "titulo": "Menu",
+    "etiqueta": "El Don del Churro",
+    "intro": "Freshly made churros, hot chocolate, coffee and our desserts in a can.",
+    "enPreparacion": "We're putting the menu together. It will be here very soon."
   },
   "contacto": {
     "titulo": "Contact"

@@ -1,0 +1,15 @@
+.cabecera {
+  margin-bottom: var(--espacio-8);
+}
+
+.titulo {
+  font-size: clamp(2.8rem, 7vw, 5rem);
+}
+
+.vacia {
+  padding: var(--espacio-7);
+  border: 1px dashed rgb(60 66 41 / 0.35);
+  border-radius: var(--radio);
+  color: var(--texto-suave);
+  text-align: center;
+}

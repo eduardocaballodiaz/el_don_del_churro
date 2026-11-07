@@ -48,7 +48,11 @@
     }
   },
   "carta": {
-    "titulo": "La carta"
+    "_estado": "borrador",
+    "titulo": "La carta",
+    "etiqueta": "El Don del Churro",
+    "intro": "Churros recién hechos, chocolate, café y nuestros postres en lata.",
+    "enPreparacion": "Estamos preparando la carta. Muy pronto la tendrás aquí."
   },
   "contacto": {
     "titulo": "Contacto"

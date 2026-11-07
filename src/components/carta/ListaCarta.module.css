@@ -1,0 +1,88 @@
+/* La carta, como una carta impresa: categorías, nombre · · · · precio. */
+.carta {
+  display: grid;
+  gap: var(--espacio-8);
+}
+
+.tituloCategoria {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-4);
+  margin-bottom: var(--espacio-5);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+}
+
+/* Filete dorado tras el nombre de la categoría. */
+.tituloCategoria::after {
+  content: '';
+  flex: 1;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--oro);
+}
+
+.lista {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--espacio-5) var(--espacio-7);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.producto {
+  display: flex;
+  gap: var(--espacio-4);
+  align-items: flex-start;
+}
+
+.foto {
+  flex: none;
+  width: 96px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.cuerpo {
+  flex: 1;
+  min-width: 0;
+}
+
+.linea {
+  display: flex;
+  align-items: baseline;
+  gap: var(--espacio-2);
+}
+
+.nombre {
+  font-size: 1.3rem;
+}
+
+/* Línea de puntos entre el nombre y el precio. */
+.puntos {
+  flex: 1;
+  min-width: 1rem;
+  border-bottom: 2px dotted rgb(60 66 41 / 0.35);
+  transform: translateY(-0.3em);
+}
+
+.precio {
+  color: var(--oliva);
+  font-family: var(--fuente-titulos);
+  font-size: 1.25rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.descripcion {
+  margin-top: var(--espacio-1);
+  color: var(--texto-suave);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 760px) {
+  .lista {
+    grid-template-columns: 1fr;
+  }
+}

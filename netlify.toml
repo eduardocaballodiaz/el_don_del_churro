@@ -1,0 +1,12 @@
+# Configuración de Netlify (alojamiento de la web).
+# Netlify detecta Next.js automáticamente y usa su adaptador oficial.
+# Las cabeceras de seguridad las define next.config.ts, así funcionan igual en local.
+
+[build]
+  command = "npm run build"
+
+[build.environment]
+  NODE_VERSION = "22"
+  # En Netlify no hace falta el truco de iCloud: carpeta de compilación estándar.
+  NEXT_DIST_DIR = ".next"
+  # Las variables secretas (RESEND_API_KEY…) se ponen en el panel de Netlify, nunca aquí.

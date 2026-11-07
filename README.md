@@ -62,3 +62,15 @@ El proyecto está en el Escritorio, que se sincroniza con iCloud Drive. Por eso 
 ## Textos legales
 
 Las páginas de aviso legal, privacidad y cookies (`messages/*.json` → `legal`) son **una base redactada con cuidado, no asesoramiento jurídico**. Antes de publicar, conviene que las revise un profesional. Los datos del titular se rellenan en `src/content/negocio.ts` → `titular`.
+
+## Publicar
+
+La web se aloja en **Netlify** (plan gratuito) y se publica sola cada vez que se sube un cambio a GitHub.
+
+1. Los cambios se guardan en git y se suben a GitHub (`git push`).
+2. Netlify compila la web (`npm run build`) y la publica. Cada propuesta de cambio tiene además su propia dirección de vista previa.
+3. Las claves secretas (`RESEND_API_KEY`, etc.) se configuran en Netlify → *Site configuration → Environment variables*.
+
+**Antes de publicar en eldondelchurro.com**, `npm run comprobar-lanzamiento` debe decir que no falta nada.
+
+En Hostalia solo se cambian los registros de la web (A de `@` y CNAME de `www`). **Nunca los MX**: son los del correo `info@`.

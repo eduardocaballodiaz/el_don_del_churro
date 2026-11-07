@@ -72,14 +72,25 @@
 
 /* Las letras. La sombra de luz empieza transparente para que el encendido
    sea un fundido suave (las sombras solo se animan si existen en ambos estados). */
-.logo img {
+.letras {
   position: relative;
   z-index: 1;
+  display: block;
   width: 100%;
-  height: auto;
   filter: drop-shadow(0 0 1.5px rgb(255 220 140 / 0)) drop-shadow(0 0 10px rgb(255 190 70 / 0))
     drop-shadow(0 0 26px rgb(255 170 40 / 0));
   transition: filter 0.6s var(--curva-suave);
+}
+
+.letras svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* "EL DON DEL": crema normalmente; se oscurece con la luz (ver :hover más abajo). */
+.letras :global(#el-don-del) {
+  transition: fill 0.6s var(--curva-suave);
 }
 
 /* "CHURRERÍA" entre dos filetes dorados, como en la fachada. */
@@ -149,7 +160,7 @@
     opacity: 1;
   }
 
-  .logo:hover img {
+  .logo:hover .letras {
     filter: drop-shadow(0 0 1.5px rgb(255 220 140 / 0.95))
       drop-shadow(0 0 10px rgb(255 190 70 / 0.8)) drop-shadow(0 0 26px rgb(255 170 40 / 0.5));
   }
@@ -157,11 +168,20 @@
   .logo:hover .churreria {
     text-shadow: 0 0 10px rgb(255 194 77 / 0.8);
   }
+
+  /* Con la luz encendida, "EL DON DEL" pasa a oscuro y se recorta contra el resplandor. */
+  .logo:hover .letras :global(#el-don-del) {
+    fill: var(--oliva-oscuro);
+  }
 }
 
 /* Con teclado, el foco ilumina el rótulo igual que el cursor. */
 .logo:focus-visible::before {
   opacity: 1;
+}
+
+.logo:focus-visible .letras :global(#el-don-del) {
+  fill: var(--oliva-oscuro);
 }
 
 /* --- Parte derecha: menú, idioma y botón --- */
@@ -293,7 +313,7 @@
   }
   .logo,
   .logo::before,
-  .logo img,
+  .letras,
   .interior {
     transition: none;
   }

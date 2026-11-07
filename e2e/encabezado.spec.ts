@@ -19,22 +19,32 @@ test('el logo enlaza al inicio con nombre accesible', async ({ page }) => {
   await expect(logo).toHaveAttribute('href', '/');
 });
 
-test('el rótulo se ilumina sin parpadeo y crece al pasar el cursor', async ({ page, isMobile }) => {
+test('el rótulo se ilumina sin parpadeo, crece y "EL DON DEL" se oscurece', async ({ page, isMobile }) => {
   test.skip(isMobile, 'el hover solo existe con ratón');
   await page.goto('/');
   const logo = page.getByRole('banner').getByRole('link', { name: 'El Don del Churro' });
-  // Es el rótulo horizontal, no el sello circular.
-  await expect(logo.locator('img')).toHaveAttribute('src', /rotulo\.svg/);
+  // El rótulo va incrustado (SVG en la página) para poder cambiar el color de una parte.
+  const letras = logo.locator('svg #el-don-del');
+  await expect(letras).toHaveCount(1);
+  const colorAntes = await letras.evaluate((el) => getComputedStyle(el).fill);
+
   await logo.hover();
-  await page.waitForTimeout(800);
+  await page.waitForTimeout(900);
   const estado = await logo.evaluate((el) => ({
     animacion: getComputedStyle(el, '::before').animationName,
     opacidad: getComputedStyle(el, '::before').opacity,
     escala: new DOMMatrix(getComputedStyle(el).transform).a,
+    transicion: getComputedStyle(el.querySelector('#el-don-del')!).transitionProperty,
+    color: getComputedStyle(el.querySelector('#el-don-del')!).fill,
   }));
   expect(estado.animacion).toBe('none');
   expect(estado.opacidad).toBe('1');
   expect(estado.escala).toBeGreaterThan(1.05);
+  expect(estado.transicion).toContain('fill');
+  expect(estado.color).not.toBe(colorAntes);
+  // Oscuro: la suma de los canales RGB es baja.
+  const [r, g, b] = estado.color.match(/\d+/g)!.map(Number);
+  expect(r + g + b).toBeLessThan(150);
 });
 
 test('el rótulo tiene un tamaño generoso en escritorio', async ({ page, isMobile }) => {

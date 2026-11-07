@@ -107,7 +107,7 @@ Maqueta de referencia: `docs/referencias/maqueta-encabezado.html` (**opción B**
 
 - Banda verde oliva con textura, inspirada en el rótulo, con una **tira LED** cálida en el borde inferior que "respira" muy despacio.
 - **Rótulo a la izquierda, como en la caja de la marca [decidido por Edu, 7-nov]** (`docs/referencias/caja-churros.webp`), **sin corona**: "EL DON DEL" en mayúsculas con serifa y con los filetes dorados de la fachada a los lados; "CHURRO" con la tipografía de la caja y cuatro capas (borde negro grueso, filete dorado, línea negra fina y letra crema); debajo, "CHURRERÍA" entre filetes. Está vectorizado a partir de la foto de la caja (`public/logo/rotulo.svg`). **Si aparece el archivo original del diseño de la caja, conviene sustituirlo.** Mide unos 270 px de ancho en escritorio y 170 px al compactarse o en móvil.
-- **Al pasar el cursor por el rótulo [decidido por Edu]:** crece (alrededor de un 8%) y se ilumina por detrás con luz LED cálida mediante un **fundido suave, sin parpadeo**.
+- **Al pasar el cursor por el rótulo [decidido por Edu]:** crece (alrededor de un 8%), se ilumina por detrás con luz LED cálida mediante un **fundido suave, sin parpadeo**, y "EL DON DEL" pasa de crema a oscuro con una transición fluida. Para eso el rótulo va incrustado en la página (SVG en línea), no como imagen.
 - **Menú a la derecha**, en mayúsculas espaciadas. Al pasar el cursor, el texto se ilumina un poco y se dibuja debajo la ola dorada del logo **[propuesta, mostrada en la maqueta]**.
 - **Selector de idioma ES / EN** en el encabezado **[decidido por Edu]**. Al cambiar de idioma se mantiene la misma página en el otro idioma.
 - **Botón "Contacto"** con borde dorado, que se rellena de oro y brilla al pasar el cursor.

@@ -7,6 +7,7 @@ import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { DOMINIO } from '@/lib/seo/urls';
+import { leerRotuloSvg } from '@/lib/rotulo';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { MotionProvider } from '@/animations/MotionProvider';
@@ -54,7 +55,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         </a>
         <NextIntlClientProvider>
           <MotionProvider>
-            <Header />
+            <Header rotuloSvg={leerRotuloSvg()} />
             {children}
             <Footer />
             <CustomCursor />

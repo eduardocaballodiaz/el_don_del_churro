@@ -8,7 +8,6 @@
 // - Menú, selector de idioma y botón de contacto a la derecha.
 // - Al bajar por la página se compacta (menos alto, logo más pequeño).
 // - En pantallas estrechas el menú pasa a un panel a pantalla completa (MobileMenu).
-import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
@@ -21,7 +20,8 @@ import styles from './Header.module.css';
 /** A partir de cuántos píxeles de scroll se compacta el encabezado. */
 const UMBRAL_COMPACTO = 80;
 
-export function Header() {
+/** `rotuloSvg`: el SVG del rótulo como texto (lo lee el layout en el servidor). */
+export function Header({ rotuloSvg }: { rotuloSvg: string }) {
   const t = useTranslations('header');
   const [compacto, setCompacto] = useState(false);
 
@@ -47,16 +47,14 @@ export function Header() {
     <header className={`${styles.rotulo} ${compacto ? styles.compacto : ''}`}>
       <div className={styles.interior}>
         {/* El rótulo de la marca: "— EL DON DEL — / CHURRO / — CHURRERÍA —".
-            Vectorizado del diseño de la caja (public/logo/rotulo.svg). */}
-        {/* Nombre accesible: "El Don del Churro Churrería" (coincide con lo que se ve). */}
+            Va incrustado para que "EL DON DEL" pueda oscurecerse al encenderse la luz.
+            Nombre accesible: "El Don del Churro Churrería" (coincide con lo que se ve). */}
         <Link href="/" className={styles.logo}>
-          <Image
-            src="/logo/rotulo.svg"
-            alt="El Don del Churro"
-            width={2430}
-            height={1026}
-            priority
-            unoptimized
+          <span
+            className={styles.letras}
+            role="img"
+            aria-label="El Don del Churro"
+            dangerouslySetInnerHTML={{ __html: rotuloSvg }}
           />
           <span className={styles.churreria}>Churrería</span>
         </Link>

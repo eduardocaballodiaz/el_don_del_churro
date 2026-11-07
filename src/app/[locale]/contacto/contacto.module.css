@@ -1,0 +1,25 @@
+.rejilla {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: start;
+  gap: clamp(2rem, 6vw, 5rem);
+}
+
+.titulo {
+  font-size: clamp(2.8rem, 7vw, 5rem);
+}
+
+.correo {
+  margin-top: var(--espacio-6);
+}
+
+.correo a {
+  color: var(--oliva);
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .rejilla {
+    grid-template-columns: 1fr;
+  }
+}

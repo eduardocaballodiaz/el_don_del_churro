@@ -55,7 +55,30 @@
     "enPreparacion": "We're putting the menu together. It will be here very soon."
   },
   "contacto": {
-    "titulo": "Contact"
+    "_estado": "borrador",
+    "titulo": "Write to us",
+    "etiqueta": "Contact",
+    "intro": "Orders for businesses and events, questions or suggestions. We'll reply by email.",
+    "otrasVias": "You can also email us directly at",
+    "campos": {
+      "nombre": "Name",
+      "email": "Email",
+      "mensaje": "Message",
+      "privacidadAntes": "I have read and accept the",
+      "privacidadEnlace": "privacy policy"
+    },
+    "infoBasica": "Data controller: El Don del Churro. Purpose: to reply to your message. Legal basis: your consent. Recipients: Resend, our email delivery provider. Rights: access, rectification, erasure and the others explained in the privacy policy.",
+    "enviar": "Send",
+    "enviando": "Sending…",
+    "ok": "Message sent. We'll reply by email as soon as we can.",
+    "fallo": "We couldn't send your message. Please email us directly at",
+    "revisa": "Please check the highlighted fields.",
+    "errores": {
+      "requerido": "This field is required.",
+      "invalido": "Please enter a valid email address.",
+      "largo": "This is too long.",
+      "privacidad": "You need to accept the privacy policy."
+    }
   },
   "header": {
     "navegacion": "Main",

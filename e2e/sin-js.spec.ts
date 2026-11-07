@@ -19,3 +19,13 @@ test('sin JavaScript, la navegación del pie lleva a la carta', async ({ page })
   await page.locator('#navegacion-pie').getByRole('link', { name: 'La carta' }).click();
   await expect(page).toHaveURL(/\/carta$/);
 });
+
+test('sin JavaScript, el formulario de contacto también envía', async ({ page }) => {
+  await page.goto('/contacto');
+  await page.getByLabel('Nombre').fill('Ana');
+  await page.getByLabel('Correo electrónico').fill('ana@example.com');
+  await page.getByLabel('Mensaje').fill('Hola desde un navegador sin JavaScript');
+  await page.getByLabel(/política de privacidad/i).check();
+  await page.getByRole('button', { name: 'Enviar' }).click();
+  await expect(page.getByText(/mensaje enviado/i)).toBeVisible();
+});

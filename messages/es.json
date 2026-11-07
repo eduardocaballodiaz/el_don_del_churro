@@ -55,7 +55,30 @@
     "enPreparacion": "Estamos preparando la carta. Muy pronto la tendrás aquí."
   },
   "contacto": {
-    "titulo": "Contacto"
+    "_estado": "borrador",
+    "titulo": "Escríbenos",
+    "etiqueta": "Contacto",
+    "intro": "Pedidos para empresas y eventos, dudas o sugerencias. Te contestamos por correo.",
+    "otrasVias": "También puedes escribirnos directamente a",
+    "campos": {
+      "nombre": "Nombre",
+      "email": "Correo electrónico",
+      "mensaje": "Mensaje",
+      "privacidadAntes": "He leído y acepto la",
+      "privacidadEnlace": "política de privacidad"
+    },
+    "infoBasica": "Responsable: El Don del Churro. Finalidad: responder a tu mensaje. Legitimación: tu consentimiento. Destinatarios: Resend, nuestro proveedor de envío de correo. Derechos: acceso, rectificación, supresión y los demás que se explican en la política de privacidad.",
+    "enviar": "Enviar",
+    "enviando": "Enviando…",
+    "ok": "Mensaje enviado. Te contestaremos por correo lo antes posible.",
+    "fallo": "No hemos podido enviar el mensaje. Escríbenos directamente a",
+    "revisa": "Revisa los campos marcados.",
+    "errores": {
+      "requerido": "Este campo es obligatorio.",
+      "invalido": "Escribe un correo electrónico válido.",
+      "largo": "Es demasiado largo.",
+      "privacidad": "Tienes que aceptar la política de privacidad."
+    }
   },
   "header": {
     "navegacion": "Principal",

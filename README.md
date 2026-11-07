@@ -41,3 +41,20 @@ npm run dev        # abre http://localhost:3000
 | Encabezado, pie de página | `src/components/layout/` |
 | Secciones de la página de inicio | `src/components/sections/` |
 | Animaciones | `src/animations/` |
+
+## Formulario de contacto (variables de entorno)
+
+El formulario envía los mensajes con [Resend](https://resend.com). Copia `.env.example` como `.env.local` y rellénalo:
+
+| Variable | Para qué |
+|---|---|
+| `RESEND_API_KEY` | Clave de Resend (secreta; nunca en git ni en el chat) |
+| `CONTACTO_DESTINO` | A quién llegan los mensajes: `info@eldondelchurro.com` |
+| `CONTACTO_REMITENTE` | Remitente. `onboarding@resend.dev` hasta verificar el dominio; luego `web@eldondelchurro.com` |
+| `CONTACTO_SIMULADO` | `1` = no envía nada (solo pruebas) |
+
+Los mensajes no se guardan en ninguna base de datos: solo se reenvían por correo.
+
+## Nota sobre iCloud
+
+El proyecto está en el Escritorio, que se sincroniza con iCloud Drive. Por eso la carpeta de compilación se llama `.next.nosync` (iCloud ignora todo lo que termina en `.nosync`). Aun así, lo ideal es mover el proyecto a una carpeta que no se sincronice, por ejemplo `~/Proyectos`.

@@ -2,6 +2,7 @@
 import { useTranslations } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
 import { use } from 'react';
+import { Reveal } from '@/animations/Reveal';
 
 export default function Inicio({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = use(params);
@@ -9,7 +10,9 @@ export default function Inicio({ params }: { params: Promise<{ locale: string }>
   const t = useTranslations('inicio');
   return (
     <main id="contenido">
-      <h1>{t('titulo')}</h1>
+      <Reveal>
+        <h1>{t('titulo')}</h1>
+      </Reveal>
     </main>
   );
 }

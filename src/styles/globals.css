@@ -95,3 +95,16 @@ a {
 .saltar:focus {
   transform: none;
 }
+
+/* Estado inicial de <Reveal>: solo se oculta si hay JavaScript para mostrarlo después. */
+.js [data-reveal='oculto'] {
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js [data-reveal='oculto'] {
+    opacity: 1;
+    transform: none;
+  }
+}

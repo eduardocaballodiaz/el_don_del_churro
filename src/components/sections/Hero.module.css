@@ -67,6 +67,7 @@
 .foto img {
   position: relative;
   z-index: 1;
+  animation: foto-entra 1.4s var(--curva-suave) both;
   width: 100%;
   height: auto;
   border-radius: 22px;
@@ -83,5 +84,18 @@
   }
   .foto {
     justify-self: stretch;
+  }
+}
+
+/* Entrada de la foto: solo transform, nunca opacidad 0 (no retrasa la carga visible). */
+@keyframes foto-entra {
+  from {
+    transform: scale(1.06);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .foto img {
+    animation: none;
   }
 }

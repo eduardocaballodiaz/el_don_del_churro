@@ -22,3 +22,11 @@ test('no se activa el scroll suave', async ({ page }) => {
   // Lenis añade la clase "lenis" a <html> cuando está activo.
   await expect(page.locator('html')).not.toHaveClass(/\blenis\b/);
 });
+
+test('sin cursor personalizado y con el titular visible desde el principio', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.locator('[data-cursor]')).toHaveCount(0);
+  const h1 = page.locator('h1');
+  const estilo = await h1.evaluate((el) => ({ v: getComputedStyle(el).visibility, o: getComputedStyle(el).opacity }));
+  expect(estilo).toEqual({ v: 'visible', o: '1' });
+});

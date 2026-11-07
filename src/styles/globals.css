@@ -102,9 +102,36 @@ a {
   transform: translateY(28px);
 }
 
+/* El titular animado se oculta hasta que SplitText lo parte en líneas. */
+.js [data-titular] {
+  visibility: hidden;
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .js [data-titular] {
+    visibility: visible;
+  }
+
   .js [data-reveal='oculto'] {
     opacity: 1;
     transform: none;
+  }
+}
+
+/* Transición entre páginas (src/app/[locale]/template.tsx). */
+.js .transicion-pagina {
+  animation: entra-pagina 0.45s var(--curva-suave) both;
+}
+
+@keyframes entra-pagina {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .transicion-pagina {
+    animation: none;
   }
 }

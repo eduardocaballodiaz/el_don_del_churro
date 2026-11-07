@@ -10,6 +10,7 @@ import { DOMINIO } from '@/lib/seo/urls';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { MotionProvider } from '@/animations/MotionProvider';
+import { CustomCursor } from '@/animations/CustomCursor';
 import { fuenteTexto, fuenteTitulos } from '@/styles/fonts';
 import '@/styles/globals.css';
 
@@ -56,6 +57,7 @@ export default async function LocaleLayout({ children, params }: Props) {
             <Header />
             {children}
             <Footer />
+            <CustomCursor />
           </MotionProvider>
         </NextIntlClientProvider>
       </body>

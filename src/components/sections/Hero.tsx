@@ -4,7 +4,9 @@
 // provisionales, de 1536 px): cuando lleguen las fotos reales se puede agrandar.
 import Image from 'next/image';
 import { useLocale, useTranslations } from 'next-intl';
+import { Parallax } from '@/animations/Parallax';
 import { Reveal } from '@/animations/Reveal';
+import { TitularAnimado } from '@/animations/TitularAnimado';
 import { imagenes } from '@/content/imagenes';
 import type { Locale } from '@/i18n/routing';
 import { urlComoLlegar } from '@/lib/mapas';
@@ -23,11 +25,9 @@ export function Hero() {
           <Reveal as="p" className={styles.etiqueta}>
             {t('hero.etiqueta')}
           </Reveal>
-          <Reveal delay={0.1}>
-            <h1 id="titulo-portada" className={styles.titulo}>
-              {t('titulo')}
-            </h1>
-          </Reveal>
+          <TitularAnimado id="titulo-portada" className={styles.titulo}>
+            {t('titulo')}
+          </TitularAnimado>
           <Reveal as="p" className={styles.lede} delay={0.2}>
             {t('hero.lede')}
           </Reveal>
@@ -41,16 +41,20 @@ export function Hero() {
           </Reveal>
         </div>
 
-        <Reveal className={styles.foto} delay={0.15}>
-          <Image
-            src={foto.src}
-            alt={foto.alt[locale]}
-            width={foto.ancho}
-            height={foto.alto}
-            priority
-            sizes="(max-width: 900px) 100vw, 620px"
-          />
-        </Reveal>
+        {/* La foto es lo primero que mide Google (LCP): no se oculta esperando al
+            JavaScript. Entra solo con un leve zoom en CSS y luego tiene parallax. */}
+        <div className={styles.foto}>
+          <Parallax intensidad={12}>
+            <Image
+              src={foto.src}
+              alt={foto.alt[locale]}
+              width={foto.ancho}
+              height={foto.alto}
+              priority
+              sizes="(max-width: 900px) 100vw, 620px"
+            />
+          </Parallax>
+        </div>
       </div>
     </section>
   );

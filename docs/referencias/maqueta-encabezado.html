@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Encabezado · El Don del Churro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+<style>
+  /* ---------- Colores sacados del rótulo y del logo ---------- */
+  :root{
+    --oliva:#3C4229;        /* fondo del sello */
+    --oliva-rotulo:#3F4A2B; /* verde del rótulo, algo más vivo */
+    --oliva-osc:#23281A;
+    --oro:#D4A448;          /* aro y filetes del logo */
+    --crema:#FFF3D6;        /* letras del logo */
+    --led:#FFC24D;          /* luz LED cálida del rótulo */
+    --cal:#F4EFE6;          /* paredes encaladas */
+  }
+  *{box-sizing:border-box;margin:0}
+  body{background:#15170f;color:var(--crema);font-family:Montserrat,system-ui,sans-serif;padding:32px 20px 80px}
+  .intro{max-width:1180px;margin:0 auto 28px}
+  .intro h1{font-family:Fraunces,serif;font-weight:600;font-size:28px;color:var(--crema)}
+  .intro p{color:#cfc6ae;margin-top:8px;line-height:1.55;max-width:760px}
+  .ref{display:flex;gap:16px;align-items:center;margin-top:16px;color:#a99f86;font-size:13px}
+  .ref img{width:180px;border-radius:8px;border:1px solid #333}
+
+  .opcion{max-width:1180px;margin:0 auto 40px;border-radius:14px;overflow:hidden;border:2px solid transparent;cursor:pointer;transition:border-color .3s}
+  .opcion.selected{border-color:var(--led)}
+  .etiqueta{display:flex;justify-content:space-between;align-items:baseline;padding:14px 18px;background:#1d2014}
+  .etiqueta b{font-family:Fraunces,serif;font-size:19px;color:var(--crema);font-weight:600}
+  .etiqueta span{color:#a99f86;font-size:13px}
+
+  /* ---------- Banda del rótulo: verde con textura + tira LED ---------- */
+  .rotulo{
+    position:relative;z-index:2;
+    background:
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .18 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"),
+      linear-gradient(180deg,#46512f, var(--oliva-rotulo) 60%, #38422a);
+  }
+  /* La tira LED del borde inferior, que "respira" muy despacio */
+  .rotulo::after{
+    content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;
+    background:var(--led);
+    box-shadow:0 0 6px var(--led),0 0 18px rgba(255,180,50,.75),0 0 46px rgba(255,170,40,.45);
+    animation:respira 5s ease-in-out infinite;
+  }
+  @keyframes respira{50%{opacity:.82}}
+
+  .nav{display:flex;gap:34px;align-items:center}
+  .nav a{
+    position:relative;color:var(--crema);text-decoration:none;
+    font-size:12.5px;font-weight:500;letter-spacing:.28em;text-transform:uppercase;
+    padding:10px 0 14px;transition:color .35s, text-shadow .35s;white-space:nowrap;
+  }
+  /* Ola dorada (la del logo) que se dibuja bajo el enlace al pasar el cursor */
+  .nav a svg{position:absolute;left:0;bottom:0;width:100%;height:8px;overflow:visible}
+  .nav a path{fill:none;stroke:var(--oro);stroke-width:1.6;stroke-dasharray:120;stroke-dashoffset:120;transition:stroke-dashoffset .6s cubic-bezier(.65,0,.35,1)}
+  .nav a:hover{color:#FFE6A8;text-shadow:0 0 12px rgba(255,194,77,.55)}
+  .nav a:hover path{stroke-dashoffset:0}
+
+  .btn{border:1px solid var(--oro);color:var(--oro);padding:11px 20px;border-radius:999px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;font-weight:600;transition:all .35s}
+  .btn:hover{background:var(--oro);color:var(--oliva-osc);box-shadow:0 0 24px rgba(255,194,77,.55)}
+
+  /* ---------- EL LOGO: crece y se enciende el LED por detrás ---------- */
+  .logo{position:relative;display:block;text-decoration:none;transition:transform .6s cubic-bezier(.2,.9,.25,1.15)}
+  .logo img{position:relative;z-index:1;width:100%;height:100%;display:block;border-radius:50%;
+    transition:filter .5s}
+  /* Halo de luz amarilla detrás del sello (como el LED trasero de unas letras corpóreas) */
+  .logo::before{
+    content:"";position:absolute;inset:-28%;border-radius:50%;z-index:0;
+    background:radial-gradient(circle, rgba(255,214,120,.95) 0 32%, rgba(255,186,60,.55) 46%, rgba(255,170,40,.18) 60%, transparent 71%);
+    filter:blur(10px);opacity:0;transform:scale(.7);
+    transition:opacity .5s, transform .7s cubic-bezier(.2,.9,.25,1);
+  }
+  .logo:hover{transform:scale(1.14)}
+  .logo:hover::before{opacity:1;transform:scale(1);animation:enciende .9s steps(1,end)}
+  .logo:hover img{filter:drop-shadow(0 0 2px rgba(255,214,120,.9)) drop-shadow(0 0 14px rgba(255,180,50,.6))}
+  /* Pequeño parpadeo al encenderse, como un neón */
+  @keyframes enciende{0%{opacity:0}8%{opacity:.85}12%{opacity:.15}20%{opacity:1}26%{opacity:.4}34%,100%{opacity:1}}
+
+  /* ---------- Portada de ejemplo debajo del encabezado ---------- */
+  .portada{position:relative;height:340px;background:url(/files/largos.webp) center 60%/cover}
+  .portada::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,22,14,.86),rgba(20,22,14,.25) 70%)}
+  .portada div{position:relative;padding:70px 56px;max-width:560px}
+  .portada h2{font-family:Fraunces,serif;font-weight:600;font-size:46px;line-height:1.05;color:var(--crema)}
+  .portada p{margin-top:14px;color:#e6dcc3;line-height:1.5}
+
+  /* ===== Opción A: rótulo centrado, el logo cuelga sobre la portada ===== */
+  .a .rotulo{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 44px;height:96px}
+  .a .izq{justify-self:end;margin-right:56px}
+  .a .der{justify-self:start;margin-left:56px}
+  .a .logo{width:150px;height:150px;align-self:start;margin-top:14px}   /* sobresale por debajo de la banda */
+  .a .portada div{margin:0 auto;text-align:center;padding-top:110px}
+  .a .portada::before{background:linear-gradient(180deg,rgba(20,22,14,.55),rgba(20,22,14,.8))}
+
+  /* ===== Opción B: logo a la izquierda, menú a la derecha ===== */
+  .b .rotulo{display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:104px}
+  .b .logo{width:82px;height:82px}
+  .b .marca{display:flex;align-items:center;gap:18px}
+  .b .marca small{font-size:12px;letter-spacing:.42em;color:var(--oro);font-weight:500}
+  .b .derecha{display:flex;align-items:center;gap:36px}
+
+  .b .marca small{white-space:nowrap}
+  @media (max-width:1240px){
+    .nav{gap:22px} .a .izq{margin-right:30px} .a .der{margin-left:30px}
+    .b .rotulo{padding:0 24px} .b .derecha{gap:22px} .b .marca small{display:none}
+  }
+  @media (max-width:720px){ .nav{display:none} }
+</style>
+</head>
+<body>
+
+<div class="intro">
+  <h1>El encabezado como el rótulo de la fachada</h1>
+  <p>Banda verde oliva con textura, la tira LED cálida en el borde y el sello a color. <b>Pasa el cursor por el logo</b>: crece y se enciende la luz por detrás, con un pequeño parpadeo de neón. Pasa también por los enlaces: aparece la ola dorada del logo. Haz clic en la opción que prefieras.</p>
+  <div class="ref"><img src="/files/fachada.webp" alt="Fachada de referencia"> Referencia: rótulo de la fachada</div>
+</div>
+
+<!-- ===== OPCIÓN A ===== -->
+<section class="opcion a" data-choice="a" onclick="toggleSelect(this)">
+  <div class="etiqueta"><b>A · Rótulo centrado</b><span>Simétrico como la fachada. El sello cuelga sobre la portada.</span></div>
+  <header class="rotulo">
+    <nav class="nav izq">
+      <a href="#" onclick="event.preventDefault()">La carta<svg viewBox="0 0 100 8" preserveAspectRatio="none"><path d="M0 5 C 25 0, 50 9, 100 3"/></svg></a>
+      <a href="#" onclick="event.preventDefault()">El Don de Latas<svg viewBox="0 0 100 8" preserveAspectRatio="none"><path d="M0 5 C 25 0, 50 9, 100 3"/></svg></a>
+    </nav>
+    <a class="logo" href="#" onclick="event.preventDefault()" aria-label="El Don del Churro"><img src="/files/logo.svg" alt=""></a>
+    <nav class="nav der">
+      <a href="#" onclick="event.preventDefault()">Nosotros<svg viewBox="0 0 100 8" preserveAspectRatio="none"><path d="M0 5 C 25 0, 50 9, 100 3"/></svg></a>
+      <a href="#" onclick="event.preventDefault()">Contacto<svg viewBox="0 0 100 8" preserveAspectRatio="none"><path d="M0 5 C 25 0, 50 9, 100 3"/></svg></a>
+    </nav>
+  </header>
+  <div class="portada"><div><h2>Churros recién hechos en el centro de Sevilla</h2><p>Texto de ejemplo para ver el encabezado en contexto.</p></div></div>
+</section>
+
+<!-- ===== OPCIÓN B ===== -->
+<section class="opcion b" data-choice="b" onclick="toggleSelect(this)">
+  <div class="etiqueta"><b>B · Marca a la izquierda</b><span>Más clásico y práctico. El menú y el botón de contacto a la derecha.</span></div>
+  <header class="rotulo">
+    <div class="marca">
+      <a class="logo" href="#" onclick="event.preventDefault()" aria-label="El Don del Churro"><img src="/files/logo.svg" alt=""></a>
+      <small>CHURRERÍA · SEVILLA</small>
+    </div>
+    <div class="derecha">
+      <nav class="nav">
+        <a href="#" onclick="event.preventDefault()">La carta<svg viewBox="0 0 100 8" preserveAspectRatio="none"><path d="M0 5 C 25 0, 50 9, 100 3"/></svg></a>
+        <a href="#" onclick="event.preventDefault()">El Don de Latas<svg viewBox="0 0 100 8" preserveAspectRatio="none"><path d="M0 5 C 25 0, 50 9, 100 3"/></svg></a>
+        <a href="#" onclick="event.preventDefault()">Nosotros<svg viewBox="0 0 100 8" preserveAspectRatio="none"><path d="M0 5 C 25 0, 50 9, 100 3"/></svg></a>
+      </nav>
+      <a class="btn" href="#" onclick="event.preventDefault()">Contacto</a>
+    </div>
+  </header>
+  <div class="portada"><div><h2>Churros recién hechos en el centro de Sevilla</h2><p>Texto de ejemplo para ver el encabezado en contexto.</p></div></div>
+</section>
+
+</body>
+</html>

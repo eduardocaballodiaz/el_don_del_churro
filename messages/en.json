@@ -112,5 +112,115 @@
   "seo": {
     "titulo": "El Don del Churro · Churros in Seville",
     "descripcion": "Freshly made thin and thick churros, with hot chocolate or coffee, at Calle Correduría 42, Seville."
+  },
+  "legal": {
+    "_estado": "borrador",
+    "pendiente": "pending",
+    "avisoPendiente": "Owner details pending: they will be completed before the website goes live.",
+    "actualizado": "Last updated: November 2026",
+    "avisoLegal": {
+      "titulo": "Legal notice",
+      "secciones": [
+        {
+          "titulo": "Website owner",
+          "parrafos": [
+            "In accordance with article 10 of Spanish Law 34/2002 on information society services and electronic commerce (LSSI-CE), this website belongs to {titular}, tax ID {nif}, with registered address at {domicilio}.",
+            "Trade name: El Don del Churro. Shop: {direccion}. Email: {email}."
+          ]
+        },
+        {
+          "titulo": "Purpose",
+          "parrafos": [
+            "This website provides information about the El Don del Churro churrería, its products, opening hours and location, and allows visitors to contact it."
+          ]
+        },
+        {
+          "titulo": "Intellectual and industrial property",
+          "parrafos": [
+            "The texts, images, logos and design of this website belong to its owner or are used with permission. They may not be reproduced or distributed without authorisation."
+          ]
+        },
+        {
+          "titulo": "Liability",
+          "parrafos": [
+            "The owner endeavours to keep the information on this website accurate and up to date, but accepts no liability for occasional errors or for linked external websites such as Google Maps."
+          ]
+        },
+        {
+          "titulo": "Governing law",
+          "parrafos": [
+            "This website is governed by Spanish law."
+          ]
+        }
+      ]
+    },
+    "privacidad": {
+      "titulo": "Privacy policy",
+      "secciones": [
+        {
+          "titulo": "Data controller",
+          "parrafos": [
+            "{titular}, tax ID {nif}, address {domicilio}. Contact email: {email}."
+          ]
+        },
+        {
+          "titulo": "What data we process and why",
+          "parrafos": [
+            "We only process the data you send us through the contact form (name, email address and message), solely to reply to you.",
+            "We do not use your data for advertising and we do not make automated decisions about you."
+          ]
+        },
+        {
+          "titulo": "Legal basis",
+          "parrafos": [
+            "Your consent, given by ticking the box on the form (article 6.1.a of the General Data Protection Regulation, GDPR). You can withdraw it at any time."
+          ]
+        },
+        {
+          "titulo": "How long we keep it",
+          "parrafos": [
+            "For as long as needed to deal with your enquiry and, afterwards, for the periods during which legal liabilities could arise."
+          ]
+        },
+        {
+          "titulo": "Who else receives it",
+          "parrafos": [
+            "Your message is delivered to our inbox through Resend (Plus Five Five, Inc.), an email delivery provider acting as data processor. Resend is based in the United States; the international transfer is covered by the EU-US Data Privacy Framework or the European Commission's standard contractual clauses.",
+            "We do not share your data with anyone else unless required by law. The website does not store messages in any database."
+          ]
+        },
+        {
+          "titulo": "Your rights",
+          "parrafos": [
+            "You can request access to, rectification, erasure, restriction or portability of your data, or object to its processing, by writing to {email}.",
+            "If you believe your data has not been handled properly, you can complain to the Spanish Data Protection Agency (Agencia Española de Protección de Datos, www.aepd.es)."
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "titulo": "Cookie policy",
+      "secciones": [
+        {
+          "titulo": "This website does not use cookies",
+          "parrafos": [
+            "When you browse eldondelchurro.com we do not set any first-party or third-party cookies, and we do not use analytics or advertising tools. Fonts are served from our own domain. That is why we don't show you a cookie banner."
+          ]
+        },
+        {
+          "titulo": "Google Maps, only if you ask for it",
+          "parrafos": [
+            "In the “Visit us” section you can load an interactive Google map. It only loads if you press the button. From that moment, Google may receive browsing data (such as your IP address) and set its own cookies, under its privacy policy (policies.google.com/privacy).",
+            "The “Get directions” link opens Google Maps in a new tab; what happens there is governed by Google's terms."
+          ]
+        },
+        {
+          "titulo": "Changes",
+          "parrafos": [
+            "If we ever add tools that use cookies, we will update this policy and ask for your permission before setting them."
+          ]
+        }
+      ]
+    }
   }
 }

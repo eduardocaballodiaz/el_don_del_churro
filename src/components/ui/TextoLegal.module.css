@@ -1,0 +1,36 @@
+.pagina {
+  max-width: 760px;
+  padding-block: clamp(3rem, 8vw, 6rem);
+}
+
+.titulo {
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+}
+
+.fecha {
+  margin-top: var(--espacio-3);
+  color: var(--texto-suave);
+  font-size: 0.9rem;
+}
+
+.pendiente {
+  margin-top: var(--espacio-5);
+  padding: var(--espacio-3) var(--espacio-4);
+  border-left: 3px solid var(--oro);
+  border-radius: 6px;
+  background: rgb(212 164 72 / 0.15);
+  font-weight: 600;
+}
+
+.seccion {
+  margin-top: var(--espacio-7);
+}
+
+.seccion h2 {
+  margin-bottom: var(--espacio-3);
+  font-size: 1.5rem;
+}
+
+.seccion p + p {
+  margin-top: var(--espacio-3);
+}

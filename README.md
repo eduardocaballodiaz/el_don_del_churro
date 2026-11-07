@@ -58,3 +58,7 @@ Los mensajes no se guardan en ninguna base de datos: solo se reenvían por corre
 ## Nota sobre iCloud
 
 El proyecto está en el Escritorio, que se sincroniza con iCloud Drive. Por eso la carpeta de compilación se llama `.next.nosync` (iCloud ignora todo lo que termina en `.nosync`). Aun así, lo ideal es mover el proyecto a una carpeta que no se sincronice, por ejemplo `~/Proyectos`.
+
+## Textos legales
+
+Las páginas de aviso legal, privacidad y cookies (`messages/*.json` → `legal`) son **una base redactada con cuidado, no asesoramiento jurídico**. Antes de publicar, conviene que las revise un profesional. Los datos del titular se rellenan en `src/content/negocio.ts` → `titular`.

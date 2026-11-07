@@ -112,5 +112,115 @@
   "seo": {
     "titulo": "El Don del Churro · Churrería en Sevilla",
     "descripcion": "Churros finos y largos recién hechos, con chocolate o con café, en la calle Correduría, 42 de Sevilla."
+  },
+  "legal": {
+    "_estado": "borrador",
+    "pendiente": "pendiente",
+    "avisoPendiente": "Datos del titular pendientes: se completarán antes de publicar la web.",
+    "actualizado": "Última actualización: noviembre de 2026",
+    "avisoLegal": {
+      "titulo": "Aviso legal",
+      "secciones": [
+        {
+          "titulo": "Titular de la web",
+          "parrafos": [
+            "En cumplimiento del artículo 10 de la Ley 34/2002, de servicios de la sociedad de la información y de comercio electrónico (LSSI-CE), se informa de que esta web pertenece a {titular}, con NIF {nif} y domicilio en {domicilio}.",
+            "Nombre comercial: El Don del Churro. Establecimiento: {direccion}. Correo electrónico: {email}."
+          ]
+        },
+        {
+          "titulo": "Objeto",
+          "parrafos": [
+            "Esta web informa sobre la churrería El Don del Churro, sus productos, su horario y su ubicación, y permite contactar con ella."
+          ]
+        },
+        {
+          "titulo": "Propiedad intelectual e industrial",
+          "parrafos": [
+            "Los textos, imágenes, logotipos y diseño de esta web pertenecen a su titular o se usan con permiso. No se pueden reproducir ni distribuir sin autorización."
+          ]
+        },
+        {
+          "titulo": "Responsabilidad",
+          "parrafos": [
+            "El titular procura que la información de la web sea correcta y esté actualizada, pero no se hace responsable de errores puntuales ni de las páginas externas enlazadas, como Google Maps."
+          ]
+        },
+        {
+          "titulo": "Legislación aplicable",
+          "parrafos": [
+            "Esta web se rige por la legislación española."
+          ]
+        }
+      ]
+    },
+    "privacidad": {
+      "titulo": "Política de privacidad",
+      "secciones": [
+        {
+          "titulo": "Responsable del tratamiento",
+          "parrafos": [
+            "{titular}, con NIF {nif} y domicilio en {domicilio}. Correo de contacto: {email}."
+          ]
+        },
+        {
+          "titulo": "Qué datos tratamos y para qué",
+          "parrafos": [
+            "Solo tratamos los datos que nos envías con el formulario de contacto (nombre, correo electrónico y mensaje), con la única finalidad de responderte.",
+            "No usamos tus datos para enviarte publicidad ni tomamos decisiones automatizadas sobre ti."
+          ]
+        },
+        {
+          "titulo": "Base legal",
+          "parrafos": [
+            "Tu consentimiento, que das al marcar la casilla del formulario (artículo 6.1.a del Reglamento General de Protección de Datos, RGPD). Puedes retirarlo cuando quieras."
+          ]
+        },
+        {
+          "titulo": "Cuánto tiempo los conservamos",
+          "parrafos": [
+            "El tiempo necesario para atender tu consulta y, después, durante los plazos en que pudieran derivarse responsabilidades legales."
+          ]
+        },
+        {
+          "titulo": "Quién más los recibe",
+          "parrafos": [
+            "El mensaje se envía a nuestro correo a través de Resend (Plus Five Five, Inc.), proveedor de envío de correo que actúa como encargado del tratamiento. Resend está en Estados Unidos; la transferencia internacional de datos se ampara en el Marco de Privacidad de Datos UE-EE. UU. o en cláusulas contractuales tipo de la Comisión Europea.",
+            "No cedemos tus datos a nadie más, salvo obligación legal. La web no guarda los mensajes en ninguna base de datos."
+          ]
+        },
+        {
+          "titulo": "Tus derechos",
+          "parrafos": [
+            "Puedes pedir el acceso, la rectificación, la supresión, la limitación, la portabilidad de tus datos u oponerte a su tratamiento escribiendo a {email}.",
+            "Si crees que no hemos tratado bien tus datos, puedes reclamar ante la Agencia Española de Protección de Datos (www.aepd.es)."
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "titulo": "Política de cookies",
+      "secciones": [
+        {
+          "titulo": "Esta web no usa cookies",
+          "parrafos": [
+            "Al navegar por eldondelchurro.com no instalamos cookies propias ni de terceros, ni usamos herramientas de analítica o publicidad. Las tipografías se sirven desde nuestro propio dominio. Por eso no te mostramos ningún aviso para aceptarlas."
+          ]
+        },
+        {
+          "titulo": "El mapa de Google, solo si lo pides",
+          "parrafos": [
+            "En la sección «Visítanos» puedes cargar un mapa interactivo de Google. Solo se carga si pulsas el botón. A partir de ese momento, Google puede recibir datos de tu navegación (como tu dirección IP) e instalar sus propias cookies, según su política de privacidad (policies.google.com/privacy).",
+            "El enlace «Cómo llegar» abre Google Maps en otra pestaña; lo que ocurra allí se rige por las condiciones de Google."
+          ]
+        },
+        {
+          "titulo": "Cambios",
+          "parrafos": [
+            "Si en el futuro añadimos herramientas que usen cookies, actualizaremos esta política y te pediremos permiso antes de instalarlas."
+          ]
+        }
+      ]
+    }
   }
 }

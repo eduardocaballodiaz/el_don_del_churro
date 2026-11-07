@@ -1,0 +1,23 @@
+{
+  "inicio": {
+    "titulo": "Churros recién hechos en el centro de Sevilla"
+  },
+  "carta": {
+    "titulo": "La carta"
+  },
+  "contacto": {
+    "titulo": "Contacto"
+  },
+  "header": {
+    "inicio": "El Don del Churro, inicio",
+    "navegacion": "Principal",
+    "carta": "La carta",
+    "latas": "El Don de Latas",
+    "nosotros": "Nosotros",
+    "contacto": "Contacto",
+    "menu": "Menú",
+    "idioma": "Idioma",
+    "saltar": "Saltar al contenido",
+    "cerrar": "Cerrar"
+  }
+}

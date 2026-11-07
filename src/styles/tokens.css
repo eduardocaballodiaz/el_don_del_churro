@@ -1,0 +1,50 @@
+/*
+ * TOKENS DE DISEÑO · El Don del Churro
+ * ------------------------------------
+ * Aquí viven los colores, tipografías y medidas de toda la web.
+ * Para cambiar un color en todas partes, se cambia solo aquí.
+ *
+ * Los colores salen del sello y del rótulo de la fachada (Calle Correduría, 42).
+ */
+:root {
+  /* --- Colores de marca --- */
+  --oliva: #3c4229; /* fondo del sello, secciones oscuras */
+  --oliva-rotulo: #3f4a2b; /* banda del encabezado, como el rótulo */
+  --oliva-oscuro: #23281a; /* fondos profundos y pie de página */
+  --oro: #d4a448; /* filetes, bordes, botones. No usar para texto pequeño sobre crema */
+  --crema: #fff3d6; /* texto sobre fondo oscuro */
+  --led: #ffc24d; /* SOLO para luz: halos, brillos, tira LED */
+  --cal: #f4efe6; /* fondo claro, como la pared encalada */
+
+  /* Oro más oscuro para texto sobre fondos claros (contraste AA). */
+  --oro-texto: #7a5a17;
+  /* Texto secundario sobre fondo claro y sobre fondo oscuro. */
+  --texto-suave: #4d5338;
+  --crema-suave: #d9cfb6;
+
+  /* --- Tipografías (las variables las define next/font en src/styles/fonts.ts) --- */
+  --fuente-titulos: var(--font-titulos), Georgia, 'Times New Roman', serif;
+  --fuente-texto: var(--font-texto), system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* Etiquetas en mayúsculas espaciadas, como "CHURRERÍA" en la fachada. */
+  --espaciado-etiqueta: 0.28em;
+
+  /* --- Espaciado (escala de 8 px) --- */
+  --espacio-1: 0.25rem;
+  --espacio-2: 0.5rem;
+  --espacio-3: 0.75rem;
+  --espacio-4: 1rem;
+  --espacio-5: 1.5rem;
+  --espacio-6: 2rem;
+  --espacio-7: 3rem;
+  --espacio-8: 5rem;
+
+  /* --- Formas y medidas --- */
+  --radio: 14px;
+  --ancho-max: 1240px;
+  --margen-lateral: clamp(1rem, 4vw, 2.5rem);
+
+  /* --- Movimiento: curvas suaves y naturales --- */
+  --curva-suave: cubic-bezier(0.22, 1, 0.36, 1);
+  --curva-elastica: cubic-bezier(0.2, 0.9, 0.25, 1.15);
+}

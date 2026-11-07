@@ -1,0 +1,165 @@
+/* MENÚ MÓVIL: solo visible en pantallas estrechas (≤ 900 px). */
+
+.boton,
+.sinJs {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  /* Con JavaScript se muestra el botón; sin él, el enlace al pie. */
+  :global(.js) .boton {
+    display: grid;
+  }
+  :global(html:not(.js)) .sinJs {
+    display: inline-block;
+  }
+}
+
+/* Botón de tres líneas doradas. */
+.boton {
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 1px solid rgb(212 164 72 / 0.55);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+
+.lineas,
+.lineas::before,
+.lineas::after {
+  display: block;
+  width: 20px;
+  height: 1.6px;
+  background: var(--oro);
+  border-radius: 2px;
+}
+
+.lineas {
+  position: relative;
+}
+
+.lineas::before,
+.lineas::after {
+  content: '';
+  position: absolute;
+  left: 0;
+}
+
+.lineas::before {
+  top: -6px;
+}
+
+.lineas::after {
+  top: 6px;
+}
+
+.sinJs {
+  color: var(--crema);
+  font-size: 0.78rem;
+  letter-spacing: var(--espaciado-etiqueta);
+  text-transform: uppercase;
+}
+
+/* --- Panel a pantalla completa --- */
+.panel {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-7);
+  padding: var(--espacio-5) var(--margen-lateral) var(--espacio-7);
+  overflow-y: auto;
+  color: var(--crema);
+  background:
+    radial-gradient(120% 60% at 100% 0%, rgb(255 194 77 / 0.12), transparent 60%),
+    var(--oliva-oscuro);
+  animation: aparece 0.35s var(--curva-suave);
+}
+
+@keyframes aparece {
+  from {
+    opacity: 0;
+  }
+}
+
+.cerrar {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  align-self: flex-end;
+  padding: 10px 16px;
+  border: 1px solid rgb(212 164 72 / 0.55);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--crema);
+  font: inherit;
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+/* Aspa (×) dibujada con dos líneas. */
+.aspa {
+  position: relative;
+  width: 14px;
+  height: 14px;
+}
+
+.aspa::before,
+.aspa::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1.6px;
+  background: var(--oro);
+  transform: rotate(45deg);
+}
+
+.aspa::after {
+  transform: rotate(-45deg);
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-4);
+}
+
+/* Enlaces grandes con la tipografía de titulares, entrando en cascada. */
+.enlace {
+  font-family: var(--fuente-titulos);
+  font-size: clamp(2rem, 9vw, 3rem);
+  line-height: 1.15;
+  color: var(--crema);
+  text-decoration: none;
+  animation: entra 0.6s var(--curva-suave) both;
+}
+
+.enlace:active {
+  color: var(--led);
+}
+
+@keyframes entra {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+
+.idioma {
+  align-self: flex-start;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel,
+  .enlace {
+    animation: none;
+  }
+}

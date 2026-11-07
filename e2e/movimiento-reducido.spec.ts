@@ -1,0 +1,17 @@
+// Quien pide menos movimiento en su sistema no debe ver parpadeos ni animaciones grandes.
+import { expect, test } from '@playwright/test';
+
+test.use({ reducedMotion: 'reduce' });
+
+test('el halo del logo se enciende sin parpadeo', async ({ page, isMobile }) => {
+  test.skip(isMobile, 'el hover solo existe con ratón');
+  await page.goto('/');
+  const logo = page.getByRole('banner').getByRole('link', { name: 'El Don del Churro' });
+  await logo.hover();
+  const halo = await logo.evaluate((el) => {
+    const s = getComputedStyle(el, '::before');
+    return { animacion: s.animationName, opacidad: s.opacity };
+  });
+  expect(halo.animacion).toBe('none');
+  expect(halo.opacidad).toBe('1');
+});

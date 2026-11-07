@@ -1,0 +1,23 @@
+{
+  "inicio": {
+    "titulo": "Freshly made churros in the heart of Seville"
+  },
+  "carta": {
+    "titulo": "Menu"
+  },
+  "contacto": {
+    "titulo": "Contact"
+  },
+  "header": {
+    "inicio": "El Don del Churro, home",
+    "navegacion": "Main",
+    "carta": "Menu",
+    "latas": "El Don de Latas",
+    "nosotros": "About us",
+    "contacto": "Contact",
+    "menu": "Menu",
+    "idioma": "Language",
+    "saltar": "Skip to content",
+    "cerrar": "Close"
+  }
+}

@@ -1,0 +1,35 @@
+/* Selector ES / EN: dos pastillas pequeñas; la activa va rellena de oro. */
+.selector {
+  display: flex;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid rgb(212 164 72 / 0.45);
+  border-radius: 999px;
+}
+
+.opcion {
+  min-width: 2.4em;
+  padding: 0.35em 0.6em;
+  border-radius: 999px;
+  color: var(--crema);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-align: center;
+  text-decoration: none;
+  transition:
+    background-color 0.3s var(--curva-suave),
+    color 0.3s var(--curva-suave);
+}
+
+.activo {
+  background: var(--oro);
+  color: var(--oliva-oscuro);
+}
+
+@media (hover: hover) {
+  .opcion:not(.activo):hover {
+    color: #ffe6a8;
+    background: rgb(255 194 77 / 0.12);
+  }
+}

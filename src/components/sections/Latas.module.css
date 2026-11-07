@@ -1,0 +1,31 @@
+.rejilla {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  align-items: center;
+  gap: clamp(2rem, 6vw, 5rem);
+}
+
+.foto {
+  overflow: hidden;
+  border-radius: 22px;
+  box-shadow: 0 40px 80px -30px rgb(0 0 0 / 0.6);
+}
+
+.foto img {
+  width: 100%;
+  height: auto;
+}
+
+.nota {
+  margin-top: var(--espacio-5);
+  color: var(--oro);
+  font-family: var(--fuente-titulos);
+  font-size: 1.35rem;
+  font-style: italic;
+}
+
+@media (max-width: 900px) {
+  .rejilla {
+    grid-template-columns: 1fr;
+  }
+}

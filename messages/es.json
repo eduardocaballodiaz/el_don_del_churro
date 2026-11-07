@@ -1,6 +1,51 @@
 {
   "inicio": {
-    "titulo": "Churros recién hechos en el centro de Sevilla"
+    "_estado": "borrador",
+    "titulo": "Churros recién hechos en el centro de Sevilla",
+    "hero": {
+      "etiqueta": "Churrería · Calle Correduría, 42",
+      "lede": "Finos y largos, dorados por fuera y tiernos por dentro. Con chocolate espeso o con café, como se han tomado siempre en Sevilla.",
+      "verCarta": "Ver la carta",
+      "comoLlegar": "Cómo llegar"
+    },
+    "productos": {
+      "etiqueta": "Lo nuestro",
+      "titulo": "Dos churros, dos maneras de tomarlos",
+      "finos": {
+        "titulo": "Finos",
+        "texto": "Delgados, crujientes y con la estría bien marcada. Los de toda la vida."
+      },
+      "largos": {
+        "titulo": "Largos",
+        "texto": "Gruesos y esponjosos por dentro: lo que en muchas casas llaman porras."
+      },
+      "acompanar": {
+        "titulo": "Con chocolate o con café",
+        "texto": "Para mojar sin prisa: chocolate caliente y espeso, o un buen café con leche."
+      }
+    },
+    "latas": {
+      "etiqueta": "Para llevar",
+      "titulo": "El Don de Latas",
+      "texto": "Postres en capas servidos en lata: crema, galleta y chocolate hasta el borde. Hay de chocolate y de pistacho con nata.",
+      "nota": "Cerrados, se llevan a cualquier parte."
+    },
+    "nosotros": {
+      "etiqueta": "La casa",
+      "titulo": "El churro, recién salido del aceite",
+      "texto": "Un churro tiene su mejor momento en los primeros minutos. Por eso en El Don del Churro los hacemos al momento, en pleno centro de Sevilla, y te los servimos calientes."
+    },
+    "visitanos": {
+      "etiqueta": "Visítanos",
+      "titulo": "Te esperamos en la calle Correduría",
+      "direccion": "Dirección",
+      "horario": "Horario",
+      "comoLlegar": "Cómo llegar",
+      "mapaAlt": "Plano ilustrado con la ubicación de El Don del Churro",
+      "cargarMapa": "Cargar mapa interactivo",
+      "avisoMapa": "Al cargar el mapa, Google recibirá datos de tu navegación (como tu dirección IP) y puede usar cookies. Más información en la política de cookies.",
+      "mapaTitulo": "Mapa de Google con la ubicación de El Don del Churro"
+    }
   },
   "carta": {
     "titulo": "La carta"
@@ -9,7 +54,6 @@
     "titulo": "Contacto"
   },
   "header": {
-    "inicio": "El Don del Churro, inicio",
     "navegacion": "Principal",
     "carta": "La carta",
     "latas": "El Don de Latas",
@@ -37,5 +81,9 @@
     "titulo": "Esta página no existe",
     "texto": "Puede que el enlace esté mal escrito o que la página se haya movido.",
     "volver": "Volver al inicio"
+  },
+  "seo": {
+    "titulo": "El Don del Churro · Churrería en Sevilla",
+    "descripcion": "Churros finos y largos recién hechos, con chocolate o con café, en la calle Correduría, 42 de Sevilla."
   }
 }

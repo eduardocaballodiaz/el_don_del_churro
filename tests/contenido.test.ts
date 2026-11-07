@@ -36,6 +36,10 @@ describe('datosPendientes', () => {
     expect(pendientes).toContain('días de apertura');
     expect(pendientes).toContain('código postal');
   });
+
+  it('avisa mientras queden textos en borrador', () => {
+    expect(datosPendientes().join(' | ').toLowerCase()).toContain('textos sin aprobar');
+  });
 });
 
 describe('imágenes', () => {

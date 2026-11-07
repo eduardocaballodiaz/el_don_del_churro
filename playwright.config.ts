@@ -26,6 +26,6 @@ export default defineConfig({
         url: baseURL,
         reuseExistingServer: true,
         timeout: 240_000,
-        env: { CONTACTO_SIMULADO: '1' },
+        env: { CONTACTO_SIMULADO: '1', NEXT_DIST_DIR: '.next-e2e.nosync' },
       },
 });

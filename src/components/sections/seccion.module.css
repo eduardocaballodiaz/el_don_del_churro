@@ -1,0 +1,58 @@
+/* Piezas comunes a todas las secciones de la página de inicio. */
+
+.seccion {
+  padding-block: clamp(4rem, 10vw, 8rem);
+  scroll-margin-top: 96px; /* que el encabezado fijo no tape el título al saltar con el menú */
+}
+
+.oscura {
+  color: var(--crema);
+  background: var(--oliva-oscuro);
+}
+
+.oliva {
+  color: var(--crema);
+  background: var(--oliva);
+}
+
+/* Etiqueta pequeña en mayúsculas espaciadas, como "CHURRERÍA" en la fachada. */
+.etiqueta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: var(--espacio-4);
+  color: var(--oro-texto);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: var(--espaciado-etiqueta);
+  text-transform: uppercase;
+}
+
+.etiqueta::before {
+  content: '';
+  width: 28px;
+  height: 1px;
+  background: currentColor;
+}
+
+.oscura .etiqueta,
+.oliva .etiqueta {
+  color: var(--oro);
+}
+
+.titulo {
+  max-width: 18ch;
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+}
+
+.texto {
+  max-width: 52ch;
+  margin-top: var(--espacio-5);
+  font-size: 1.125rem;
+  color: var(--texto-suave);
+}
+
+.oscura .texto,
+.oliva .texto {
+  color: var(--crema-suave);
+}

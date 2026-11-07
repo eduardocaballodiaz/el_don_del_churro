@@ -48,11 +48,17 @@ export function Header() {
       <div className={styles.interior}>
         {/* El rótulo de la marca: "— EL DON DEL — / CHURRO / — CHURRERÍA —".
             Vectorizado del diseño de la caja (public/logo/rotulo.svg). */}
-        <Link href="/" className={styles.logo} aria-label={t('inicio')}>
-          <Image src="/logo/rotulo.svg" alt="" width={2430} height={1026} priority unoptimized />
-          <span className={styles.churreria} aria-hidden="true">
-            Churrería
-          </span>
+        {/* Nombre accesible: "El Don del Churro Churrería" (coincide con lo que se ve). */}
+        <Link href="/" className={styles.logo}>
+          <Image
+            src="/logo/rotulo.svg"
+            alt="El Don del Churro"
+            width={2430}
+            height={1026}
+            priority
+            unoptimized
+          />
+          <span className={styles.churreria}>Churrería</span>
         </Link>
 
         <div className={styles.derecha}>

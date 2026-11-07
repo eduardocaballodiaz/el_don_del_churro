@@ -3,3 +3,5 @@ node_modules
 .superpowers
 docs/referencias
 package-lock.json
+.next.nosync
+.next-e2e.nosync

@@ -1,6 +1,51 @@
 {
   "inicio": {
-    "titulo": "Freshly made churros in the heart of Seville"
+    "_estado": "borrador",
+    "titulo": "Freshly made churros in the heart of Seville",
+    "hero": {
+      "etiqueta": "Churrería · Calle Correduría, 42",
+      "lede": "Thin and thick churros, golden outside and soft inside. With thick hot chocolate or with coffee, the way Seville has always had them.",
+      "verCarta": "See the menu",
+      "comoLlegar": "Get directions"
+    },
+    "productos": {
+      "etiqueta": "What we make",
+      "titulo": "Two churros, two ways to enjoy them",
+      "finos": {
+        "titulo": "Finos",
+        "texto": "Thin, crisp and deeply ridged. The classic Spanish churro."
+      },
+      "largos": {
+        "titulo": "Largos",
+        "texto": "Thick and fluffy inside, also known as porras."
+      },
+      "acompanar": {
+        "titulo": "With chocolate or coffee",
+        "texto": "For slow dipping: thick hot chocolate or a good milky coffee."
+      }
+    },
+    "latas": {
+      "etiqueta": "To take away",
+      "titulo": "El Don de Latas",
+      "texto": "Layered desserts served in a can: cream, biscuit and chocolate right to the rim. Chocolate, or pistachio with cream.",
+      "nota": "Sealed, they travel anywhere."
+    },
+    "nosotros": {
+      "etiqueta": "Our place",
+      "titulo": "Churros, straight out of the oil",
+      "texto": "A churro is at its best in the first few minutes. That's why at El Don del Churro we make them to order, right in the centre of Seville, and serve them hot."
+    },
+    "visitanos": {
+      "etiqueta": "Visit us",
+      "titulo": "Find us on Calle Correduría",
+      "direccion": "Address",
+      "horario": "Opening hours",
+      "comoLlegar": "Get directions",
+      "mapaAlt": "Illustrated map showing where El Don del Churro is",
+      "cargarMapa": "Load interactive map",
+      "avisoMapa": "When the map loads, Google will receive browsing data (such as your IP address) and may use cookies. See our cookie policy for details.",
+      "mapaTitulo": "Google map showing El Don del Churro"
+    }
   },
   "carta": {
     "titulo": "Menu"
@@ -9,7 +54,6 @@
     "titulo": "Contact"
   },
   "header": {
-    "inicio": "El Don del Churro, home",
     "navegacion": "Main",
     "carta": "Menu",
     "latas": "El Don de Latas",
@@ -37,5 +81,9 @@
     "titulo": "This page doesn't exist",
     "texto": "The link may be mistyped or the page may have moved.",
     "volver": "Back to home"
+  },
+  "seo": {
+    "titulo": "El Don del Churro · Churros in Seville",
+    "descripcion": "Freshly made thin and thick churros, with hot chocolate or coffee, at Calle Correduría 42, Seville."
   }
 }

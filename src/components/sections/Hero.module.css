@@ -1,0 +1,87 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(3.5rem, 9vw, 7rem) clamp(4rem, 10vw, 8rem);
+  color: var(--crema);
+  /* Luz cálida, como la del rótulo de noche, sobre el verde oliva. */
+  background:
+    radial-gradient(60% 70% at 78% 45%, rgb(255 194 77 / 0.22), transparent 70%),
+    radial-gradient(50% 60% at 10% 100%, rgb(212 164 72 / 0.1), transparent 70%),
+    linear-gradient(180deg, var(--oliva) 0%, var(--oliva-oscuro) 100%);
+}
+
+.rejilla {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  align-items: center;
+  gap: clamp(2rem, 6vw, 5rem);
+}
+
+.etiqueta {
+  margin-bottom: var(--espacio-5);
+  color: var(--oro);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: var(--espaciado-etiqueta);
+  text-transform: uppercase;
+}
+
+.titulo {
+  font-size: clamp(2.6rem, 6.2vw, 5.2rem);
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+}
+
+.lede {
+  max-width: 46ch;
+  margin-top: var(--espacio-5);
+  color: var(--crema-suave);
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+}
+
+.acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-4);
+  margin-top: var(--espacio-6);
+}
+
+/* La foto, enmarcada con un filete dorado y un resplandor detrás. */
+.foto {
+  position: relative;
+  max-width: 620px;
+  justify-self: end;
+}
+
+.foto::before {
+  content: '';
+  position: absolute;
+  inset: -12% -10%;
+  z-index: 0;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgb(255 194 77 / 0.35), transparent);
+  filter: blur(20px);
+  pointer-events: none;
+}
+
+.foto img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  border-radius: 22px;
+  box-shadow:
+    0 0 0 1px rgb(212 164 72 / 0.7),
+    0 0 0 8px rgb(35 40 26 / 0.6),
+    0 0 0 9px rgb(212 164 72 / 0.35),
+    0 40px 80px -30px rgb(0 0 0 / 0.7);
+}
+
+@media (max-width: 900px) {
+  .rejilla {
+    grid-template-columns: 1fr;
+  }
+  .foto {
+    justify-self: stretch;
+  }
+}

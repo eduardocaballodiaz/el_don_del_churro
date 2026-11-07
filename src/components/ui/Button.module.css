@@ -1,0 +1,50 @@
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
+  min-height: 48px;
+  padding: 14px 28px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition:
+    background-color 0.35s var(--curva-suave),
+    color 0.35s var(--curva-suave),
+    box-shadow 0.35s var(--curva-suave),
+    transform 0.35s var(--curva-suave);
+}
+
+.oro {
+  background: var(--oro);
+  color: var(--oliva-oscuro);
+}
+
+.contorno {
+  border-color: var(--oro);
+  color: var(--crema);
+}
+
+.oliva {
+  background: var(--oliva);
+  color: var(--crema);
+}
+
+@media (hover: hover) {
+  .oro:hover {
+    background: #e2b65c;
+    box-shadow: 0 0 28px rgb(255 194 77 / 0.55);
+  }
+  .contorno:hover {
+    background: rgb(212 164 72 / 0.14);
+    box-shadow: 0 0 22px rgb(255 194 77 / 0.35);
+  }
+  .oliva:hover {
+    background: var(--oliva-oscuro);
+  }
+}

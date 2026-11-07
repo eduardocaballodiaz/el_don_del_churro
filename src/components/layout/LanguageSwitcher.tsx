@@ -30,11 +30,12 @@ export function LanguageSwitcher({ className }: { className?: string }) {
             locale={locale}
             hrefLang={locale}
             lang={locale}
-            aria-label={NOMBRES[locale].largo}
             aria-current={activo ? 'true' : undefined}
             className={`${styles.opcion} ${activo ? styles.activo : ''}`}
           >
-            {NOMBRES[locale].corto}
+            {/* Se ve "EN"; el lector de pantalla lee "English". */}
+            <span aria-hidden="true">{NOMBRES[locale].corto}</span>
+            <span className="visually-hidden">{NOMBRES[locale].largo}</span>
           </Link>
         );
       })}

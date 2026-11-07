@@ -1,0 +1,42 @@
+.aviso {
+  display: grid;
+  gap: var(--espacio-3);
+  justify-items: start;
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+}
+
+.aviso a {
+  color: var(--oliva);
+}
+
+.boton {
+  padding: 12px 22px;
+  border: 1px solid var(--oliva);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--oliva);
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
+
+@media (hover: hover) {
+  .boton:hover {
+    background: var(--oliva);
+    color: var(--crema);
+  }
+}
+
+.mapa {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border: 0;
+  border-radius: var(--radio);
+}

@@ -12,6 +12,13 @@ import { MotionProvider } from '@/animations/MotionProvider';
 import { fuenteTexto, fuenteTitulos } from '@/styles/fonts';
 import '@/styles/globals.css';
 
+// Título y descripción por defecto (la Tarea 12 los afina página a página).
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'seo' });
+  return { title: t('titulo'), description: t('descripcion') };
+}
+
 // Genera en la compilación una versión estática por idioma.
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));

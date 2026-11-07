@@ -1,0 +1,52 @@
+.tarjeta {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: var(--radio);
+  background: #fffaf0;
+  box-shadow:
+    0 1px 0 rgb(60 66 41 / 0.08),
+    0 18px 40px -24px rgb(35 40 26 / 0.45);
+  transition:
+    box-shadow 0.5s var(--curva-suave),
+    transform 0.5s var(--curva-suave);
+}
+
+.foto {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s var(--curva-suave);
+}
+
+.cuerpo {
+  display: grid;
+  gap: var(--espacio-2);
+  padding: var(--espacio-5);
+}
+
+.titulo {
+  font-size: 1.6rem;
+}
+
+.texto {
+  color: var(--texto-suave);
+}
+
+@media (hover: hover) {
+  .tarjeta:hover {
+    box-shadow:
+      0 0 0 1px rgb(212 164 72 / 0.6),
+      0 24px 50px -22px rgb(35 40 26 / 0.55),
+      0 0 40px -10px rgb(255 194 77 / 0.35);
+  }
+  .tarjeta:hover .foto img {
+    transform: scale(1.06);
+  }
+}

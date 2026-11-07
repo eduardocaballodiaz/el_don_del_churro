@@ -6,16 +6,9 @@ import { getLocale, getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import type { Locale } from '@/i18n/routing';
 import { formatearHorario, negocio } from '@/content/negocio';
+import { urlComoLlegar } from '@/lib/mapas';
 import { ENLACE_CONTACTO, ENLACES_MENU } from './navegacion';
 import styles from './Footer.module.css';
-
-/** Enlace a Google Maps con la dirección (un enlace normal: no carga nada de Google). */
-function enlaceMaps(): string {
-  if (negocio.urlMaps) return negocio.urlMaps;
-  const { calle, codigoPostal, ciudad } = negocio.direccion;
-  const q = [calle, codigoPostal, ciudad].filter(Boolean).join(', ');
-  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
-}
 
 export async function Footer() {
   const locale = (await getLocale()) as Locale;
@@ -39,7 +32,7 @@ export async function Footer() {
             <br />
             {[codigoPostal, ciudad].filter(Boolean).join(' ')}
           </address>
-          <a className={styles.enlace} href={enlaceMaps()} target="_blank" rel="noopener noreferrer">
+          <a className={styles.enlace} href={urlComoLlegar()} target="_blank" rel="noopener noreferrer">
             {t('comoLlegar')} ↗
           </a>
         </section>

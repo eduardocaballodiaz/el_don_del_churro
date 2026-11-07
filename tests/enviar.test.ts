@@ -18,6 +18,14 @@ describe('enviarCorreo', () => {
     );
   });
 
+  it('sin clave de Resend no rompe: devuelve ok:false para ofrecer el correo directo', async () => {
+    const antes = { ...process.env };
+    delete process.env.RESEND_API_KEY;
+    delete process.env.CONTACTO_SIMULADO;
+    await expect(enviarCorreo(DATOS)).resolves.toEqual({ ok: false });
+    process.env = antes;
+  });
+
   it('devuelve ok:false si Resend falla o lanza un error', async () => {
     const conError = { emails: { send: vi.fn().mockResolvedValue({ data: null, error: { message: 'x' } }) } };
     expect(await enviarCorreo(DATOS, conError)).toEqual({ ok: false });

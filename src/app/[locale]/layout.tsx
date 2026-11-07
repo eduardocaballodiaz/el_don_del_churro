@@ -22,6 +22,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return { metadataBase: new URL(DOMINIO), title: t('titulo'), description: t('descripcion') };
 }
 
+const SCRIPT_JS = `(function(){var h=document.documentElement;h.classList.add('js');setTimeout(function(){if(!h.classList.contains('hidratado'))h.classList.remove('js')},4000)})()`;
+
 // Genera en la compilación una versión estática por idioma.
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -44,10 +46,10 @@ export default async function LocaleLayout({ children, params }: Props) {
     >
       <head>
         {/* Marca que hay JavaScript. El CSS solo oculta cosas para animarlas
-            cuando existe esta clase, así sin JS todo el contenido se ve. */}
-        <script
-          dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }}
-        />
+            cuando existe esta clase, así sin JS todo el contenido se ve.
+            Red de seguridad: si en 4 s la web no ha arrancado (un script no cargó,
+            red inestable…), se quita la clase y todo el contenido se muestra. */}
+        <script dangerouslySetInnerHTML={{ __html: SCRIPT_JS }} />
       </head>
       <body>
         <a className="saltar" href="#contenido">

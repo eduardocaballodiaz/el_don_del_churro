@@ -18,12 +18,14 @@ const INICIAL: EstadoFormulario = { estado: 'inicial' };
 export function Formulario() {
   const t = useTranslations('contacto');
   const [estado, accion, enviando] = useActionState(enviarContacto, INICIAL);
-  const marcaTiempo = useRef<HTMLInputElement>(null);
+  const tiempo = useRef<HTMLInputElement>(null);
+  const inicio = useRef(0);
   const bloqueado = useRef(false);
 
-  // Momento de carga para el filtro anti-spam (la página es estática, así que se pone en el navegador).
+  // Filtro anti-spam: se mide en el navegador cuánto tarda el visitante en enviar
+  // (performance.now no depende de la hora del reloj del ordenador).
   useEffect(() => {
-    if (marcaTiempo.current) marcaTiempo.current.value = String(Date.now());
+    inicio.current = performance.now();
   }, []);
 
   // Cuando llega la respuesta, se vuelve a permitir enviar.
@@ -49,6 +51,8 @@ export function Formulario() {
       </span>
     );
   };
+  // Tras un error, React vacía el formulario: se rellena de nuevo con lo que se escribió.
+  const v = estado.valores;
   const atributosError = (campo: Campo) =>
     error(campo) ? { 'aria-invalid': true as const, 'aria-describedby': `error-${campo}` } : {};
 
@@ -59,8 +63,12 @@ export function Formulario() {
       noValidate
       onSubmit={(e) => {
         // Segunda pulsación antes de que React desactive el botón: se ignora.
-        if (bloqueado.current) e.preventDefault();
+        if (bloqueado.current) {
+          e.preventDefault();
+          return;
+        }
         bloqueado.current = true;
+        if (tiempo.current) tiempo.current.value = String(Math.round(performance.now() - inicio.current));
       }}
     >
       {estado.estado === 'error-validacion' && (
@@ -77,19 +85,40 @@ export function Formulario() {
       <div className={styles.fila}>
         <label className={styles.campo}>
           <span>{t('campos.nombre')}</span>
-          <input name="nombre" autoComplete="name" required maxLength={120} {...atributosError('nombre')} />
+          <input
+            name="nombre"
+            autoComplete="name"
+            required
+            maxLength={120}
+            defaultValue={v?.nombre}
+            {...atributosError('nombre')}
+          />
           {mensajeError('nombre')}
         </label>
         <label className={styles.campo}>
           <span>{t('campos.email')}</span>
-          <input name="email" type="email" autoComplete="email" required {...atributosError('email')} />
+          <input
+            name="email"
+            type="email"
+            autoComplete="email"
+            required
+            defaultValue={v?.email}
+            {...atributosError('email')}
+          />
           {mensajeError('email')}
         </label>
       </div>
 
       <label className={styles.campo}>
         <span>{t('campos.mensaje')}</span>
-        <textarea name="mensaje" rows={6} required maxLength={5000} {...atributosError('mensaje')} />
+        <textarea
+          name="mensaje"
+          rows={6}
+          required
+          maxLength={5000}
+          defaultValue={v?.mensaje}
+          {...atributosError('mensaje')}
+        />
         {mensajeError('mensaje')}
       </label>
 
@@ -98,10 +127,16 @@ export function Formulario() {
         Web
         <input name="web" tabIndex={-1} autoComplete="off" />
       </label>
-      <input ref={marcaTiempo} type="hidden" name="t" defaultValue="" />
+      <input ref={tiempo} type="hidden" name="t" defaultValue="" />
 
       <label className={styles.casilla}>
-        <input type="checkbox" name="privacidad" required {...atributosError('privacidad')} />
+        <input
+          type="checkbox"
+          name="privacidad"
+          required
+          defaultChecked={v?.privacidad}
+          {...atributosError('privacidad')}
+        />
         <span>
           {t('campos.privacidadAntes')} <Link href="/privacidad">{t('campos.privacidadEnlace')}</Link>
         </span>

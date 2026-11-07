@@ -14,6 +14,12 @@ import { useReducedMotion } from './useReducedMotion';
 export function MotionProvider({ children }: { children: ReactNode }) {
   const reducido = useReducedMotion();
 
+  // La web ya funciona: se desactiva la red de seguridad del layout (que mostraría
+  // todo de golpe si el JavaScript no hubiera llegado a arrancar).
+  useEffect(() => {
+    document.documentElement.classList.add('hidratado');
+  }, []);
+
   useEffect(() => {
     if (reducido) return;
     const lenis = new Lenis({

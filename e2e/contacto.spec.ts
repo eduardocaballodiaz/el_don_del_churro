@@ -42,3 +42,25 @@ test('muestra los errores junto a cada campo', async ({ page }) => {
   await page.getByRole('button', { name: 'Enviar' }).click();
   await expect(page.getByLabel('Correo electrónico')).toHaveAttribute('aria-invalid', 'true');
 });
+
+test('si hay un error, no se pierde lo escrito', async ({ page }) => {
+  await page.goto('/contacto');
+  await page.getByLabel('Nombre').fill('José Núñez');
+  await page.getByLabel('Correo electrónico').fill('jose@example.com');
+  await page.getByLabel('Mensaje').fill('Un mensaje largo que no quiero volver a escribir.');
+  // Se olvida de aceptar la privacidad.
+  await page.waitForTimeout(3100);
+  await page.getByRole('button', { name: 'Enviar' }).click();
+  // (Next.js tiene su propio role="alert" para anunciar cambios de página: se mira solo el formulario.)
+  await expect(page.locator('form').getByRole('alert')).toBeVisible();
+  await expect(page.getByLabel('Mensaje')).toHaveValue('Un mensaje largo que no quiero volver a escribir.');
+  await expect(page.getByLabel('Nombre')).toHaveValue('José Núñez');
+  await expect(page.getByLabel('Correo electrónico')).toHaveValue('jose@example.com');
+});
+
+test('si el envío falla, tampoco se pierde lo escrito', async ({ page }) => {
+  await rellenar(page, 'Prueba [simular-fallo] con texto importante');
+  await page.getByRole('button', { name: 'Enviar' }).click();
+  await expect(page.locator('form').getByRole('alert')).toBeVisible();
+  await expect(page.getByLabel('Mensaje')).toHaveValue('Prueba [simular-fallo] con texto importante');
+});

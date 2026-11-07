@@ -34,16 +34,24 @@ const clienteSimulado: ClienteCorreo = {
   },
 };
 
-function clientePorDefecto(): ClienteCorreo {
+/** Cliente de envío real, o null si falta la clave (entonces se ofrece el correo directo). */
+function clientePorDefecto(): ClienteCorreo | null {
   if (process.env.CONTACTO_SIMULADO === '1') return clienteSimulado;
+  if (!process.env.RESEND_API_KEY) return null;
   return new Resend(process.env.RESEND_API_KEY) as unknown as ClienteCorreo;
 }
 
 export async function enviarCorreo(
   datos: DatosContacto,
-  cliente: ClienteCorreo = clientePorDefecto(),
+  clienteInyectado?: ClienteCorreo,
 ): Promise<{ ok: boolean }> {
   try {
+    // Dentro del try: si crear el cliente falla, el usuario ve el aviso con el correo directo.
+    const cliente = clienteInyectado ?? clientePorDefecto();
+    if (!cliente) {
+      console.error('[contacto] Falta RESEND_API_KEY: no se puede enviar el mensaje.');
+      return { ok: false };
+    }
     const { error } = await cliente.emails.send({
       from: `El Don del Churro <${process.env.CONTACTO_REMITENTE ?? 'onboarding@resend.dev'}>`,
       to: process.env.CONTACTO_DESTINO ?? DESTINO_POR_DEFECTO,

@@ -1,8 +1,9 @@
 // VALIDACIÓN DEL FORMULARIO DE CONTACTO
 // Comprueba los campos y aplica dos protecciones anti-spam que no usan cookies:
 // - "web": campo trampa oculto. Una persona nunca lo rellena; un robot sí.
-// - "t": momento en que se cargó el formulario. Un envío en menos de 3 s es un robot.
-//   (Si no hay marca de tiempo, por ejemplo sin JavaScript, no se puede medir y se acepta.)
+// - "t": milisegundos entre la carga del formulario y el envío, medidos en el
+//   navegador del visitante (así no influye que su reloj vaya adelantado o atrasado).
+//   Menos de 3 s es un robot. Sin "t" (por ejemplo, sin JavaScript) no se puede medir y se acepta.
 import { z } from 'zod';
 
 export type CampoError = 'requerido' | 'invalido' | 'largo';
@@ -32,11 +33,14 @@ const esquema = z.object({
   privacidad: z.literal('on', { error: 'requerido' }),
 });
 
-export function validarContacto(form: FormData, ahora: number = Date.now()): ResultadoValidacion {
+export function validarContacto(form: FormData): ResultadoValidacion {
   // 1. Protecciones anti-spam.
   if (String(form.get('web') ?? '').trim() !== '') return { ok: false, spam: true };
-  const t = Number(form.get('t'));
-  if (t > 0 && ahora - t < TIEMPO_MINIMO_MS) return { ok: false, spam: true };
+  const tRecibido = String(form.get('t') ?? '').trim();
+  if (tRecibido !== '') {
+    const transcurrido = Number(tRecibido);
+    if (!Number.isFinite(transcurrido) || transcurrido < TIEMPO_MINIMO_MS) return { ok: false, spam: true };
+  }
 
   // 2. Campos.
   const leer = (k: string) => {
@@ -46,7 +50,8 @@ export function validarContacto(form: FormData, ahora: number = Date.now()): Res
   const resultado = esquema.safeParse({
     nombre: leer('nombre') ?? '',
     email: (leer('email') ?? '').trim(),
-    mensaje: leer('mensaje') ?? '',
+    // El navegador cuenta cada salto de línea como 1 carácter, pero lo envía como 2 (\r\n).
+    mensaje: (leer('mensaje') ?? '').replace(/\r\n?/g, '\n'),
     privacidad: leer('privacidad'),
   });
 

@@ -7,6 +7,7 @@ import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { Header } from '@/components/layout/Header';
+import { Footer } from '@/components/layout/Footer';
 import { MotionProvider } from '@/animations/MotionProvider';
 import { fuenteTexto, fuenteTitulos } from '@/styles/fonts';
 import '@/styles/globals.css';
@@ -46,6 +47,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           <MotionProvider>
             <Header />
             {children}
+            <Footer />
           </MotionProvider>
         </NextIntlClientProvider>
       </body>

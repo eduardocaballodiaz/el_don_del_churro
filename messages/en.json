@@ -19,5 +19,23 @@
     "idioma": "Language",
     "saltar": "Skip to content",
     "cerrar": "Close"
+  },
+  "footer": {
+    "direccion": "Address",
+    "horario": "Opening hours",
+    "contacto": "Contact",
+    "navegacion": "Navigation",
+    "legal": "Legal information",
+    "comoLlegar": "Get directions",
+    "avisoLegal": "Legal notice",
+    "privacidad": "Privacy",
+    "cookies": "Cookies",
+    "derechos": "All rights reserved.",
+    "diasPendientes": "Opening days: coming soon"
+  },
+  "noEncontrada": {
+    "titulo": "This page doesn't exist",
+    "texto": "The link may be mistyped or the page may have moved.",
+    "volver": "Back to home"
   }
 }

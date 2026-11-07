@@ -13,3 +13,9 @@ for (const ruta of ['/', '/en']) {
     }
   });
 }
+
+test('sin JavaScript, la navegación del pie lleva a la carta', async ({ page }) => {
+  await page.goto('/');
+  await page.locator('#navegacion-pie').getByRole('link', { name: 'La carta' }).click();
+  await expect(page).toHaveURL(/\/carta$/);
+});

@@ -1,0 +1,109 @@
+/* PIE DE PÁGINA: fondo oliva oscuro con el sello en crema y una tira LED arriba. */
+.pie {
+  position: relative;
+  margin-top: var(--espacio-8);
+  padding-block: var(--espacio-8) var(--espacio-6);
+  color: var(--crema-suave);
+  background: var(--oliva-oscuro);
+}
+
+/* La misma tira LED cálida del encabezado, para cerrar la página. */
+.pie::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2px;
+  background: var(--led);
+  box-shadow: 0 0 14px rgb(255 180 50 / 0.6);
+}
+
+.rejilla {
+  display: grid;
+  grid-template-columns: 1.1fr repeat(4, 1fr);
+  gap: var(--espacio-6);
+}
+
+.marca img {
+  width: 112px;
+  height: 112px;
+  opacity: 0.9;
+}
+
+.titulo {
+  margin-bottom: var(--espacio-3);
+  color: var(--oro);
+  font-family: var(--fuente-texto);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: var(--espaciado-etiqueta);
+  text-transform: uppercase;
+}
+
+.texto {
+  font-style: normal;
+  line-height: 1.7;
+}
+
+.lista {
+  display: grid;
+  gap: var(--espacio-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.enlace {
+  color: var(--crema);
+  text-decoration: none;
+  background: linear-gradient(var(--oro), var(--oro)) 0 100% / 0 1px no-repeat;
+  transition:
+    background-size 0.4s var(--curva-suave),
+    color 0.3s;
+}
+
+@media (hover: hover) {
+  .enlace:hover {
+    color: #ffe6a8;
+    background-size: 100% 1px;
+  }
+}
+
+.texto + .enlace {
+  display: inline-block;
+  margin-top: var(--espacio-3);
+}
+
+.legal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--espacio-4);
+  margin-top: var(--espacio-8);
+  padding-top: var(--espacio-5);
+  border-top: 1px solid rgb(212 164 72 / 0.25);
+  font-size: 0.85rem;
+}
+
+.legal nav {
+  display: flex;
+  gap: var(--espacio-5);
+}
+
+.legal a {
+  color: var(--crema-suave);
+}
+
+@media (max-width: 960px) {
+  .rejilla {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .marca {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 520px) {
+  .rejilla {
+    grid-template-columns: 1fr;
+  }
+}

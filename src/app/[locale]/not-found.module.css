@@ -1,0 +1,24 @@
+.pagina {
+  display: grid;
+  justify-items: center;
+  gap: var(--espacio-4);
+  padding-block: var(--espacio-8);
+  text-align: center;
+}
+
+.codigo {
+  color: var(--oro);
+  font-family: var(--fuente-titulos);
+  font-size: clamp(5rem, 18vw, 9rem);
+  line-height: 1;
+}
+
+.volver {
+  margin-top: var(--espacio-4);
+  padding: 12px 24px;
+  border-radius: 999px;
+  background: var(--oliva);
+  color: var(--crema);
+  font-weight: 600;
+  text-decoration: none;
+}

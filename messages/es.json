@@ -19,5 +19,23 @@
     "idioma": "Idioma",
     "saltar": "Saltar al contenido",
     "cerrar": "Cerrar"
+  },
+  "footer": {
+    "direccion": "Dirección",
+    "horario": "Horario",
+    "contacto": "Contacto",
+    "navegacion": "Navegación",
+    "legal": "Información legal",
+    "comoLlegar": "Cómo llegar",
+    "avisoLegal": "Aviso legal",
+    "privacidad": "Privacidad",
+    "cookies": "Cookies",
+    "derechos": "Todos los derechos reservados.",
+    "diasPendientes": "Días de apertura: próximamente"
+  },
+  "noEncontrada": {
+    "titulo": "Esta página no existe",
+    "texto": "Puede que el enlace esté mal escrito o que la página se haya movido.",
+    "volver": "Volver al inicio"
   }
 }

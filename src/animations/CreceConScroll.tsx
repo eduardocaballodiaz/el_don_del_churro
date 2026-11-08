@@ -1,7 +1,7 @@
 'use client';
 
 // La foto crece a medida que se baja por la página, hasta su tamaño final
-// (sin pasarse del tamaño en el que se ve nítida). Se usa en El Don de Latas.
+// (sin pasarse del tamaño en el que se ve nítida). Se usa en Los caprichos del Don.
 import { useRef, type ReactNode } from 'react';
 import { gsap, useGSAP } from './gsap';
 import { useReducedMotion } from './useReducedMotion';

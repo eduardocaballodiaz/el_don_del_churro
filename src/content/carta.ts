@@ -31,7 +31,7 @@ export const carta: Producto[] = [
   {
     id: 'churros-finos',
     categoria: { es: 'Los de siempre', en: 'The classics' },
-    nombre: { es: 'Churros finos', en: 'Thin churros' },
+    nombre: { es: 'Ración de churros finos', en: 'Thin churros (portion)' },
     descripcion: { es: 'Dorados, crujientes y recién hechos.', en: 'Golden, crisp and freshly made.' },
     precio: null,
     imagen: 'finos',
@@ -39,9 +39,10 @@ export const carta: Producto[] = [
   {
     id: 'churros-rueda',
     categoria: { es: 'Los de siempre', en: 'The classics' },
-    nombre: { es: 'Churros de rueda', en: 'Churro wheel' },
+    nombre: { es: 'Ración de rueda', en: 'Churro wheel (portion)' },
     descripcion: { es: 'La tradición en cada vuelta.', en: 'Tradition in every turn.' },
     precio: null,
+    imagen: 'rueda',
   },
 
   // --- El momento café ---
@@ -90,7 +91,7 @@ export const carta: Producto[] = [
   // --- Los caprichos del Don: postres en lata transparente ---
   {
     id: 'lata-pistacho',
-    categoria: { es: 'Los caprichos del Don', en: "The Don's treats" },
+    categoria: { es: 'Los caprichos del Don', en: 'Los caprichos del Don' },
     nombre: { es: 'Pistacho', en: 'Pistachio' },
     descripcion: { es: 'Puro capricho verde.', en: 'A pure green indulgence.' },
     precio: null,
@@ -98,21 +99,21 @@ export const carta: Producto[] = [
   },
   {
     id: 'lata-chocolate',
-    categoria: { es: 'Los caprichos del Don', en: "The Don's treats" },
+    categoria: { es: 'Los caprichos del Don', en: 'Los caprichos del Don' },
     nombre: { es: 'Chocolate', en: 'Chocolate' },
     descripcion: { es: 'Para los que nunca tienen suficiente.', en: 'For those who never get enough.' },
     precio: null,
   },
   {
     id: 'lata-galleta',
-    categoria: { es: 'Los caprichos del Don', en: "The Don's treats" },
+    categoria: { es: 'Los caprichos del Don', en: 'Los caprichos del Don' },
     nombre: { es: 'Galleta', en: 'Biscuit' },
     descripcion: { es: 'Crujiente, cremosa e irresistible.', en: 'Crunchy, creamy and irresistible.' },
     precio: null,
   },
   {
     id: 'lata-tarta',
-    categoria: { es: 'Los caprichos del Don', en: "The Don's treats" },
+    categoria: { es: 'Los caprichos del Don', en: 'Los caprichos del Don' },
     nombre: { es: 'Tarta', en: 'Cake' },
     descripcion: {
       es: 'Nuestros sabores de tarta favoritos, en un formato original y delicioso.',

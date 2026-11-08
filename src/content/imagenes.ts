@@ -20,9 +20,9 @@ export type ImagenId =
   | 'finos'
   | 'finosCafe'
   | 'finosChocolate'
-  | 'largos'
-  | 'largosCafe'
-  | 'largosChocolate'
+  | 'rueda'
+  | 'ruedaCafe'
+  | 'ruedaChocolate'
   | 'latas';
 
 export const imagenes: Record<ImagenId, Imagen> = {
@@ -56,33 +56,33 @@ export const imagenes: Record<ImagenId, Imagen> = {
     },
     provisional: true,
   },
-  largos: {
-    src: '/img/largos.webp',
+  rueda: {
+    src: '/img/rueda.webp',
     ancho: 1536,
     alto: 1024,
     alt: {
-      es: 'Churros largos, gruesos y esponjosos por dentro',
-      en: 'Thick churros, fluffy on the inside',
+      es: 'Porciones de churro de rueda, gruesas y esponjosas por dentro',
+      en: 'Portions of churro wheel, fluffy on the inside',
     },
     provisional: true,
   },
-  largosCafe: {
-    src: '/img/largos-cafe.webp',
+  ruedaCafe: {
+    src: '/img/rueda-cafe.webp',
     ancho: 1536,
     alto: 1024,
     alt: {
-      es: 'Churros largos junto a un café con leche',
-      en: 'Thick churros next to a milky coffee',
+      es: 'Porciones de rueda junto a un café con leche',
+      en: 'Churro wheel portions next to a milky coffee',
     },
     provisional: true,
   },
-  largosChocolate: {
-    src: '/img/largos-chocolate.webp',
+  ruedaChocolate: {
+    src: '/img/rueda-chocolate.webp',
     ancho: 1536,
     alto: 1024,
     alt: {
-      es: 'Churros largos, uno mojado en chocolate, con una taza de chocolate',
-      en: 'Thick churros, one dipped in chocolate, with a cup of hot chocolate',
+      es: 'Porciones de rueda, una mojada en chocolate, con una taza de chocolate',
+      en: 'Churro wheel portions, one dipped in chocolate, with a cup of hot chocolate',
     },
     provisional: true,
   },

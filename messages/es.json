@@ -4,7 +4,7 @@
     "titulo": "Churros recién hechos en el centro de Sevilla",
     "hero": {
       "etiqueta": "Churrería · Calle Correduría, 42",
-      "lede": "Finos y largos, dorados por fuera y tiernos por dentro. Con chocolate espeso o con café, como se han tomado siempre en Sevilla.",
+      "lede": "Finos y de rueda, dorados por fuera y tiernos por dentro. Con chocolate espeso o con café, como se han tomado siempre en Sevilla.",
       "verCarta": "Ver la carta",
       "comoLlegar": "Cómo llegar"
     },
@@ -15,9 +15,9 @@
         "titulo": "Finos",
         "texto": "Delgados, crujientes y con la estría bien marcada. Los de toda la vida."
       },
-      "largos": {
-        "titulo": "Largos",
-        "texto": "Gruesos y esponjosos por dentro: lo que en muchas casas llaman porras."
+      "rueda": {
+        "titulo": "Rueda",
+        "texto": "La rueda de siempre, gruesa y esponjosa por dentro, cortada en raciones."
       },
       "acompanar": {
         "titulo": "Con chocolate o con café",
@@ -25,9 +25,9 @@
       }
     },
     "latas": {
-      "etiqueta": "Para llevar",
-      "titulo": "El Don de Latas",
-      "texto": "Postres en capas servidos en lata: crema, galleta y chocolate hasta el borde. Hay de chocolate y de pistacho con nata.",
+      "etiqueta": "Postres en lata",
+      "titulo": "Los caprichos del Don",
+      "texto": "Postres en capas servidos en lata transparente: pistacho, chocolate, galleta y tarta.",
       "nota": "Cerrados, se llevan a cualquier parte."
     },
     "nosotros": {
@@ -82,7 +82,7 @@
   "header": {
     "navegacion": "Principal",
     "carta": "La carta",
-    "latas": "El Don de Latas",
+    "latas": "Los caprichos del Don",
     "nosotros": "Nosotros",
     "contacto": "Contacto",
     "menu": "Menú",
@@ -110,15 +110,15 @@
   },
   "seo": {
     "titulo": "El Don del Churro · Churrería en Sevilla",
-    "descripcion": "Churros finos y largos recién hechos, con chocolate o con café, en la calle Correduría, 42 de Sevilla.",
+    "descripcion": "Churros finos y de rueda recién hechos, con chocolate o con café, en la calle Correduría, 42 de Sevilla.",
     "nombreSitio": "El Don del Churro",
     "inicio": {
       "titulo": "El Don del Churro · Churrería en el centro de Sevilla",
-      "descripcion": "Churros finos y largos recién hechos, chocolate espeso y café en la calle Correduría, 42, en el centro de Sevilla."
+      "descripcion": "Churros finos y de rueda recién hechos, chocolate espeso y café en la calle Correduría, 42, en el centro de Sevilla."
     },
     "carta": {
       "titulo": "La carta · El Don del Churro",
-      "descripcion": "Churros finos y largos, chocolate, café y postres en lata. La carta de El Don del Churro, en Sevilla."
+      "descripcion": "Churros finos y de rueda, chocolate, café, toppings y postres en lata. La carta de El Don del Churro, en Sevilla."
     },
     "contacto": {
       "titulo": "Contacto · El Don del Churro",

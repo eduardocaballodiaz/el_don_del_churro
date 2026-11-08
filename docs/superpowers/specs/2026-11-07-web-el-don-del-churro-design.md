@@ -99,7 +99,7 @@ Edu quiere una web **viva**, con animaciones modernas, profesionales y realistas
 
 **Recursos gráficos:** el sello en sus versiones color, contornos y una tinta (`../Logo /01_Color`, `02_Contornos`, `03_Una_tinta`, en SVG). La ola dorada del logo como motivo recurrente (subrayados, separadores). Texturas y detalles del local: madera, latón y láminas de olivo.
 
-**Fotografía [decidido por Edu]:** las fotos actuales son **provisionales**. Cuando el local esté abierto se hará una sesión de fotos real del producto y del local, y se sustituirán. Por eso: (1) cambiar una foto debe ser tan simple como reemplazar el archivo, porque todas se referencian desde un solo sitio (`src/content/imagenes.ts`); (2) mientras tanto, la portada y El Don de Latas **no deben depender de una foto a pantalla completa en alta resolución** (las actuales miden 1536×1024). Se usarán composiciones con la foto a un tamaño en el que se vea nítida, combinada con color, luz y movimiento, y el diseño debe estar preparado para usar fotos grandes cuando lleguen las reales. Las fotos provisionales son las de `../img/nuevas/` (finos, largos, con café o con chocolate) y `../img/El Don de Latas.png`. **No usar** `el-don-del-churro-web.jpg` ni `churros-largos-2.jpg`: llevan la marca de otro negocio. Sirven solo como referencia de cómo son los largos (porras).
+**Fotografía [decidido por Edu]:** las fotos actuales son **provisionales**. Cuando el local esté abierto se hará una sesión de fotos real del producto y del local, y se sustituirán. Por eso: (1) cambiar una foto debe ser tan simple como reemplazar el archivo, porque todas se referencian desde un solo sitio (`src/content/imagenes.ts`); (2) mientras tanto, la portada y Los caprichos del Don **no deben depender de una foto a pantalla completa en alta resolución** (las actuales miden 1536×1024). Se usarán composiciones con la foto a un tamaño en el que se vea nítida, combinada con color, luz y movimiento, y el diseño debe estar preparado para usar fotos grandes cuando lleguen las reales. Las fotos provisionales son las de `../img/nuevas/` (finos, largos, con café o con chocolate) y `../img/Los caprichos del Don.png`. **No usar** `el-don-del-churro-web.jpg` ni `churros-largos-2.jpg`: llevan la marca de otro negocio. Sirven solo como referencia de cómo son los largos (porras).
 
 ## 7. Encabezado (decidido con maqueta)
 
@@ -120,19 +120,19 @@ Maqueta de referencia: `docs/referencias/maqueta-encabezado.html` (**opción B**
 
 | Ruta (ES / EN) | Contenido |
 |---|---|
-| `/` · `/en` | **Inicio:** portada a pantalla completa con fotografía y titular animado, presentación de la casa, productos destacados (finos, largos, con chocolate o café), El Don de Latas, el local (ambiente, fotos), cómo llegar y llamada a contacto |
+| `/` · `/en` | **Inicio:** portada a pantalla completa con fotografía y titular animado, presentación de la casa, productos destacados (finos, largos, con chocolate o café), Los caprichos del Don, el local (ambiente, fotos), cómo llegar y llamada a contacto |
 | `/carta` · `/en/menu` | **La carta.** El contenido lo prepara Edu en otro chat. Se guardará como datos estructurados (`src/content/carta.ts`) con nombre, descripción, precio y foto por idioma. Hasta entonces, la página existe pero sin productos ni precios inventados |
 | `/contacto` · `/en/contact` | Formulario, dirección, horario, mapa que se carga al pulsar y enlaces a redes |
 | `/aviso-legal`, `/privacidad`, `/cookies` (y sus versiones en inglés) | Páginas legales (ver §11) |
 | `404` | Página de error con la marca y un enlace al inicio |
 
-El menú principal enlaza a Inicio, La carta, El Don de Latas (sección de Inicio), Nosotros (sección de Inicio) y Contacto. Los nombres exactos y el orden son **[a criterio de quien construya]**.
+El menú principal enlaza a Inicio, La carta, Los caprichos del Don (sección de Inicio), Nosotros (sección de Inicio) y Contacto. Los nombres exactos y el orden son **[a criterio de quien construya]**.
 
 **Textos:** todos en `messages/es.json` y `messages/en.json`. Nada de textos sueltos dentro de los componentes.
 
-**Quién escribe los textos [propuesta]:** los redactamos nosotros en los dos idiomas (titulares, presentación, descripciones de producto y El Don de Latas) y Edu los aprueba antes de publicar. **Sin inventar hechos:** nada de años de fundación, historia familiar, recetas "de la abuela" ni premios que Edu no haya contado. Mientras no los cuente, los textos hablan de lo que se ve y se puede comprobar: el producto, el local y el momento de comerse un churro recién hecho. Se le pedirán dos o tres datos de la casa para la sección Nosotros.
+**Quién escribe los textos [propuesta]:** los redactamos nosotros en los dos idiomas (titulares, presentación, descripciones de producto y Los caprichos del Don) y Edu los aprueba antes de publicar. **Sin inventar hechos:** nada de años de fundación, historia familiar, recetas "de la abuela" ni premios que Edu no haya contado. Mientras no los cuente, los textos hablan de lo que se ve y se puede comprobar: el producto, el local y el momento de comerse un churro recién hecho. Se le pedirán dos o tres datos de la casa para la sección Nosotros.
 
-**El Don de Latas:** postres en capas servidos en lata. Por la foto, hay uno de chocolate y otro de pistacho con nata. Edu confirmará sabores, descripción y precios con la carta.
+**Los caprichos del Don:** postres en capas servidos en lata. Por la foto, hay uno de chocolate y otro de pistacho con nata. Edu confirmará sabores, descripción y precios con la carta.
 
 ## 9. Animaciones e interacción
 
@@ -148,7 +148,7 @@ El menú principal enlaza a Inicio, La carta, El Don de Latas (sección de Inici
 - Revelado de secciones al hacer scroll: textos e imágenes entran con desplazamiento y fundido.
 - Tarjetas de producto: al pasar el cursor, zoom lento de la foto, inclinación 3D sutil siguiendo el cursor y un brillo dorado en el borde.
 - Botones "magnéticos" que se acercan ligeramente al cursor.
-- El Don de Latas: la foto se expande hasta ocupar la pantalla con el scroll.
+- Los caprichos del Don: la foto se expande hasta ocupar la pantalla con el scroll.
 - Un cursor personalizado discreto (un punto dorado que crece sobre los elementos interactivos), **solo en escritorio**.
 - Transiciones suaves entre páginas.
 - Scroll suave con Lenis.

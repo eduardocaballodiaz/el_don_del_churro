@@ -6,10 +6,10 @@ import type { ImagenId } from '@/content/imagenes';
 import s from './seccion.module.css';
 import styles from './Productos.module.css';
 
-const PRODUCTOS: { clave: 'finos' | 'largos' | 'acompanar'; imagen: ImagenId }[] = [
+const PRODUCTOS: { clave: 'finos' | 'rueda' | 'acompanar'; imagen: ImagenId }[] = [
   { clave: 'finos', imagen: 'finos' },
-  { clave: 'largos', imagen: 'largos' },
-  { clave: 'acompanar', imagen: 'largosChocolate' },
+  { clave: 'rueda', imagen: 'rueda' },
+  { clave: 'acompanar', imagen: 'ruedaChocolate' },
 ];
 
 export function Productos() {

@@ -1,5 +1,5 @@
 // PÁGINA DE INICIO
-// Portada, productos, El Don de Latas, la casa y cómo visitarnos.
+// Portada, productos, Los caprichos del Don, la casa y cómo visitarnos.
 // Los textos están en messages/*.json → "inicio" (en borrador hasta que Edu los apruebe).
 import { setRequestLocale } from 'next-intl/server';
 import { use } from 'react';

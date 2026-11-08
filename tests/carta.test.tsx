@@ -20,9 +20,9 @@ const CARTA_PRUEBA: Producto[] = [
     precio: null,
   },
   {
-    id: 'largos',
+    id: 'rueda',
     categoria: { es: 'Churros', en: 'Churros' },
-    nombre: { es: 'Ración de largos', en: 'Thick churros' },
+    nombre: { es: 'Ración de rueda', en: 'Churro wheel' },
     descripcion: { es: 'Esponjosos.', en: 'Fluffy.' },
     precio: 3,
   },
@@ -36,7 +36,7 @@ describe('<ListaCarta>', () => {
     const churros = screen.getByRole('region', { name: 'Churros' });
     expect(within(churros).getAllByRole('heading', { level: 3 }).map((h) => h.textContent)).toEqual([
       'Ración de finos',
-      'Ración de largos',
+      'Ración de rueda',
     ]);
   });
 

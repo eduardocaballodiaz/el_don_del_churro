@@ -41,8 +41,7 @@
       "direccion": "Dirección",
       "horario": "Horario",
       "comoLlegar": "Cómo llegar",
-      "mapaAlt": "Plano ilustrado con la ubicación de El Don del Churro",
-      "cargarMapa": "Cargar mapa interactivo",
+      "cargarMapa": "Cargar mapa de Google",
       "avisoMapa": "Al cargar el mapa, Google recibirá datos de tu navegación (como tu dirección IP) y puede usar cookies. Más información en la política de cookies.",
       "mapaTitulo": "Mapa de Google con la ubicación de El Don del Churro"
     }

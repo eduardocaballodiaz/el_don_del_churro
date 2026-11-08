@@ -41,8 +41,7 @@
       "direccion": "Address",
       "horario": "Opening hours",
       "comoLlegar": "Get directions",
-      "mapaAlt": "Illustrated map showing where El Don del Churro is",
-      "cargarMapa": "Load interactive map",
+      "cargarMapa": "Load Google map",
       "avisoMapa": "When the map loads, Google will receive browsing data (such as your IP address) and may use cookies. See our cookie policy for details.",
       "mapaTitulo": "Google map showing El Don del Churro"
     }

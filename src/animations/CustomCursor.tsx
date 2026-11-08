@@ -1,10 +1,9 @@
 'use client';
 
-// CURSOR DORADO: un punto de luz que sigue al ratón con suavidad y crece sobre
+// CURSOR DORADO: un punto de luz pegado a la flecha del ratón (sin retardo) que crece sobre
 // los elementos que se pueden pulsar. El cursor normal del sistema se mantiene
 // (accesibilidad). Solo con ratón y sin movimiento reducido.
 import { useEffect, useRef } from 'react';
-import { gsap } from './gsap';
 import { usePunteroFino } from './usePunteroFino';
 import { useReducedMotion } from './useReducedMotion';
 import styles from './CustomCursor.module.css';
@@ -19,12 +18,9 @@ export function CustomCursor() {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const x = gsap.quickTo(el, 'x', { duration: 0.35, ease: 'power3.out' });
-    const y = gsap.quickTo(el, 'y', { duration: 0.35, ease: 'power3.out' });
-
     const mover = (e: PointerEvent) => {
-      x(e.clientX);
-      y(e.clientY);
+      // Se coloca directamente en la posición del ratón: va pegado, sin retardo.
+      el.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
       el.dataset.visible = 'true';
       const sobre = (e.target as Element | null)?.closest?.(INTERACTIVOS);
       el.dataset.grande = sobre ? 'true' : 'false';

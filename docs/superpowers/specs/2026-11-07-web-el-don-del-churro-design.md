@@ -171,7 +171,7 @@ Datos pendientes:
 ## 11. Normativa
 
 - **Cookies:** la web **no usará cookies que necesiten consentimiento**. Por eso **no lleva banner**, pero sí una política de cookies que explica que solo hay cookies técnicas (o ninguna). Si en el futuro se añade Google Analytics, el píxel de Meta, vídeos de YouTube o similares, habrá que poner un banner conforme a la AEPD, con "Aceptar" y "Rechazar" igual de visibles.
-- **Mapa [propuesta]:** un **plano ilustrado propio** en SVG, con el estilo de la marca (calles cercanas, la Alameda de Hércules como referencia y el sello en la ubicación). No necesita cuentas ni claves y no conecta con nadie. Debajo, un botón "Cómo llegar" que abre Google Maps en una pestaña nueva (es un enlace normal, sin cookies). Opcionalmente, el mapa interactivo de Google se carga solo si el usuario pulsa, con un aviso de que se conecta a Google. No se usa Google Static Maps (pediría una clave y datos de facturación).
+- **Mapa [decidido por Edu, 8-nov: solo el mapa de Google; se retira el plano ilustrado]:** antes había un **plano ilustrado propio** en SVG, con el estilo de la marca (calles cercanas, la Alameda de Hércules como referencia y el sello en la ubicación). No necesita cuentas ni claves y no conecta con nadie. Debajo, un botón "Cómo llegar" que abre Google Maps en una pestaña nueva (es un enlace normal, sin cookies). Opcionalmente, el mapa interactivo de Google se carga solo si el usuario pulsa, con un aviso de que se conecta a Google. No se usa Google Static Maps (pediría una clave y datos de facturación).
 - **Tipografías:** alojadas en el propio dominio.
 - **Formulario:**
   - casilla de aceptación de la privacidad, sin marcar por defecto;

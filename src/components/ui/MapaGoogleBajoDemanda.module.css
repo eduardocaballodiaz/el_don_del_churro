@@ -1,21 +1,43 @@
-.aviso {
-  display: grid;
-  gap: var(--espacio-3);
-  justify-items: start;
-  font-size: 0.85rem;
-  color: var(--texto-suave);
+/* Marco del mapa: mismo tamaño antes y después de cargarlo (la página no salta). */
+.marco {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border: 0;
+  border-radius: var(--radio);
+  box-shadow: 0 30px 60px -30px rgb(35 40 26 / 0.45);
 }
 
-.aviso a {
-  color: var(--oliva);
+/* Antes de cargar: verde oliva con luz cálida, el sello, la dirección y el botón. */
+.espera {
+  /* Columna centrada que se adapta al ancho (con "grid + place-content" el
+     contenido tomaba su ancho natural y desbordaba la pantalla en el móvil). */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  gap: var(--espacio-3);
+  padding: var(--espacio-6);
+  color: var(--crema);
+  text-align: center;
+  background:
+    radial-gradient(60% 60% at 50% 35%, rgb(255 194 77 / 0.2), transparent 70%),
+    var(--oliva);
+}
+
+.direccion {
+  font-family: var(--fuente-titulos);
+  font-size: 1.35rem;
 }
 
 .boton {
-  padding: 12px 22px;
-  border: 1px solid var(--oliva);
+  margin-top: var(--espacio-2);
+  padding: 12px 24px;
+  border: 1px solid var(--oro);
   border-radius: 999px;
-  background: transparent;
-  color: var(--oliva);
+  background: var(--oro);
+  color: var(--oliva-oscuro);
   font: inherit;
   font-size: 0.8rem;
   font-weight: 600;
@@ -24,19 +46,23 @@
   cursor: pointer;
   transition:
     background-color 0.3s,
-    color 0.3s;
+    box-shadow 0.3s;
 }
 
 @media (hover: hover) {
   .boton:hover {
-    background: var(--oliva);
-    color: var(--crema);
+    background: #e2b65c;
+    box-shadow: 0 0 24px rgb(255 194 77 / 0.5);
   }
 }
 
-.mapa {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  border: 0;
-  border-radius: var(--radio);
+.nota {
+  max-width: 44ch;
+  color: var(--crema-suave);
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.nota a {
+  color: var(--oro);
 }

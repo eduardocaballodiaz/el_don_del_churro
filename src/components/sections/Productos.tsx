@@ -25,7 +25,7 @@ export function Productos() {
             {t('titulo')}
           </h2>
         </Reveal>
-        <div className={styles.rejilla}>
+        <div className={`${styles.rejilla} grupo-tarjetas`}>
           {PRODUCTOS.map(({ clave, imagen }, i) => (
             <Reveal key={clave} delay={i * 0.12}>
               <ProductCard imagen={imagen} titulo={t(`${clave}.titulo`)} texto={t(`${clave}.texto`)} />

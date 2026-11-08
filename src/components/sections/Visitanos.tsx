@@ -1,4 +1,4 @@
-// VISÍTANOS: dirección, horario, plano ilustrado, "Cómo llegar" y mapa de Google bajo demanda.
+// VISÍTANOS: dirección, horario, "Cómo llegar" y el mapa de Google (se carga al pulsar).
 import { useLocale, useTranslations } from 'next-intl';
 import { Reveal } from '@/animations/Reveal';
 import { Button } from '@/components/ui/Button';
@@ -6,7 +6,6 @@ import { MapaGoogleBajoDemanda } from '@/components/ui/MapaGoogleBajoDemanda';
 import { formatearHorario, negocio } from '@/content/negocio';
 import type { Locale } from '@/i18n/routing';
 import { urlComoLlegar } from '@/lib/mapas';
-import { MapaIlustrado } from './MapaIlustrado';
 import s from './seccion.module.css';
 import styles from './Visitanos.module.css';
 
@@ -55,7 +54,6 @@ export function Visitanos() {
         </div>
 
         <Reveal className={styles.mapa}>
-          <MapaIlustrado etiqueta={calle} alt={t('mapaAlt')} />
           <MapaGoogleBajoDemanda />
         </Reveal>
       </div>

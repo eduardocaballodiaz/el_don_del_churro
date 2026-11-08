@@ -1,4 +1,6 @@
 .rejilla {
+  position: relative;
+  z-index: 1; /* la tarjeta que crece queda por encima de lo que la rodea */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--espacio-6);

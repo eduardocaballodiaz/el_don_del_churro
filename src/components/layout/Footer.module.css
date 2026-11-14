@@ -107,3 +107,14 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* "Configurar cookies": un botón con aspecto de enlace, como los legales. */
+.botonLegal {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--crema-suave);
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}

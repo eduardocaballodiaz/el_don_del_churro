@@ -1,0 +1,77 @@
+/* Banner discreto abajo, con los colores de la marca. */
+.banner {
+  position: fixed;
+  right: var(--espacio-4);
+  bottom: var(--espacio-4);
+  left: var(--espacio-4);
+  z-index: 150;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-4);
+  max-width: 980px;
+  margin-inline: auto;
+  padding: var(--espacio-4) var(--espacio-5);
+  border: 1px solid rgb(212 164 72 / 0.5);
+  border-radius: var(--radio);
+  color: var(--crema);
+  background: var(--oliva-oscuro);
+  box-shadow: 0 20px 50px -20px rgb(0 0 0 / 0.6);
+  animation: sube 0.5s var(--curva-suave) both;
+}
+
+@keyframes sube {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+
+.texto {
+  flex: 1 1 420px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.texto a {
+  color: var(--oro);
+}
+
+.botones {
+  display: flex;
+  gap: var(--espacio-3);
+}
+
+/* Los dos botones, iguales (mismo peso para aceptar y rechazar). */
+.boton {
+  min-width: 120px;
+  min-height: 44px;
+  padding: 10px 22px;
+  border: 1px solid var(--oro);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--crema);
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
+
+@media (hover: hover) {
+  .boton:hover {
+    background: var(--oro);
+    color: var(--oliva-oscuro);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .banner {
+    animation: none;
+  }
+}

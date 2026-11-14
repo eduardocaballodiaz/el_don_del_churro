@@ -13,6 +13,7 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { MotionProvider } from '@/animations/MotionProvider';
 import { CustomCursor } from '@/animations/CustomCursor';
+import { BannerCookies } from '@/components/consentimiento/BannerCookies';
 import { fuenteTexto, fuenteTitulos } from '@/styles/fonts';
 import '@/styles/globals.css';
 
@@ -68,6 +69,7 @@ export default async function LocaleLayout({ children, params }: Props) {
             {children}
             <Footer />
             <CustomCursor />
+            <BannerCookies />
           </MotionProvider>
         </NextIntlClientProvider>
       </body>

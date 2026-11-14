@@ -17,8 +17,8 @@ test('con la política de seguridad, la web sigue funcionando (sin errores de CS
   const errores: string[] = [];
   page.on('console', (m) => m.type() === 'error' && errores.push(m.text()));
   await page.goto('/');
-  await page.getByRole('button', { name: /cargar mapa/i }).click();
-  await expect(page.locator('iframe')).toBeVisible();
+  await page.getByRole('region', { name: /cookies/i }).getByRole('button', { name: 'Aceptar' }).click();
+  await expect(page.locator('#visitanos iframe')).toBeVisible();
   await page.goto('/contacto');
   expect(errores.filter((e) => /Content Security Policy/i.test(e))).toEqual([]);
 });

@@ -41,8 +41,6 @@
       "direccion": "Dirección",
       "horario": "Horario",
       "comoLlegar": "Cómo llegar",
-      "cargarMapa": "Cargar mapa de Google",
-      "avisoMapa": "Al cargar el mapa, Google recibirá datos de tu navegación (como tu dirección IP) y puede usar cookies. Más información en la política de cookies.",
       "mapaTitulo": "Mapa de Google con la ubicación de El Don del Churro"
     }
   },
@@ -134,7 +132,7 @@
     },
     "cookies": {
       "titulo": "Política de cookies · El Don del Churro",
-      "descripcion": "Esta web no usa cookies. Te explicamos los detalles."
+      "descripcion": "Qué cookies usa la web y cómo cambiar tu decisión."
     },
     "og": {
       "lema": "Churros recién hechos en el centro de Sevilla"
@@ -229,25 +227,38 @@
       "titulo": "Política de cookies",
       "secciones": [
         {
-          "titulo": "Esta web no usa cookies",
+          "titulo": "Cookies propias: ninguna",
           "parrafos": [
-            "Al navegar por eldondelchurro.com no instalamos cookies propias ni de terceros, ni usamos herramientas de analítica o publicidad. Las tipografías se sirven desde nuestro propio dominio. Por eso no te mostramos ningún aviso para aceptarlas."
+            "Al navegar por eldondelchurro.com no instalamos cookies propias ni usamos herramientas de analítica o publicidad. Las tipografías se sirven desde nuestro propio dominio."
           ]
         },
         {
-          "titulo": "El mapa de Google, solo si lo pides",
+          "titulo": "El mapa de Google, solo con tu permiso",
           "parrafos": [
-            "En la sección «Visítanos» puedes cargar un mapa interactivo de Google. Solo se carga si pulsas el botón. A partir de ese momento, Google puede recibir datos de tu navegación (como tu dirección IP) e instalar sus propias cookies, según su política de privacidad (policies.google.com/privacy).",
+            "En la sección «Visítanos» mostramos un mapa de Google con nuestra ubicación. Al cargarlo, Google recibe datos de tu navegación (como tu dirección IP) y puede instalar sus propias cookies, según su política de privacidad (policies.google.com/privacy).",
+            "Por eso, la primera vez que entras te preguntamos con un aviso. Si aceptas, el mapa aparece directamente; si rechazas, no se carga nada de Google y verás nuestra dirección y el enlace «Cómo llegar».",
+            "Para recordar lo que has elegido, guardamos tu decisión en tu navegador (almacenamiento local). Es un dato técnico, no es una cookie y no se envía a ningún sitio."
+          ]
+        },
+        {
+          "titulo": "Cómo cambiar tu decisión",
+          "parrafos": [
+            "Puedes cambiarla cuando quieras con el botón «Configurar cookies» que hay al pie de cada página, o borrando los datos de este sitio en tu navegador.",
             "El enlace «Cómo llegar» abre Google Maps en otra pestaña; lo que ocurra allí se rige por las condiciones de Google."
-          ]
-        },
-        {
-          "titulo": "Cambios",
-          "parrafos": [
-            "Si en el futuro añadimos herramientas que usen cookies, actualizaremos esta política y te pediremos permiso antes de instalarlas."
           ]
         }
       ]
     }
+  },
+  "consentimiento": {
+    "_estado": "borrador",
+    "titulo": "Cookies",
+    "texto": "Para mostrarte el mapa de Google con nuestra ubicación necesitamos tu permiso: al cargarlo, Google recibe tu dirección IP y puede usar sus cookies. El resto de la web no usa cookies.",
+    "aceptar": "Aceptar",
+    "rechazar": "Rechazar",
+    "masInfo": "Más información",
+    "configurar": "Configurar cookies",
+    "mapaBloqueado": "El mapa de Google aparece si aceptas sus cookies.",
+    "activarMapa": "Mostrar el mapa de Google"
   }
 }

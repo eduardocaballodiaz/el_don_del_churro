@@ -20,13 +20,10 @@ for (const ruta of ['/', '/en']) {
   });
 }
 
-test('el mapa de Google solo se carga al pulsar', async ({ page }) => {
+test('sin consentimiento no hay mapa de Google ni plano ilustrado', async ({ page }) => {
   await page.goto('/');
   await expect(page.locator('iframe')).toHaveCount(0);
-  // Solo el mapa de Google: no hay plano ilustrado.
   await expect(page.locator('#visitanos svg[role="img"]')).toHaveCount(0);
-  await page.getByRole('button', { name: /cargar mapa/i }).click();
-  await expect(page.locator('iframe')).toHaveAttribute('src', /google\.com\/maps/);
 });
 
 test('"Cómo llegar" abre Google Maps con la dirección en otra pestaña', async ({ page }) => {

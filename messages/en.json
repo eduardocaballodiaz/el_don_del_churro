@@ -41,8 +41,6 @@
       "direccion": "Address",
       "horario": "Opening hours",
       "comoLlegar": "Get directions",
-      "cargarMapa": "Load Google map",
-      "avisoMapa": "When the map loads, Google will receive browsing data (such as your IP address) and may use cookies. See our cookie policy for details.",
       "mapaTitulo": "Google map showing El Don del Churro"
     }
   },
@@ -134,7 +132,7 @@
     },
     "cookies": {
       "titulo": "Cookie policy · El Don del Churro",
-      "descripcion": "This website does not use cookies. Here are the details."
+      "descripcion": "Which cookies this website uses and how to change your choice."
     },
     "og": {
       "lema": "Freshly made churros in the heart of Seville"
@@ -229,25 +227,38 @@
       "titulo": "Cookie policy",
       "secciones": [
         {
-          "titulo": "This website does not use cookies",
+          "titulo": "Our own cookies: none",
           "parrafos": [
-            "When you browse eldondelchurro.com we do not set any first-party or third-party cookies, and we do not use analytics or advertising tools. Fonts are served from our own domain. That is why we don't show you a cookie banner."
+            "When you browse eldondelchurro.com we do not set any cookies of our own, and we do not use analytics or advertising tools. Fonts are served from our own domain."
           ]
         },
         {
-          "titulo": "Google Maps, only if you ask for it",
+          "titulo": "Google Maps, only with your permission",
           "parrafos": [
-            "In the “Visit us” section you can load an interactive Google map. It only loads if you press the button. From that moment, Google may receive browsing data (such as your IP address) and set its own cookies, under its privacy policy (policies.google.com/privacy).",
+            "In the “Visit us” section we show a Google map with our location. When it loads, Google receives browsing data (such as your IP address) and may set its own cookies, under its privacy policy (policies.google.com/privacy).",
+            "That is why we ask you with a notice the first time you visit. If you accept, the map appears straight away; if you reject, nothing from Google is loaded and you will see our address and the “Get directions” link.",
+            "To remember your choice, we store it in your browser (local storage). It is a technical setting, not a cookie, and it is never sent anywhere."
+          ]
+        },
+        {
+          "titulo": "How to change your choice",
+          "parrafos": [
+            "You can change it at any time with the “Cookie settings” button at the bottom of every page, or by clearing this site's data in your browser.",
             "The “Get directions” link opens Google Maps in a new tab; what happens there is governed by Google's terms."
-          ]
-        },
-        {
-          "titulo": "Changes",
-          "parrafos": [
-            "If we ever add tools that use cookies, we will update this policy and ask for your permission before setting them."
           ]
         }
       ]
     }
+  },
+  "consentimiento": {
+    "_estado": "borrador",
+    "titulo": "Cookies",
+    "texto": "To show you the Google map with our location we need your permission: when it loads, Google receives your IP address and may use its cookies. The rest of the website uses no cookies.",
+    "aceptar": "Accept",
+    "rechazar": "Reject",
+    "masInfo": "More information",
+    "configurar": "Cookie settings",
+    "mapaBloqueado": "The Google map appears if you accept its cookies.",
+    "activarMapa": "Show the Google map"
   }
 }

@@ -13,7 +13,7 @@ export function urlComoLlegar(): string {
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(direccionCompleta())}`;
 }
 
-/** Mapa de Google para incrustar. Solo se usa tras el clic del usuario (ver MapaGoogleBajoDemanda). */
+/** Mapa de Google para incrustar. Solo se usa con el consentimiento del visitante (ver MapaGoogle). */
 export function urlMapaIncrustado(): string {
   return `https://www.google.com/maps?q=${encodeURIComponent(direccionCompleta())}&output=embed`;
 }

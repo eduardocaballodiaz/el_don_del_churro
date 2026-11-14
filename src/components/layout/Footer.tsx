@@ -7,6 +7,7 @@ import { Link } from '@/i18n/navigation';
 import type { Locale } from '@/i18n/routing';
 import { formatearHorario, negocio } from '@/content/negocio';
 import { urlComoLlegar } from '@/lib/mapas';
+import { ConfigurarCookies } from '@/components/consentimiento/ConfigurarCookies';
 import { ENLACE_CONTACTO, ENLACES_MENU } from './navegacion';
 import styles from './Footer.module.css';
 
@@ -98,6 +99,7 @@ export async function Footer() {
           <Link href="/aviso-legal">{t('avisoLegal')}</Link>
           <Link href="/privacidad">{t('privacidad')}</Link>
           <Link href="/cookies">{t('cookies')}</Link>
+          <ConfigurarCookies className={styles.botonLegal} />
         </nav>
       </div>
     </footer>

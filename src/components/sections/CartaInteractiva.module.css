@@ -8,7 +8,7 @@
 .categorias {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--espacio-5);
   margin-top: var(--espacio-6);
 }
@@ -71,6 +71,31 @@
   height: 100%;
   object-fit: cover;
   transition: transform 1.2s var(--curva-suave);
+}
+
+/* Categoría sin foto todavía: el sello sobre verde oliva con luz cálida. */
+.sinFoto {
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(60% 60% at 50% 40%, rgb(255 194 77 / 0.22), transparent 70%),
+    var(--oliva);
+}
+
+.sinFoto img {
+  width: 42%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Foto de producto dentro del panel (las latas son verticales). */
+.itemFoto {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  margin-bottom: var(--espacio-3);
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 .cuerpo {
@@ -178,6 +203,7 @@
 }
 
 .dos {
+  margin-bottom: var(--espacio-4);
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--espacio-5);

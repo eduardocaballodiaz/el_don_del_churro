@@ -3,11 +3,14 @@
 // Los títulos y textos están en messages/*.json → inicio.productos.categorias.
 import type { ImagenId } from './imagenes';
 
-export type CategoriaId = 'churros' | 'cafe' | 'toppings' | 'caprichos';
+export type CategoriaId = 'churros' | 'cafe' | 'toppings' | 'caprichos' | 'tostadas' | 'crepes';
 
-export const CATEGORIAS: { id: CategoriaId; seccionCarta: string; imagen: ImagenId }[] = [
-  { id: 'churros', seccionCarta: 'Los de siempre', imagen: 'finos' },
-  { id: 'cafe', seccionCarta: 'El momento café', imagen: 'finosCafe' },
+/** `imagen: null` = aún no hay foto: la tarjeta muestra el sello de la marca. */
+export const CATEGORIAS: { id: CategoriaId; seccionCarta: string; imagen: ImagenId | null }[] = [
+  { id: 'churros', seccionCarta: 'Churros', imagen: 'finos' },
+  { id: 'cafe', seccionCarta: 'Momento café', imagen: 'finosCafe' },
   { id: 'toppings', seccionCarta: 'Crea tu experiencia', imagen: 'finosChocolate' },
-  { id: 'caprichos', seccionCarta: 'Los caprichos del Don', imagen: 'latas' },
+  { id: 'caprichos', seccionCarta: 'Los caprichos del Don', imagen: 'lataChocolate' },
+  { id: 'tostadas', seccionCarta: 'Tostadas', imagen: null },
+  { id: 'crepes', seccionCarta: 'Crepes y gofres', imagen: null },
 ];

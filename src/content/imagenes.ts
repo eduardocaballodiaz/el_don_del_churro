@@ -23,7 +23,11 @@ export type ImagenId =
   | 'rueda'
   | 'ruedaCafe'
   | 'ruedaChocolate'
-  | 'latas';
+  | 'latas'
+  | 'lataChocolate'
+  | 'lataPistacho'
+  | 'lataTartaAbuela'
+  | 'lataTartaQueso';
 
 export const imagenes: Record<ImagenId, Imagen> = {
   finos: {
@@ -93,6 +97,46 @@ export const imagenes: Record<ImagenId, Imagen> = {
     alt: {
       es: 'Dos postres en lata: uno de chocolate y otro de pistacho con nata',
       en: 'Two desserts in a can: one chocolate, one pistachio with cream',
+    },
+    provisional: true,
+  },
+  lataChocolate: {
+    src: '/img/lata-chocolate.webp',
+    ancho: 1024,
+    alto: 1535,
+    alt: {
+      es: 'Lata transparente de Los caprichos del Don: chocolate en capas con virutas',
+      en: 'Clear can from Los caprichos del Don: layered chocolate dessert with shavings',
+    },
+    provisional: true,
+  },
+  lataPistacho: {
+    src: '/img/lata-pistacho.webp',
+    ancho: 1024,
+    alto: 1535,
+    alt: {
+      es: 'Lata transparente de Los caprichos del Don: pistacho en capas con pistacho troceado',
+      en: 'Clear can from Los caprichos del Don: layered pistachio dessert with chopped pistachios',
+    },
+    provisional: true,
+  },
+  lataTartaAbuela: {
+    src: '/img/lata-tarta-abuela.webp',
+    ancho: 1024,
+    alto: 1535,
+    alt: {
+      es: 'Lata transparente de Los caprichos del Don: tarta de la abuela en capas',
+      en: "Clear can from Los caprichos del Don: layered grandma's cake",
+    },
+    provisional: true,
+  },
+  lataTartaQueso: {
+    src: '/img/lata-tarta-queso.webp',
+    ancho: 1024,
+    alto: 1536,
+    alt: {
+      es: 'Lata transparente de Los caprichos del Don: tarta de queso en capas',
+      en: 'Clear can from Los caprichos del Don: layered cheesecake',
     },
     provisional: true,
   },

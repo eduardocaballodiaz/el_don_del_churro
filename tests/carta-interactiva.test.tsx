@@ -14,7 +14,7 @@ function pintar() {
 }
 
 describe('<CartaInteractiva>', () => {
-  it('muestra las cuatro categorías, todas cerradas', () => {
+  it('muestra las seis categorías de la carta, todas cerradas', () => {
     pintar();
     const botones = screen.getAllByRole('button', { expanded: false });
     expect(botones.map((b) => b.textContent)).toEqual([
@@ -22,6 +22,8 @@ describe('<CartaInteractiva>', () => {
       expect.stringContaining('Café y chocolate'),
       expect.stringContaining('Toppings'),
       expect.stringContaining('Los caprichos del Don'),
+      expect.stringContaining('Tostadas'),
+      expect.stringContaining('Crepes y gofres'),
     ]);
   });
 
@@ -34,6 +36,7 @@ describe('<CartaInteractiva>', () => {
     expect(within(panel).getByRole('heading', { name: 'Finos' })).toBeInTheDocument();
     expect(within(panel).getByRole('heading', { name: 'Rueda' })).toBeInTheDocument();
     expect(within(panel).getByText(/calentitos/)).toBeInTheDocument();
+    expect(within(panel).getByRole('heading', { name: 'Rellenos (1 ud)' })).toBeInTheDocument();
   });
 
   it('solo hay una categoría abierta a la vez y se cierra al volver a pulsar', () => {

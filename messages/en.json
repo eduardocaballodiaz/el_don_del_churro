@@ -9,7 +9,7 @@
       "comoLlegar": "Get directions"
     },
     "productos": {
-      "_estado": "aprobado",
+      "_estado": "borrador",
       "etiqueta": "What we make",
       "titulo": "Our menu",
       "pista": "Tap a card to see what's inside.",
@@ -21,7 +21,7 @@
         },
         "cafe": {
           "titulo": "Coffee & chocolate",
-          "texto": "The perfect companion."
+          "texto": "Three sizes, from €1.50."
         },
         "toppings": {
           "titulo": "Toppings",
@@ -30,6 +30,14 @@
         "caprichos": {
           "titulo": "Los caprichos del Don",
           "texto": "Desserts in a clear can."
+        },
+        "tostadas": {
+          "titulo": "Toast",
+          "texto": "Half or whole, plain or with ham."
+        },
+        "crepes": {
+          "titulo": "Crêpes & waffles",
+          "texto": "One topping included."
         }
       },
       "churros": {
@@ -47,7 +55,7 @@
     "latas": {
       "etiqueta": "Desserts in a can",
       "titulo": "Los caprichos del Don",
-      "texto": "Layered desserts served in a clear can: pistachio, chocolate, biscuit and cake.",
+      "texto": "Layered desserts served in a clear can: pistachio, grandma's cake, chocolate and cheesecake.",
       "nota": "Sealed, they travel anywhere."
     },
     "nosotros": {

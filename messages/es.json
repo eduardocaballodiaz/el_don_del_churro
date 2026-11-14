@@ -9,7 +9,7 @@
       "comoLlegar": "Cómo llegar"
     },
     "productos": {
-      "_estado": "aprobado",
+      "_estado": "borrador",
       "etiqueta": "Lo nuestro",
       "titulo": "Nuestra carta",
       "pista": "Toca una tarjeta para ver lo que hay dentro.",
@@ -21,7 +21,7 @@
         },
         "cafe": {
           "titulo": "Café y chocolate",
-          "texto": "El acompañamiento perfecto."
+          "texto": "En tres tamaños, desde 1,50 €."
         },
         "toppings": {
           "titulo": "Toppings",
@@ -30,6 +30,14 @@
         "caprichos": {
           "titulo": "Los caprichos del Don",
           "texto": "Postres en lata transparente."
+        },
+        "tostadas": {
+          "titulo": "Tostadas",
+          "texto": "Media o entera, simple o con jamón."
+        },
+        "crepes": {
+          "titulo": "Crepes y gofres",
+          "texto": "Con un topping incluido."
         }
       },
       "churros": {
@@ -47,7 +55,7 @@
     "latas": {
       "etiqueta": "Postres en lata",
       "titulo": "Los caprichos del Don",
-      "texto": "Postres en capas servidos en lata transparente: pistacho, chocolate, galleta y tarta.",
+      "texto": "Postres en capas servidos en lata transparente: pistacho, tarta de la abuela, chocolate y tarta de queso.",
       "nota": "Cerrados, se llevan a cualquier parte."
     },
     "nosotros": {

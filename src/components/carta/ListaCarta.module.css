@@ -81,6 +81,28 @@
   font-size: 0.95rem;
 }
 
+/* Tamaños o formatos con su precio: "Pequeño 1,50 € · Mediano 1,80 € · …" */
+.variantes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-2) var(--espacio-4);
+  margin: var(--espacio-2) 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.92rem;
+}
+
+.variantes li {
+  display: inline-flex;
+  gap: 6px;
+  color: var(--texto-suave);
+}
+
+.precioVariante {
+  color: var(--oliva);
+  font-weight: 600;
+}
+
 /* Alérgenos: etiquetas pequeñas con borde dorado. */
 .alergenos {
   display: flex;

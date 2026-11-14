@@ -18,7 +18,8 @@ test('el halo del logo se enciende sin parpadeo', async ({ page, isMobile }) => 
 
 test('no se activa el scroll suave', async ({ page }) => {
   await page.goto('/');
-  await page.waitForLoadState('networkidle');
+  // Se espera a que la web haya arrancado (no a que la red esté en silencio, que es frágil).
+  await expect(page.locator('html')).toHaveClass(/\bhidratado\b/);
   // Lenis añade la clase "lenis" a <html> cuando está activo.
   await expect(page.locator('html')).not.toHaveClass(/\blenis\b/);
 });

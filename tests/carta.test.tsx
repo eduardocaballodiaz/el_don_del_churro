@@ -92,14 +92,87 @@ describe('<ListaCarta>', () => {
   });
 });
 
-describe('carta de El Don del Churro', () => {
+describe('carta de El Don del Churro (documento de Edu, 14-nov)', () => {
+  const seccion = (nombre: string) => carta.filter((p) => p.categoria.es === nombre);
+  const precios = (p: Producto) => p.variantes?.map((v) => v.precio);
+
+  it('tiene las secciones en el orden del documento', () => {
+    expect([...new Set(carta.map((p) => p.categoria.es))]).toEqual([
+      'Churros',
+      'Momento café',
+      'Crea tu experiencia',
+      'Los caprichos del Don',
+      'Tostadas',
+      'Crepes y gofres',
+    ]);
+  });
+
+  it('churros: rueda, finos y rellenos a 3,00 €', () => {
+    const churros = seccion('Churros');
+    expect(churros.map((p) => p.nombre.es)).toEqual(['De rueda (5 uds)', 'Finos (5 uds)', 'Rellenos (1 ud)']);
+    for (const p of churros) expect(p.precio).toBe(3);
+  });
+
+  it('momento café: siete bebidas en tres tamaños (1,50 / 1,80 / 2,50 €)', () => {
+    const cafes = seccion('Momento café');
+    expect(cafes).toHaveLength(7);
+    for (const p of cafes) expect(precios(p)).toEqual([1.5, 1.8, 2.5]);
+  });
+
   it('tiene los cuatro toppings a +0,50 €', () => {
-    const toppings = carta.filter((p) => p.categoria.es === 'Crea tu experiencia');
+    const toppings = seccion('Crea tu experiencia');
     expect(toppings.map((p) => p.nombre.es)).toEqual(['Nutella', 'Pistacho', 'Chocolate blanco', 'Kinder']);
     for (const t of toppings) {
       expect(t.precio).toBe(0.5);
       expect(t.suplemento).toBe(true);
     }
   });
+
+  it('los caprichos del Don son las cuatro latas, cada una con su foto', () => {
+    const latas = seccion('Los caprichos del Don');
+    expect(latas.map((p) => p.nombre.es)).toEqual(['Pistacho', 'Tarta de la abuela', 'Chocolate', 'Tarta de queso']);
+    expect(latas.map((p) => p.imagen)).toEqual(['lataPistacho', 'lataTartaAbuela', 'lataChocolate', 'lataTartaQueso']);
+  });
+
+  it('tostadas: media y entera', () => {
+    const [simple, jamon] = seccion('Tostadas');
+    expect(precios(simple)).toEqual([1.5, 2.5]);
+    expect(precios(jamon)).toEqual([2.5, 3.5]);
+  });
+
+  it('crepes y gofres a 4,00 € con un topping incluido', () => {
+    const cg = seccion('Crepes y gofres');
+    expect(cg.map((p) => [p.nombre.es, p.precio])).toEqual([
+      ['Crepes', 4],
+      ['Gofres', 4],
+    ]);
+    for (const p of cg) expect(p.descripcion.es).toMatch(/topping incluido/i);
+  });
 });
 
+describe('<ListaCarta> con tamaños', () => {
+  it('muestra cada tamaño con su precio', () => {
+    render(
+      <ListaCarta
+        locale="es"
+        productos={[
+          {
+            id: 'latte',
+            categoria: { es: 'Momento café', en: 'Coffee time' },
+            nombre: { es: 'Latte', en: 'Latte' },
+            descripcion: { es: '', en: '' },
+            precio: null,
+            variantes: [
+              { nombre: { es: 'Pequeño', en: 'Small' }, precio: 1.5 },
+              { nombre: { es: 'Grande', en: 'Large' }, precio: 2.5 },
+            ],
+            alergenos: null,
+          },
+        ]}
+      />,
+    );
+    expect(screen.getByText('Pequeño')).toBeInTheDocument();
+    expect(screen.getByText('1,50 €')).toBeInTheDocument();
+    expect(screen.getByText('2,50 €')).toBeInTheDocument();
+  });
+});

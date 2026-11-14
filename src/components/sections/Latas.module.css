@@ -1,31 +1,66 @@
-.rejilla {
+.cabecera {
   display: grid;
-  grid-template-columns: 1.15fr 1fr;
-  align-items: center;
-  gap: clamp(2rem, 6vw, 5rem);
+  justify-items: center;
+  text-align: center;
 }
 
-.foto {
-  overflow: hidden;
-  border-radius: 22px;
-  box-shadow: 0 40px 80px -30px rgb(0 0 0 / 0.6);
+.cabecera p {
+  margin-inline: auto;
 }
 
-.foto img {
+/* Las cuatro latas en fila (dos por fila en el móvil). */
+.latas {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(0.75rem, 2.5vw, 2rem);
+  margin-top: var(--espacio-7);
+  transform-origin: center top;
+}
+
+.lata {
+  margin: 0;
+  text-align: center;
+}
+
+.lata img {
   width: 100%;
   height: auto;
+  border-radius: 18px;
+  /* Luz cálida bajo cada lata, como un escaparate. */
+  filter: drop-shadow(0 26px 30px rgb(0 0 0 / 0.35));
+  transition: transform 0.6s var(--curva-suave);
+}
+
+.lata figcaption {
+  margin-top: var(--espacio-3);
+  color: var(--crema);
+  font-family: var(--fuente-titulos);
+  font-size: 1.25rem;
+}
+
+@media (hover: hover) {
+  .lata:hover img {
+    transform: translateY(-8px) rotate(-2deg);
+  }
 }
 
 .nota {
-  margin-top: var(--espacio-5);
+  margin-top: var(--espacio-6);
   color: var(--oro);
   font-family: var(--fuente-titulos);
   font-size: 1.35rem;
   font-style: italic;
+  text-align: center;
 }
 
-@media (max-width: 900px) {
-  .rejilla {
-    grid-template-columns: 1fr;
+@media (max-width: 700px) {
+  .latas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lata img {
+    transition: none;
   }
 }

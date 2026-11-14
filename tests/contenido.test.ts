@@ -41,8 +41,9 @@ describe('datosPendientes', () => {
     expect(datosPendientes().join(' | ').toLowerCase()).toContain('alérgenos pendientes');
   });
 
-  it('avisa mientras falten precios en la carta', () => {
-    expect(datosPendientes().join(' | ').toLowerCase()).toContain('precios pendientes');
+  it('avisa de los precios que faltan (solo las latas, que no venían en el documento)', () => {
+    const linea = datosPendientes().find((l) => l.startsWith('Precios pendientes'));
+    expect(linea).toBe('Precios pendientes en la carta: Pistacho, Tarta de la abuela, Chocolate, Tarta de queso');
   });
 
   it('avisa mientras queden textos en borrador', () => {

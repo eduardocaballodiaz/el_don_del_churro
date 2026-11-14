@@ -22,8 +22,14 @@ import { Link } from '@/i18n/navigation';
 import styles from './CartaInteractiva.module.css';
 
 function precio(p: Producto | undefined, locale: Locale) {
-  if (!p || p.precio === null) return null;
-  return (p.suplemento ? '+' : '') + formatearPrecio(p.precio, locale);
+  if (!p) return null;
+  if (p.precio !== null) return (p.suplemento ? '+' : '') + formatearPrecio(p.precio, locale);
+  // Con tamaños: "desde 1,50 €"
+  if (p.variantes?.length) {
+    const minimo = Math.min(...p.variantes.map((v) => v.precio));
+    return `${locale === 'es' ? 'desde' : 'from'} ${formatearPrecio(minimo, locale)}`;
+  }
+  return null;
 }
 
 export function CartaInteractiva() {
@@ -63,7 +69,7 @@ export function CartaInteractiva() {
 
       <div className={`${styles.categorias} grupo-categorias`}>
         {CATEGORIAS.map(({ id, imagen }) => {
-          const img = imagenes[imagen];
+          const img = imagen ? imagenes[imagen] : null;
           const activa = abierta === id;
           return (
             <Inclinable key={id} className={styles.inclinable}>
@@ -75,15 +81,16 @@ export function CartaInteractiva() {
                 aria-controls={`panel-${id}`}
                 onClick={() => alternar(id)}
               >
-                <span className={styles.foto}>
-                  {/* Decorativa: el botón ya dice qué categoría es. */}
+                <span className={`${styles.foto} ${img ? '' : styles.sinFoto}`}>
+                  {/* Decorativa: el botón ya dice qué categoría es. Sin foto, el sello de la marca. */}
                   <Image
-                    src={img.src}
+                    src={img ? img.src : '/logo/sello-color.svg'}
                     alt=""
                     aria-hidden="true"
-                    width={img.ancho}
-                    height={img.alto}
+                    width={img ? img.ancho : 160}
+                    height={img ? img.alto : 160}
                     sizes="(max-width: 700px) 50vw, 300px"
+                    unoptimized={!img}
                   />
                 </span>
                 <span className={styles.cuerpo}>
@@ -131,11 +138,35 @@ export function CartaInteractiva() {
                     );
                   })}
                 </div>
+                {/* Otros churros (por ejemplo, los rellenos), en formato compacto. */}
+                <ul className={styles.items}>
+                  {productos
+                    .filter((p) => p.id !== 'churros-finos' && p.id !== 'churros-rueda')
+                    .map((p) => (
+                      <li key={p.id} className={styles.item} data-item>
+                        <div className={styles.linea}>
+                          <h3>{p.nombre[locale]}</h3>
+                          {precio(p, locale) && <span className={styles.precio}>{precio(p, locale)}</span>}
+                        </div>
+                        {p.descripcion[locale] && <p>{p.descripcion[locale]}</p>}
+                      </li>
+                    ))}
+                </ul>
               </>
             ) : (
               <ul className={styles.items}>
                 {productos.map((p) => (
                   <li key={p.id} className={styles.item} data-item>
+                    {p.imagen && (
+                      <Image
+                        className={styles.itemFoto}
+                        src={imagenes[p.imagen].src}
+                        alt={imagenes[p.imagen].alt[locale]}
+                        width={imagenes[p.imagen].ancho}
+                        height={imagenes[p.imagen].alto}
+                        sizes="(max-width: 640px) 100vw, 300px"
+                      />
+                    )}
                     <div className={styles.linea}>
                       <h3>{p.nombre[locale]}</h3>
                       {precio(p, locale) && <span className={styles.precio}>{precio(p, locale)}</span>}

@@ -60,6 +60,16 @@ export function ListaCarta({ productos, locale }: Props) {
                       {p.descripcion[locale] && (
                         <p className={styles.descripcion}>{p.descripcion[locale]}</p>
                       )}
+                      {p.variantes && p.variantes.length > 0 && (
+                        <ul className={styles.variantes}>
+                          {p.variantes.map((v) => (
+                            <li key={v.nombre.es}>
+                              <span>{v.nombre[locale]}</span>
+                              <span className={styles.precioVariante}>{formatearPrecio(v.precio, locale)}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
                       {p.alergenos && p.alergenos.length > 0 && (
                         <ul className={styles.alergenos} aria-label={TEXTOS_ALERGENOS[locale].etiqueta}>
                           {p.alergenos.map((a) => (

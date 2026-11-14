@@ -50,3 +50,18 @@ test('"Lo nuestro": al pulsar Churros se despliegan Finos y Rueda', async ({ pag
   await expect(panel.getByRole('heading', { name: 'Rueda' })).toBeVisible();
   await expect(page.locator('#lo-nuestro')).not.toContainText(/con chocolate o con café/i);
 });
+
+test('el inicio presenta solo Churros y Los caprichos del Don, sin secciones repetidas', async ({ page }) => {
+  await page.goto('/');
+  const botones = page.locator('#lo-nuestro').getByRole('button');
+  await expect(botones).toHaveCount(2);
+  // Los caprichos del Don aparecen una sola vez como título en el inicio.
+  await expect(page.getByRole('main').getByText('Los caprichos del Don', { exact: true })).toHaveCount(1);
+  await page.getByRole('button', { name: /^Los caprichos del Don/ }).click();
+  await expect(page.locator('#panel-caprichos').getByRole('heading')).toHaveText([
+    'Pistacho',
+    'Tarta de la abuela',
+    'Chocolate',
+    'Tarta de queso',
+  ]);
+});

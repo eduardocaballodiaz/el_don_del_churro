@@ -25,4 +25,6 @@ test('con un script inyectado al final del HTML, el menú móvil sigue funcionan
   await expect(page.locator('html')).toHaveClass(/\bjs\b/);
   await boton.click();
   await expect(boton).toHaveAttribute('aria-expanded', 'true');
+  // Deja de interceptar antes de cerrar (Next.js precarga /carta en segundo plano).
+  await page.unrouteAll({ behavior: 'ignoreErrors' });
 });

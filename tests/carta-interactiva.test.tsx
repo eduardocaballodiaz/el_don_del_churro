@@ -1,4 +1,5 @@
-// "Lo nuestro": la carta interactiva de la página de inicio.
+// Presentación de productos del inicio: Churros y, debajo, Los caprichos del Don.
+// Cada uno es una tarjeta que, al pulsarla, despliega sus productos.
 import { fireEvent, render, screen, within } from '@testing-library/react';
 import { NextIntlClientProvider } from 'next-intl';
 import { describe, expect, it } from 'vitest';
@@ -14,17 +15,14 @@ function pintar() {
 }
 
 describe('<CartaInteractiva>', () => {
-  it('muestra las seis categorías de la carta, todas cerradas', () => {
+  it('solo presenta Churros y, después, Los caprichos del Don, ambos cerrados', () => {
     pintar();
     const botones = screen.getAllByRole('button', { expanded: false });
     expect(botones.map((b) => b.textContent)).toEqual([
       expect.stringContaining('Churros'),
-      expect.stringContaining('Café y chocolate'),
-      expect.stringContaining('Toppings'),
       expect.stringContaining('Los caprichos del Don'),
-      expect.stringContaining('Tostadas'),
-      expect.stringContaining('Crepes y gofres'),
     ]);
+    expect(screen.queryByText(/tostadas|crepes|toppings|café/i)).toBeNull();
   });
 
   it('al pulsar Churros aparecen Finos y Rueda con su origen', () => {
@@ -36,24 +34,25 @@ describe('<CartaInteractiva>', () => {
     expect(within(panel).getByRole('heading', { name: 'Finos' })).toBeInTheDocument();
     expect(within(panel).getByRole('heading', { name: 'Rueda' })).toBeInTheDocument();
     expect(within(panel).getByText(/calentitos/)).toBeInTheDocument();
-    expect(within(panel).queryByText(/rellenos/i)).toBeNull();
   });
 
-  it('solo hay una categoría abierta a la vez y se cierra al volver a pulsar', () => {
+  it('al pulsar Los caprichos del Don aparecen los cuatro sabores', () => {
+    pintar();
+    fireEvent.click(screen.getByRole('button', { name: /^Los caprichos del Don/ }));
+    const panel = screen.getByRole('region', { name: /^Los caprichos del Don/ });
+    expect(within(panel).getAllByRole('heading').map((h) => h.textContent)).toEqual([
+      'Pistacho',
+      'Tarta de la abuela',
+      'Chocolate',
+      'Tarta de queso',
+    ]);
+  });
+
+  it('se cierra al volver a pulsar', () => {
     pintar();
     const churros = screen.getByRole('button', { name: /^Churros/ });
-    const cafe = screen.getByRole('button', { name: /^Café y chocolate/ });
     fireEvent.click(churros);
-    fireEvent.click(cafe);
+    fireEvent.click(churros);
     expect(churros).toHaveAttribute('aria-expanded', 'false');
-    expect(cafe).toHaveAttribute('aria-expanded', 'true');
-    expect(screen.getByRole('region', { name: /^Café y chocolate/ })).toHaveTextContent('Chocolate caliente');
-    fireEvent.click(cafe);
-    expect(cafe).toHaveAttribute('aria-expanded', 'false');
-  });
-
-  it('ya no hay tarjeta de "churros con chocolate"', () => {
-    pintar();
-    expect(screen.queryByText(/con chocolate o con café/i)).toBeNull();
   });
 });

@@ -13,31 +13,14 @@
       "etiqueta": "Lo nuestro",
       "titulo": "Nuestra carta",
       "pista": "Toca una tarjeta para ver lo que hay dentro.",
-      "verCartaCompleta": "Ver la carta completa",
       "categorias": {
         "churros": {
           "titulo": "Churros",
           "texto": "Finos y de rueda, recién hechos."
         },
-        "cafe": {
-          "titulo": "Café y chocolate",
-          "texto": "En tres tamaños, desde 1,50 €."
-        },
-        "toppings": {
-          "titulo": "Toppings",
-          "texto": "Dale un toque a tus churros."
-        },
         "caprichos": {
           "titulo": "Los caprichos del Don",
-          "texto": "Postres en lata transparente."
-        },
-        "tostadas": {
-          "titulo": "Tostadas",
-          "texto": "Media o entera, simple o con jamón de bellota."
-        },
-        "crepes": {
-          "titulo": "Crepes y gofres",
-          "texto": "Con un topping a elegir incluido."
+          "texto": "Pistacho, tarta de la abuela, chocolate y tarta de queso, en lata transparente."
         }
       },
       "churros": {
@@ -51,12 +34,6 @@
           "origen": "La rueda es la forma andaluza: la masa cae al aceite en una gran espiral y, ya dorada, se corta en porciones. En Sevilla, a estos churros se les llama calentitos."
         }
       }
-    },
-    "latas": {
-      "etiqueta": "Postres en lata",
-      "titulo": "Los caprichos del Don",
-      "texto": "Postres en capas servidos en lata transparente: pistacho, tarta de la abuela, chocolate y tarta de queso.",
-      "nota": "Cerrados, se llevan a cualquier parte."
     },
     "nosotros": {
       "etiqueta": "La casa",

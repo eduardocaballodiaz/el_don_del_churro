@@ -44,16 +44,20 @@ test.describe('con ratón', () => {
     expect(Math.abs(pos.y - 360)).toBeLessThan(2);
   });
 
-  test('la tarjeta elegida se inclina más, crece y las demás se encogen', async ({ page }) => {
+  test('entre los productos desplegados, el elegido se inclina, crece y los demás se encogen', async ({ page }) => {
     await page.goto('/');
-    const tarjetas = page.locator('[data-inclinable]');
-    await tarjetas.first().scrollIntoViewIfNeeded();
-    await page.waitForTimeout(1500); // que terminen las animaciones de entrada
+    const caprichos = page.getByRole('button', { name: /^Los caprichos del Don/ });
+    await caprichos.scrollIntoViewIfNeeded();
+    await caprichos.click();
+    const tarjetas = page.locator('#panel-caprichos [data-inclinable]');
+    await expect(tarjetas).toHaveCount(4);
+    await tarjetas.nth(1).scrollIntoViewIfNeeded();
+    await page.waitForTimeout(1200); // que terminen las animaciones de entrada y el scroll suave
     const caja = (await tarjetas.nth(1).boundingBox())!;
-    await page.mouse.move(caja.x + caja.width * 0.98, caja.y + caja.height * 0.5, { steps: 6 });
+    await page.mouse.move(caja.x + caja.width * 0.98, caja.y + caja.height * 0.3, { steps: 6 });
     await page.waitForTimeout(900);
     const escala = (i: number) =>
-      tarjetas.nth(i).locator('button').evaluate((el) => new DOMMatrix(getComputedStyle(el).transform).a);
+      tarjetas.nth(i).locator('article').evaluate((el) => new DOMMatrix(getComputedStyle(el).transform).a);
     expect(await escala(1)).toBeGreaterThan(1.05);
     expect(await escala(0)).toBeLessThan(0.95);
     expect(await escala(2)).toBeLessThan(0.95);

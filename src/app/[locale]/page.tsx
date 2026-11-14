@@ -1,11 +1,10 @@
 // PÁGINA DE INICIO
-// Portada, productos, Los caprichos del Don, la casa y cómo visitarnos.
+// Portada, presentación de productos (Churros y Los caprichos del Don), la casa y cómo visitarnos.
 // Los textos están en messages/*.json → "inicio" (en borrador hasta que Edu los apruebe).
 import { setRequestLocale } from 'next-intl/server';
 import { use } from 'react';
 import { Hero } from '@/components/sections/Hero';
 import { Productos } from '@/components/sections/Productos';
-import { Latas } from '@/components/sections/Latas';
 import { Nosotros } from '@/components/sections/Nosotros';
 import { Visitanos } from '@/components/sections/Visitanos';
 import { restaurantJsonLd } from '@/lib/seo/jsonld';
@@ -32,7 +31,6 @@ export default function Inicio({ params }: { params: Promise<{ locale: string }>
       />
       <Hero />
       <Productos />
-      <Latas />
       <Nosotros />
       <Visitanos />
     </main>

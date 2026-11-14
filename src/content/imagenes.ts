@@ -27,7 +27,8 @@ export type ImagenId =
   | 'lataChocolate'
   | 'lataPistacho'
   | 'lataTartaAbuela'
-  | 'lataTartaQueso';
+  | 'lataTartaQueso'
+  | 'latasTodas';
 
 export const imagenes: Record<ImagenId, Imagen> = {
   finos: {
@@ -137,6 +138,16 @@ export const imagenes: Record<ImagenId, Imagen> = {
     alt: {
       es: 'Lata transparente de Los caprichos del Don: tarta de queso en capas',
       en: 'Clear can from Los caprichos del Don: layered cheesecake',
+    },
+    provisional: true,
+  },
+  latasTodas: {
+    src: '/img/latas-todas.webp',
+    ancho: 1832,
+    alto: 710,
+    alt: {
+      es: 'Las cuatro latas de Los caprichos del Don: pistacho, tarta de la abuela, chocolate y tarta de queso',
+      en: "The four Los caprichos del Don cans: pistachio, grandma's cake, chocolate and cheesecake",
     },
     provisional: true,
   },

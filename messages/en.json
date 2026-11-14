@@ -13,31 +13,14 @@
       "etiqueta": "What we make",
       "titulo": "Our menu",
       "pista": "Tap a card to see what's inside.",
-      "verCartaCompleta": "See the full menu",
       "categorias": {
         "churros": {
           "titulo": "Churros",
           "texto": "Thin and wheel churros, freshly made."
         },
-        "cafe": {
-          "titulo": "Coffee & chocolate",
-          "texto": "Three sizes, from €1.50."
-        },
-        "toppings": {
-          "titulo": "Toppings",
-          "texto": "Give your churros a twist."
-        },
         "caprichos": {
           "titulo": "Los caprichos del Don",
-          "texto": "Desserts in a clear can."
-        },
-        "tostadas": {
-          "titulo": "Toast",
-          "texto": "Half or whole, plain or with acorn-fed ham."
-        },
-        "crepes": {
-          "titulo": "Crêpes & waffles",
-          "texto": "One topping of your choice included."
+          "texto": "Pistachio, grandma's cake, chocolate and cheesecake, in a clear can."
         }
       },
       "churros": {
@@ -51,12 +34,6 @@
           "origen": "The wheel is the Andalusian style: the dough falls into the oil in a large spiral and, once golden, is cut into portions. In Seville these churros are called calentitos."
         }
       }
-    },
-    "latas": {
-      "etiqueta": "Desserts in a can",
-      "titulo": "Los caprichos del Don",
-      "texto": "Layered desserts served in a clear can: pistachio, grandma's cake, chocolate and cheesecake.",
-      "nota": "Sealed, they travel anywhere."
     },
     "nosotros": {
       "etiqueta": "Our place",

@@ -120,7 +120,7 @@ Maqueta de referencia: `docs/referencias/maqueta-encabezado.html` (**opción B**
 
 | Ruta (ES / EN) | Contenido |
 |---|---|
-| `/` · `/en` | **Inicio:** portada a pantalla completa con fotografía y titular animado, presentación de la casa, productos destacados (finos, largos, con chocolate o café), Los caprichos del Don, el local (ambiente, fotos), cómo llegar y llamada a contacto |
+| `/` · `/en` | **Inicio:** portada a pantalla completa con fotografía y titular animado, presentación de la casa, «Lo nuestro» como **carta interactiva** [decidido por Edu, 14-nov]: cuatro tarjetas de categoría (Churros, Café y chocolate, Toppings, Los caprichos del Don) que al pulsarlas despliegan sus productos; en Churros, Finos y Rueda con un breve texto de su origen. El chocolate es un complemento (no hay tarjeta «con chocolate»), Los caprichos del Don, el local (ambiente, fotos), cómo llegar y llamada a contacto |
 | `/carta` · `/en/menu` | **La carta.** El contenido lo prepara Edu en otro chat. Se guardará como datos estructurados (`src/content/carta.ts`) con nombre, descripción, precio y foto por idioma. Hasta entonces, la página existe pero sin productos ni precios inventados |
 | `/contacto` · `/en/contact` | Formulario, dirección, horario, mapa que se carga al pulsar y enlaces a redes |
 | `/aviso-legal`, `/privacidad`, `/cookies` (y sus versiones en inglés) | Páginas legales (ver §11) |

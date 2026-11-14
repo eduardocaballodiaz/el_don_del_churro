@@ -38,3 +38,15 @@ test('existen las secciones a las que enlaza el menú', async ({ page }) => {
   await expect(page.locator('#latas')).toBeVisible();
   await expect(page.locator('#nosotros')).toBeVisible();
 });
+
+test('"Lo nuestro": al pulsar Churros se despliegan Finos y Rueda', async ({ page }) => {
+  await page.goto('/');
+  const churros = page.locator('#lo-nuestro').getByRole('button', { name: /^Churros/ });
+  await churros.scrollIntoViewIfNeeded();
+  const panel = page.locator('#panel-churros');
+  await expect(panel).toBeHidden();
+  await churros.click();
+  await expect(panel.getByRole('heading', { name: 'Finos' })).toBeVisible();
+  await expect(panel.getByRole('heading', { name: 'Rueda' })).toBeVisible();
+  await expect(page.locator('#lo-nuestro')).not.toContainText(/con chocolate o con café/i);
+});

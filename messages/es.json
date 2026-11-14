@@ -9,19 +9,39 @@
       "comoLlegar": "Cómo llegar"
     },
     "productos": {
+      "_estado": "borrador",
       "etiqueta": "Lo nuestro",
-      "titulo": "Dos churros, dos maneras de tomarlos",
-      "finos": {
-        "titulo": "Finos",
-        "texto": "Delgados, crujientes y con la estría bien marcada. Los de toda la vida."
+      "titulo": "Nuestra carta",
+      "pista": "Toca una tarjeta para ver lo que hay dentro.",
+      "verCartaCompleta": "Ver la carta completa",
+      "categorias": {
+        "churros": {
+          "titulo": "Churros",
+          "texto": "Finos y de rueda, recién hechos."
+        },
+        "cafe": {
+          "titulo": "Café y chocolate",
+          "texto": "El acompañamiento perfecto."
+        },
+        "toppings": {
+          "titulo": "Toppings",
+          "texto": "Dale un toque a tus churros."
+        },
+        "caprichos": {
+          "titulo": "Los caprichos del Don",
+          "texto": "Postres en lata transparente."
+        }
       },
-      "rueda": {
-        "titulo": "Rueda",
-        "texto": "La rueda de siempre, gruesa y esponjosa por dentro, cortada en raciones."
-      },
-      "acompanar": {
-        "titulo": "Con chocolate o con café",
-        "texto": "Para mojar sin prisa: chocolate caliente y espeso, o un buen café con leche."
+      "churros": {
+        "intro": "Una misma masa de harina, agua y sal, y dos maneras de hacerla en el aceite.",
+        "finos": {
+          "titulo": "Finos",
+          "origen": "El churro fino, delgado y con la estría bien marcada, es el más extendido por toda España. Se cuenta que lo popularizaron los pastores, que podían freírlo al aire libre con muy pocos ingredientes."
+        },
+        "rueda": {
+          "titulo": "Rueda",
+          "origen": "La rueda es la forma andaluza: la masa cae al aceite en una gran espiral y, ya dorada, se corta en porciones. En Sevilla, a estos churros se les llama calentitos."
+        }
       }
     },
     "latas": {

@@ -53,7 +53,7 @@ test.describe('con ratón', () => {
     await page.mouse.move(caja.x + caja.width * 0.98, caja.y + caja.height * 0.5, { steps: 6 });
     await page.waitForTimeout(900);
     const escala = (i: number) =>
-      tarjetas.nth(i).locator('article').evaluate((el) => new DOMMatrix(getComputedStyle(el).transform).a);
+      tarjetas.nth(i).locator('button').evaluate((el) => new DOMMatrix(getComputedStyle(el).transform).a);
     expect(await escala(1)).toBeGreaterThan(1.05);
     expect(await escala(0)).toBeLessThan(0.95);
     expect(await escala(2)).toBeLessThan(0.95);

@@ -15,5 +15,7 @@ export default defineConfig({
     environment: 'jsdom',
     include: ['tests/**/*.test.{ts,tsx}'],
     setupFiles: ['./tests/setup.ts'],
+    // next-intl importa 'next/navigation' sin extensión: hay que procesarlo con Vite.
+    server: { deps: { inline: ['next-intl'] } },
   },
 });

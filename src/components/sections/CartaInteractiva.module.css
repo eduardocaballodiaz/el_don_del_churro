@@ -1,0 +1,279 @@
+/* CARTA INTERACTIVA: tarjetas de categoría que despliegan sus productos. */
+
+.pista {
+  margin-top: var(--espacio-3);
+  color: var(--texto-suave);
+}
+
+.categorias {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--espacio-5);
+  margin-top: var(--espacio-6);
+}
+
+.inclinable {
+  border-radius: var(--radio);
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* La tarjeta es un botón: hereda la tipografía y ocupa todo el hueco. */
+.categoria {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid transparent;
+  border-radius: var(--radio);
+  background: #fffaf0;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  box-shadow:
+    0 1px 0 rgb(60 66 41 / 0.08),
+    0 18px 40px -24px rgb(35 40 26 / 0.45);
+  transition:
+    transform 0.6s var(--curva-suave),
+    filter 0.6s var(--curva-suave),
+    box-shadow 0.5s var(--curva-suave),
+    border-color 0.4s;
+}
+
+/* Brillo dorado que sigue al cursor (variables que actualiza useTilt). */
+.categoria::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    380px circle at var(--brillo-x, 50%) var(--brillo-y, 0%),
+    rgb(255 194 77 / 0.2),
+    transparent 45%
+  );
+  opacity: 0;
+  transition: opacity 0.5s var(--curva-suave);
+  pointer-events: none;
+}
+
+.foto {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s var(--curva-suave);
+}
+
+.cuerpo {
+  display: grid;
+  gap: var(--espacio-1);
+  padding: var(--espacio-4) var(--espacio-5) var(--espacio-5);
+}
+
+.titulo {
+  font-family: var(--fuente-titulos);
+  font-size: 1.45rem;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.texto {
+  color: var(--texto-suave);
+  font-size: 0.92rem;
+}
+
+/* "+" que gira a "×" al abrir. */
+.mas {
+  position: absolute;
+  top: var(--espacio-3);
+  right: var(--espacio-3);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--oliva-oscuro);
+  box-shadow: 0 0 0 1px rgb(212 164 72 / 0.7);
+  transition: transform 0.5s var(--curva-suave);
+}
+
+.mas::before,
+.mas::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 2px;
+  margin: -1px 0 0 -7px;
+  border-radius: 2px;
+  background: var(--oro);
+}
+
+.mas::after {
+  transform: rotate(90deg);
+}
+
+/* Categoría abierta: borde dorado y el "+" convertido en "×". */
+.activa {
+  border-color: var(--oro);
+  box-shadow:
+    0 0 0 1px var(--oro),
+    0 24px 50px -22px rgb(35 40 26 / 0.55),
+    0 0 40px -12px rgb(255 194 77 / 0.45);
+}
+
+.activa .mas {
+  transform: rotate(45deg);
+}
+
+/* EFECTO DE SELECCIÓN con ratón: la tarjeta bajo el cursor crece y las demás se
+   encogen y se apagan un poco. */
+@media (hover: hover) {
+  .categoria:hover::after {
+    opacity: 1;
+  }
+  .categoria:hover .foto img {
+    transform: scale(1.06);
+  }
+  :global(.grupo-categorias):has(.inclinable:hover) .inclinable:not(:hover) .categoria {
+    transform: scale(0.92);
+    filter: saturate(0.75) brightness(0.92);
+  }
+  .inclinable:hover {
+    position: relative;
+    z-index: 2;
+  }
+  .inclinable:hover .categoria {
+    transform: scale(1.08);
+  }
+}
+
+/* --- Panel desplegado --- */
+.panel {
+  margin-top: var(--espacio-6);
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border: 1px solid rgb(212 164 72 / 0.45);
+  border-radius: var(--radio);
+  background: #fffaf0;
+}
+
+/* Con JavaScript, los paneles cerrados no se ven (sin JS se ven todos). */
+:global(.js) .panel:not([data-abierto]) {
+  display: none;
+}
+
+.intro {
+  max-width: 60ch;
+  margin-bottom: var(--espacio-5);
+  color: var(--texto-suave);
+  font-size: 1.05rem;
+}
+
+.dos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--espacio-5);
+}
+
+.churro {
+  overflow: hidden;
+  border-radius: var(--radio);
+  background: var(--cal);
+}
+
+.churro img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.churroCuerpo {
+  display: grid;
+  gap: var(--espacio-2);
+  padding: var(--espacio-5);
+}
+
+.churroCuerpo p,
+.item p {
+  color: var(--texto-suave);
+}
+
+.linea {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--espacio-3);
+}
+
+.linea h3 {
+  font-size: 1.5rem;
+}
+
+.item .linea h3 {
+  font-size: 1.15rem;
+}
+
+.precio {
+  color: var(--oliva);
+  font-family: var(--fuente-titulos);
+  font-size: 1.2rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.items {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--espacio-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: grid;
+  gap: var(--espacio-1);
+  padding: var(--espacio-4);
+  border-radius: 10px;
+  background: var(--cal);
+}
+
+.verTodo {
+  display: inline-block;
+  margin-top: var(--espacio-5);
+  color: var(--oliva);
+  font-weight: 600;
+}
+
+@media (max-width: 1000px) {
+  .categorias {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .items {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .dos,
+  .items {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .categoria,
+  .foto img,
+  .mas {
+    transition: none;
+  }
+}

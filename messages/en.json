@@ -9,19 +9,39 @@
       "comoLlegar": "Get directions"
     },
     "productos": {
+      "_estado": "borrador",
       "etiqueta": "What we make",
-      "titulo": "Two churros, two ways to enjoy them",
-      "finos": {
-        "titulo": "Finos",
-        "texto": "Thin, crisp and deeply ridged. The classic Spanish churro."
+      "titulo": "Our menu",
+      "pista": "Tap a card to see what's inside.",
+      "verCartaCompleta": "See the full menu",
+      "categorias": {
+        "churros": {
+          "titulo": "Churros",
+          "texto": "Thin and wheel churros, freshly made."
+        },
+        "cafe": {
+          "titulo": "Coffee & chocolate",
+          "texto": "The perfect companion."
+        },
+        "toppings": {
+          "titulo": "Toppings",
+          "texto": "Give your churros a twist."
+        },
+        "caprichos": {
+          "titulo": "Los caprichos del Don",
+          "texto": "Desserts in a clear can."
+        }
       },
-      "rueda": {
-        "titulo": "Rueda",
-        "texto": "The classic churro wheel, thick and fluffy inside, cut into portions."
-      },
-      "acompanar": {
-        "titulo": "With chocolate or coffee",
-        "texto": "For slow dipping: thick hot chocolate or a good milky coffee."
+      "churros": {
+        "intro": "The same dough of flour, water and salt, and two ways of frying it.",
+        "finos": {
+          "titulo": "Finos",
+          "origen": "The thin churro, slim and deeply ridged, is the most widespread across Spain. It is said to have been made popular by shepherds, who could fry it outdoors with very few ingredients."
+        },
+        "rueda": {
+          "titulo": "Rueda",
+          "origen": "The wheel is the Andalusian style: the dough falls into the oil in a large spiral and, once golden, is cut into portions. In Seville these churros are called calentitos."
+        }
       }
     },
     "latas": {

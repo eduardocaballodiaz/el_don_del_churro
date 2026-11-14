@@ -7,6 +7,7 @@ import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { DOMINIO } from '@/lib/seo/urls';
+import { indexacionPermitida } from '@/lib/seo/indexacion';
 import { leerRotuloSvg } from '@/lib/rotulo';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
@@ -19,7 +20,13 @@ import '@/styles/globals.css';
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'seo' });
-  return { metadataBase: new URL(DOMINIO), title: t('titulo'), description: t('descripcion') };
+  return {
+    metadataBase: new URL(DOMINIO),
+    title: t('titulo'),
+    description: t('descripcion'),
+    // Web de pruebas: no indexar hasta el lanzamiento (PERMITIR_INDEXAR=1).
+    robots: indexacionPermitida() ? undefined : { index: false, follow: false },
+  };
 }
 
 const SCRIPT_JS = `(function(){var h=document.documentElement;h.classList.add('js');setTimeout(function(){if(!h.classList.contains('hidratado'))h.classList.remove('js')},4000)})()`;

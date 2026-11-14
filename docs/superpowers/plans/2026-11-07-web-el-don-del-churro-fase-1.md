@@ -435,5 +435,6 @@ Animaciones de la especificación (§9):
   - `www` redirige;
   - un correo enviado a `info@` desde fuera sigue llegando;
   - el formulario llega a `info@`.
+- [ ] **Paso 5b:** en Netlify, añadir la variable `PERMITIR_INDEXAR=1` y volver a publicar (hasta ahora la web pedía no ser indexada).
 - [ ] **Paso 6:** dar de alta la propiedad en Search Console (verificación por DNS) y enviar `sitemap.xml`. En Google Business Profile, poner la misma dirección y horario y el enlace a la web.
 - [ ] **Paso 7:** etiqueta git `v1.0.0` (con la autorización de Edu).

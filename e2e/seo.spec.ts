@@ -46,3 +46,11 @@ test('hay imagen para compartir en redes', async ({ page, request }) => {
   expect(r.status()).toBe(200);
   expect(r.headers()['content-type']).toContain('image/png');
 });
+
+test('mientras no se lance, los buscadores no indexan la web (web de pruebas)', async ({ page, request }) => {
+  // Solo se permite indexar con PERMITIR_INDEXAR=1, que se activa el día del lanzamiento.
+  const robots = await (await request.get('/robots.txt')).text();
+  expect(robots).toMatch(/Disallow: \/\s/);
+  await page.goto('/');
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /noindex/);
+});

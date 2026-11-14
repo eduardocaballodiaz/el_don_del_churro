@@ -73,4 +73,6 @@ La web se aloja en **Netlify** (plan gratuito) y se publica sola cada vez que se
 
 **Antes de publicar en eldondelchurro.com**, `npm run comprobar-lanzamiento` debe decir que no falta nada.
 
+Mientras tanto, la web de pruebas pide a Google que **no la indexe**. El día del lanzamiento se añade en Netlify la variable `PERMITIR_INDEXAR=1`.
+
 En Hostalia solo se cambian los registros de la web (A de `@` y CNAME de `www`). **Nunca los MX**: son los del correo `info@`.

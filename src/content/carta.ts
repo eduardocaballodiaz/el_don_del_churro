@@ -59,16 +59,16 @@ const TAMANOS_CAFE: Variante[] = [
 const media = (precio: number): Variante => ({ nombre: { es: 'Media', en: 'Half' }, precio });
 const entera = (precio: number): Variante => ({ nombre: { es: 'Entera', en: 'Whole' }, precio });
 
-const SIN_DESCRIPCION = { es: '', en: '' };
+const SIN_DESCRIPCION = { es: '', en: '' } as const;
 
 export const carta: Producto[] = [
-  // --- Churros (ración de 5 o unidad) ---
+  // --- Churros (raciones de 5) ---
   {
     id: 'churros-rueda',
     categoria: SECCION.churros,
     nombre: { es: 'De rueda (5 uds)', en: 'Churro wheel (5 pcs)' },
     descripcion: { es: 'La tradición en cada vuelta.', en: 'Tradition in every turn.' },
-    precio: 3,
+    precio: 2.5,
     alergenos: null,
     imagen: 'rueda',
   },
@@ -77,18 +77,11 @@ export const carta: Producto[] = [
     categoria: SECCION.churros,
     nombre: { es: 'Finos (5 uds)', en: 'Thin churros (5 pcs)' },
     descripcion: { es: 'Dorados, crujientes y recién hechos.', en: 'Golden, crisp and freshly made.' },
-    precio: 3,
+    precio: 2.5,
     alergenos: null,
     imagen: 'finos',
   },
-  {
-    id: 'churros-rellenos',
-    categoria: SECCION.churros,
-    nombre: { es: 'Rellenos (1 ud)', en: 'Filled churro (1 pc)' },
-    descripcion: SIN_DESCRIPCION, // pendiente: de qué van rellenos
-    precio: 3,
-    alergenos: null,
-  },
+  // Los churros rellenos (3,00 €, 1 ud) no se ponen de momento (decisión de Edu, 14-nov).
 
   // --- Momento café (tres tamaños) ---
   ...(
@@ -184,14 +177,14 @@ export const carta: Producto[] = [
   {
     id: 'tostada-jamon',
     categoria: SECCION.tostadas,
-    nombre: { es: 'Jamón', en: 'Ham' },
+    nombre: { es: 'Jamón de bellota', en: 'Acorn-fed ham' },
     descripcion: SIN_DESCRIPCION,
     precio: null,
     variantes: [media(2.5), entera(3.5)],
     alergenos: null,
   },
 
-  // --- Crepes y gofres (un topping incluido; extra +0,50 €) ---
+  // --- Crepes y gofres (un topping a elegir incluido; extra +0,50 €) ---
   ...(
     [
       ['crepes', 'Crepes', 'Crêpes'],
@@ -203,8 +196,8 @@ export const carta: Producto[] = [
       categoria: SECCION.crepes,
       nombre: { es, en },
       descripcion: {
-        es: 'Con un topping incluido. Topping extra: +0,50 €.',
-        en: 'One topping included. Extra topping: +€0.50.',
+        es: 'Con un topping a elegir incluido (Nutella, pistacho, chocolate blanco o Kinder). Topping extra: +0,50 €.',
+        en: 'One topping of your choice included (Nutella, pistachio, white chocolate or Kinder). Extra topping: +€0.50.',
       },
       precio: 4,
       alergenos: null,

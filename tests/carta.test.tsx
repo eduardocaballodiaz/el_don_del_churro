@@ -107,10 +107,10 @@ describe('carta de El Don del Churro (documento de Edu, 14-nov)', () => {
     ]);
   });
 
-  it('churros: rueda, finos y rellenos a 3,00 €', () => {
+  it('churros: raciones de rueda y de finos a 2,50 € (sin rellenos de momento)', () => {
     const churros = seccion('Churros');
-    expect(churros.map((p) => p.nombre.es)).toEqual(['De rueda (5 uds)', 'Finos (5 uds)', 'Rellenos (1 ud)']);
-    for (const p of churros) expect(p.precio).toBe(3);
+    expect(churros.map((p) => p.nombre.es)).toEqual(['De rueda (5 uds)', 'Finos (5 uds)']);
+    for (const p of churros) expect(p.precio).toBe(2.5);
   });
 
   it('momento café: siete bebidas en tres tamaños (1,50 / 1,80 / 2,50 €)', () => {
@@ -134,8 +134,9 @@ describe('carta de El Don del Churro (documento de Edu, 14-nov)', () => {
     expect(latas.map((p) => p.imagen)).toEqual(['lataPistacho', 'lataTartaAbuela', 'lataChocolate', 'lataTartaQueso']);
   });
 
-  it('tostadas: media y entera', () => {
+  it('tostadas: media y entera; la de jamón es de bellota', () => {
     const [simple, jamon] = seccion('Tostadas');
+    expect(jamon.nombre.es).toBe('Jamón de bellota');
     expect(precios(simple)).toEqual([1.5, 2.5]);
     expect(precios(jamon)).toEqual([2.5, 3.5]);
   });
@@ -146,7 +147,7 @@ describe('carta de El Don del Churro (documento de Edu, 14-nov)', () => {
       ['Crepes', 4],
       ['Gofres', 4],
     ]);
-    for (const p of cg) expect(p.descripcion.es).toMatch(/topping incluido/i);
+    for (const p of cg) expect(p.descripcion.es).toMatch(/topping a elegir.*incluido/i);
   });
 });
 

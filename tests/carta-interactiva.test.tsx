@@ -36,7 +36,7 @@ describe('<CartaInteractiva>', () => {
     expect(within(panel).getByRole('heading', { name: 'Finos' })).toBeInTheDocument();
     expect(within(panel).getByRole('heading', { name: 'Rueda' })).toBeInTheDocument();
     expect(within(panel).getByText(/calentitos/)).toBeInTheDocument();
-    expect(within(panel).getByRole('heading', { name: 'Rellenos (1 ud)' })).toBeInTheDocument();
+    expect(within(panel).queryByText(/rellenos/i)).toBeNull();
   });
 
   it('solo hay una categoría abierta a la vez y se cierra al volver a pulsar', () => {

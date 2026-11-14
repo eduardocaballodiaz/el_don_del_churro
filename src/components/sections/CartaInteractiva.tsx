@@ -107,6 +107,7 @@ export function CartaInteractiva() {
       {CATEGORIAS.map(({ id, seccionCarta }) => {
         const activa = abierta === id;
         const productos = carta.filter((p) => p.categoria.es === seccionCarta);
+        const otrosChurros = productos.filter((p) => p.id !== 'churros-finos' && p.id !== 'churros-rueda');
         return (
           <section
             key={id}
@@ -138,11 +139,10 @@ export function CartaInteractiva() {
                     );
                   })}
                 </div>
-                {/* Otros churros (por ejemplo, los rellenos), en formato compacto. */}
-                <ul className={styles.items}>
-                  {productos
-                    .filter((p) => p.id !== 'churros-finos' && p.id !== 'churros-rueda')
-                    .map((p) => (
+                {/* Otros churros (por ejemplo, los rellenos), en formato compacto, si los hay. */}
+                {otrosChurros.length > 0 && (
+                  <ul className={styles.items}>
+                    {otrosChurros.map((p) => (
                       <li key={p.id} className={styles.item} data-item>
                         <div className={styles.linea}>
                           <h3>{p.nombre[locale]}</h3>
@@ -151,7 +151,8 @@ export function CartaInteractiva() {
                         {p.descripcion[locale] && <p>{p.descripcion[locale]}</p>}
                       </li>
                     ))}
-                </ul>
+                  </ul>
+                )}
               </>
             ) : (
               <ul className={styles.items}>

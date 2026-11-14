@@ -1,7 +1,7 @@
 // LA CARTA
 // --------
-// Productos sacados del boceto de carta de Edu (7-nov-2026). Los precios están
-// pendientes (null) hasta que Edu los dé; mientras falte alguno,
+// Productos sacados del boceto de carta de Edu (7-nov-2026). Lo que aún no sabemos
+// vale null: precios y alérgenos. Mientras falte alguno,
 // `npm run comprobar-lanzamiento` no deja publicar.
 //
 // Ejemplo de producto:
@@ -10,10 +10,13 @@
 //   categoria: { es: 'Churros', en: 'Churros' },
 //   nombre: { es: 'Ración de finos', en: 'Thin churros' },
 //   descripcion: { es: '…', en: '…' },
-//   precio: 2.5,            // en euros; null si no se quiere mostrar
+//   precio: 2.5,            // en euros; null si aún no se sabe
+//   suplemento: true,       // opcional: se muestra "+0,50 €" (toppings)
+//   alergenos: ['gluten'],  // de src/content/alergenos.ts; [] = ninguno; null = pendiente
 //   imagen: 'finos',        // opcional, un id de src/content/imagenes.ts
 // }
 import type { Locale } from '@/i18n/routing';
+import type { Alergeno } from './alergenos';
 import type { ImagenId } from './imagenes';
 
 export type Producto = {
@@ -23,6 +26,10 @@ export type Producto = {
   nombre: Record<Locale, string>;
   descripcion: Record<Locale, string>;
   precio: number | null;
+  /** Se cobra como añadido a otro producto (se muestra con "+" delante). */
+  suplemento?: boolean;
+  /** Alérgenos que contiene. [] = ninguno; null = pendiente de que Edu los confirme. */
+  alergenos: Alergeno[] | null;
   imagen?: ImagenId;
 };
 
@@ -34,6 +41,7 @@ export const carta: Producto[] = [
     nombre: { es: 'Ración de churros finos', en: 'Thin churros (portion)' },
     descripcion: { es: 'Dorados, crujientes y recién hechos.', en: 'Golden, crisp and freshly made.' },
     precio: null,
+    alergenos: null,
     imagen: 'finos',
   },
   {
@@ -42,6 +50,7 @@ export const carta: Producto[] = [
     nombre: { es: 'Ración de rueda', en: 'Churro wheel (portion)' },
     descripcion: { es: 'La tradición en cada vuelta.', en: 'Tradition in every turn.' },
     precio: null,
+    alergenos: null,
     imagen: 'rueda',
   },
 
@@ -61,6 +70,7 @@ export const carta: Producto[] = [
     nombre: { es, en },
     descripcion: { es: '', en: '' },
     precio: null,
+    alergenos: null,
   })),
   {
     id: 'chocolate-caliente',
@@ -68,24 +78,25 @@ export const carta: Producto[] = [
     nombre: { es: 'Chocolate caliente', en: 'Hot chocolate' },
     descripcion: { es: 'Espeso, para mojar sin prisa.', en: 'Thick, for slow dipping.' },
     precio: null,
+    alergenos: null,
   },
 
-  // --- Crea tu experiencia: toppings para los churros ---
+  // --- Crea tu experiencia: toppings para los churros (+0,50 € cada uno) ---
   ...(
     [
-      ['topping-chocolate', 'Chocolate', 'Chocolate'],
+      ['topping-nutella', 'Nutella', 'Nutella'],
+      ['topping-pistacho', 'Pistacho', 'Pistachio'],
       ['topping-chocolate-blanco', 'Chocolate blanco', 'White chocolate'],
       ['topping-kinder', 'Kinder', 'Kinder'],
-      ['topping-pistacho', 'Pistacho', 'Pistachio'],
-      ['topping-oreo', 'Oreo', 'Oreo'],
-      ['topping-lotus', 'Galleta Lotus', 'Lotus biscuit'],
     ] as const
   ).map(([id, es, en]) => ({
     id,
     categoria: { es: 'Crea tu experiencia', en: 'Make it yours' },
     nombre: { es, en },
     descripcion: { es: 'Topping para tus churros.', en: 'Topping for your churros.' },
-    precio: null,
+    precio: 0.5,
+    suplemento: true,
+    alergenos: null,
   })),
 
   // --- Los caprichos del Don: postres en lata transparente ---
@@ -95,6 +106,7 @@ export const carta: Producto[] = [
     nombre: { es: 'Pistacho', en: 'Pistachio' },
     descripcion: { es: 'Puro capricho verde.', en: 'A pure green indulgence.' },
     precio: null,
+    alergenos: null,
     imagen: 'latas',
   },
   {
@@ -103,6 +115,7 @@ export const carta: Producto[] = [
     nombre: { es: 'Chocolate', en: 'Chocolate' },
     descripcion: { es: 'Para los que nunca tienen suficiente.', en: 'For those who never get enough.' },
     precio: null,
+    alergenos: null,
   },
   {
     id: 'lata-galleta',
@@ -110,6 +123,7 @@ export const carta: Producto[] = [
     nombre: { es: 'Galleta', en: 'Biscuit' },
     descripcion: { es: 'Crujiente, cremosa e irresistible.', en: 'Crunchy, creamy and irresistible.' },
     precio: null,
+    alergenos: null,
   },
   {
     id: 'lata-tarta',
@@ -120,6 +134,7 @@ export const carta: Producto[] = [
       en: 'Our favourite cake flavours, in an original and delicious format.',
     },
     precio: null,
+    alergenos: null,
   },
 ];
 

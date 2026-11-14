@@ -1,8 +1,10 @@
 // LISTA DE LA CARTA
 // Agrupa los productos por categoría (en el orden en que aparecen en carta.ts) y
-// los muestra como una carta clásica: nombre, línea de puntos y precio.
+// los muestra como una carta clásica: nombre, línea de puntos y precio, con sus
+// alérgenos debajo. Al final, el aviso de alérgenos para el cliente.
 // Recibe los productos y el idioma como parámetros para poder probarla aislada.
 import Image from 'next/image';
+import { NOMBRES_ALERGENOS, TEXTOS_ALERGENOS } from '@/content/alergenos';
 import { formatearPrecio, type Producto } from '@/content/carta';
 import { imagenes } from '@/content/imagenes';
 import type { Locale } from '@/i18n/routing';
@@ -49,11 +51,21 @@ export function ListaCarta({ productos, locale }: Props) {
                         <h3 className={styles.nombre}>{p.nombre[locale]}</h3>
                         <span className={styles.puntos} aria-hidden="true" />
                         {p.precio !== null && (
-                          <span className={styles.precio}>{formatearPrecio(p.precio, locale)}</span>
+                          <span className={styles.precio}>
+                            {p.suplemento ? '+' : ''}
+                            {formatearPrecio(p.precio, locale)}
+                          </span>
                         )}
                       </div>
                       {p.descripcion[locale] && (
                         <p className={styles.descripcion}>{p.descripcion[locale]}</p>
+                      )}
+                      {p.alergenos && p.alergenos.length > 0 && (
+                        <ul className={styles.alergenos} aria-label={TEXTOS_ALERGENOS[locale].etiqueta}>
+                          {p.alergenos.map((a) => (
+                            <li key={a}>{NOMBRES_ALERGENOS[a][locale]}</li>
+                          ))}
+                        </ul>
                       )}
                     </div>
                   </li>
@@ -63,6 +75,11 @@ export function ListaCarta({ productos, locale }: Props) {
           </section>
         );
       })}
+
+      {/* Aviso obligatorio: el cliente puede pedir la información de alérgenos. */}
+      <p className={styles.avisoAlergenos} role="note">
+        {TEXTOS_ALERGENOS[locale].aviso}
+      </p>
     </div>
   );
 }

@@ -37,6 +37,10 @@ describe('datosPendientes', () => {
     expect(pendientes).toContain('código postal');
   });
 
+  it('avisa mientras falten los alérgenos de algún producto', () => {
+    expect(datosPendientes().join(' | ').toLowerCase()).toContain('alérgenos pendientes');
+  });
+
   it('avisa mientras falten precios en la carta', () => {
     expect(datosPendientes().join(' | ').toLowerCase()).toContain('precios pendientes');
   });

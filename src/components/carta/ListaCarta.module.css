@@ -81,6 +81,35 @@
   font-size: 0.95rem;
 }
 
+/* Alérgenos: etiquetas pequeñas con borde dorado. */
+.alergenos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: var(--espacio-2) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.alergenos li {
+  padding: 2px 10px;
+  border: 1px solid rgb(212 164 72 / 0.7);
+  border-radius: 999px;
+  color: var(--oro-texto);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.avisoAlergenos {
+  padding: var(--espacio-5);
+  border-left: 3px solid var(--oro);
+  border-radius: 6px;
+  background: rgb(212 164 72 / 0.12);
+  color: var(--texto-suave);
+  font-size: 0.95rem;
+}
+
 @media (max-width: 760px) {
   .lista {
     grid-template-columns: 1fr;

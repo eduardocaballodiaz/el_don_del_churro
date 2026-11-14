@@ -26,6 +26,9 @@ export function datosPendientes(): string[] {
   if (carta.length === 0) pendientes.push('La carta (productos, descripciones y precios)');
   const sinPrecio = carta.filter((p) => p.precio === null).map((p) => p.nombre.es);
   if (sinPrecio.length > 0) pendientes.push(`Precios pendientes en la carta: ${sinPrecio.join(', ')}`);
+  const sinAlergenos = carta.filter((p) => p.alergenos === null).map((p) => p.nombre.es);
+  if (sinAlergenos.length > 0)
+    pendientes.push(`Alérgenos pendientes en la carta: ${sinAlergenos.join(', ')}`);
   if (!negocio.titular) pendientes.push('Datos legales del titular (nombre, NIF y domicilio)');
   if (!negocio.horario.dias) pendientes.push('Días de apertura');
   if (!negocio.direccion.codigoPostal) pendientes.push('Código postal de la dirección');

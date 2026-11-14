@@ -30,7 +30,7 @@ export const negocio: Negocio = {
   nombre: 'El Don del Churro',
   direccion: {
     calle: 'Calle Correduría, 42',
-    codigoPostal: null, // probablemente 41002: pendiente de que Edu lo confirme
+    codigoPostal: '41002', // confirmado por Edu el 14-nov-2026
     ciudad: 'Sevilla',
     pais: 'ES',
   },

@@ -24,6 +24,7 @@ describe('datos del negocio', () => {
   it('tiene la dirección y el correo de la especificación', () => {
     expect(negocio.direccion.calle).toBe('Calle Correduría, 42');
     expect(negocio.direccion.ciudad).toBe('Sevilla');
+    expect(negocio.direccion.codigoPostal).toBe('41002');
     expect(negocio.email).toBe('info@eldondelchurro.com');
   });
 });
@@ -34,7 +35,6 @@ describe('datosPendientes', () => {
     expect(pendientes).toContain('carta');
     expect(pendientes).toContain('titular');
     expect(pendientes).toContain('días de apertura');
-    expect(pendientes).toContain('código postal');
   });
 
   it('avisa mientras falten los alérgenos de algún producto', () => {
